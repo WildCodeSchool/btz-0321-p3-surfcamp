@@ -8,10 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+<<<<<<< HEAD
     "faker": "^5.5.3",
+=======
+    "fake": "^0.2.2",
+>>>>>>> 49a620fd3b565e77cd70a1d0feb45ad5a66d9345
     "next": "latest",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-query": "^3.16.0"
   },
   "devDependencies": {
     "@types/node": "^15.12.0",
@@ -23,11 +28,16 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
     "postcss": "^8.1.10",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
+<<<<<<< HEAD
     "prisma": "^2.24.1",
+=======
+    "prisma": "^2.24.0",
+>>>>>>> 49a620fd3b565e77cd70a1d0feb45ad5a66d9345
     "prop-types": "^15.7.2",
     "tailwindcss": "^2.1.1",
     "ts-node": "^10.0.0",
