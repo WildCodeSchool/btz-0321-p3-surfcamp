@@ -8,11 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-<<<<<<< HEAD
     "faker": "^5.5.3",
-=======
     "fake": "^0.2.2",
->>>>>>> 49a620fd3b565e77cd70a1d0feb45ad5a66d9345
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -33,11 +30,8 @@
     "postcss": "^8.1.10",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
-<<<<<<< HEAD
     "prisma": "^2.24.1",
-=======
     "prisma": "^2.24.0",
->>>>>>> 49a620fd3b565e77cd70a1d0feb45ad5a66d9345
     "prop-types": "^15.7.2",
     "tailwindcss": "^2.1.1",
     "ts-node": "^10.0.0",
