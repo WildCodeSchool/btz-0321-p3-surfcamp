@@ -93,6 +93,6 @@ export default function routeUsersApi(
   } else if (req.method === "DELETE") {
     res.status(204);
   } else {
-    res.status(500).send("Fail !");
+    res.status(500).send({ message: "Fail !" });
   }
 }
