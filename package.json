@@ -8,11 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@prisma/client": "^2.24.1",
     "next": "latest",
+    "next-redux-wrapper": "^7.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-query": "^3.16.0",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0"
   },
   "devDependencies": {
+    "faker": "^5.5.3",
     "@types/react": "^17.0.8",
     "autoprefixer": "^10.0.4",
     "eslint": "^7.27.0",
@@ -21,13 +27,15 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
     "postcss": "^8.1.10",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
+    "prisma": "^2.24.1",
     "prop-types": "^15.7.2",
     "tailwindcss": "^2.1.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
