@@ -649,6 +649,18 @@
   "resolved" "https://registry.npmjs.org/@opentelemetry/context-base/-/context-base-0.14.0.tgz"
   "version" "0.14.0"
 
+"@prisma/client@^2.24.1":
+  "integrity" "sha512-vllhf36g3oI98GF1Q5IPmnR5MYzBPeCcl/Xiz6EAi4DMOxE069o9ka5BAqYbUG2USx8JuKw09QdMnDrp3Kyn8g=="
+  "resolved" "https://registry.npmjs.org/@prisma/client/-/client-2.24.1.tgz"
+  "version" "2.24.1"
+  dependencies:
+    "@prisma/engines-version" "2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4"
+
+"@prisma/engines-version@2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4":
+  "integrity" "sha512-60Do+ByVfHnhJ2id5h/lXOZnDQNIf5pz3enkKWOmyr744Z2IxkBu65jRckFfMN5cPtmXDre/Ay/GKm0aoeLwrw=="
+  "resolved" "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4.tgz"
+  "version" "2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4"
+
 "@prisma/engines@2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4":
   "integrity" "sha512-29/xO9kqeQka+wN5Ev10l5L4XQXNVXdPToJs1M29VZ2imQsNsL4rtz26m3qGM54IoGWwwfTVdvuVRxKnDl2rig=="
   "resolved" "https://registry.npmjs.org/@prisma/engines/-/engines-2.24.1-2.18095475d5ee64536e2f93995e48ad800737a9e4.tgz"
@@ -757,7 +769,7 @@
   "resolved" "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.4.tgz"
   "version" "3.0.4"
 
-"@types/node@*", "@types/node@^15.12.0":
+"@types/node@*":
   "integrity" "sha512-+aHJvoCsVhO2ZCuT4o5JtcPrCPyDE3+1nvbDprYes+pPkEsbjH7AGUCNtjMOXS0fqH14t+B7yLzaqSz92FPWyw=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-15.12.0.tgz"
   "version" "15.12.0"
@@ -4335,7 +4347,7 @@
     "mri" "^1.1.5"
     "multimatch" "^4.0.0"
 
-"prisma@^2.24.1":
+"prisma@*", "prisma@^2.24.1":
   "integrity" "sha512-L+ykMpttbWzpTNsy+PPynnEX/mS1s5zs49euXBrMjxXh1M6/f9MYlTNAj+iP90O9ZSaURSpNa+1jzatPghqUcQ=="
   "resolved" "https://registry.npmjs.org/prisma/-/prisma-2.24.1.tgz"
   "version" "2.24.1"
@@ -5208,7 +5220,7 @@
   dependencies:
     "punycode" "^2.1.1"
 
-"ts-node@^10.0.0", "ts-node@>=9.0.0":
+"ts-node@>=9.0.0":
   "integrity" "sha512-ROWeOIUvfFbPZkoDis0L/55Fk+6gFQNZwwKPLinacRl6tsxstTF1DbAcLKkovwnpKMVvOMHP1TIbnwXwtLg1gg=="
   "resolved" "https://registry.npmjs.org/ts-node/-/ts-node-10.0.0.tgz"
   "version" "10.0.0"
