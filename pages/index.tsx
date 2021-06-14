@@ -13,8 +13,6 @@ export default function Home({ name }: IProps) {
           <title>Surf Camp</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        <NavBar />
       </div>
       <div>hello world</div>
     </>
