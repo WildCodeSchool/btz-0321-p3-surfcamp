@@ -4,7 +4,7 @@ export default function SearchBar() {
 
   return (
     <div
-      className={`flex flex-row  h-14 w-full mx-2 items-center my-auto justify-between text-xs  bg-white rounded-md ${mediumSc} ${desktop}`}
+      className={`flex  h-14 w-11/12 mx-auto items-center my-auto justify-between text-xs  bg-white rounded-md ${mediumSc} ${desktop}`}
     >
       <div className="flex justify-center ml-3">
         <p>Localité</p>
