@@ -9,10 +9,6 @@ interface IProps {
 export default function Home({ name }: IProps) {
   return (
     <>
-      <Head>
-        <title>Surf Camp</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div>hello world</div>
     </>
   );
