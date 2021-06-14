@@ -2,7 +2,13 @@ import { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const Layout = Component.Layout ? Component.Layout : React.Fragment;
+
+  return (
+    <Layout>
+      <Component {...pageProps} />;
+    </Layout>
+  );
 }
 
 export default MyApp;
