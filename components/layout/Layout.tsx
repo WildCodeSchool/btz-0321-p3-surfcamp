@@ -14,6 +14,7 @@ export default function layout({ page, children }: IProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
+
       <div className="flex flex-col w-full min-h-screen bg-blue-300 ">
         {children}
       </div>

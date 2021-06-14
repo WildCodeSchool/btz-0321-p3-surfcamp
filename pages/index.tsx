@@ -7,13 +7,16 @@ interface IProps {
 
 export default function Home({ name }: IProps) {
   return (
-    <div className="flex flex-col w-full h-screen bg-blue-300 ">
-      <Head>
-        <title>Surf Camp</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <div className="flex flex-col w-full h-screen bg-blue-300 ">
+        <Head>
+          <title>Surf Camp</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <NavBar />
-    </div>
+        <NavBar />
+      </div>
+      <div>hello world</div>
+    </>
   );
 }
