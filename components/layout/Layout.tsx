@@ -3,7 +3,7 @@ import Head from "next/head";
 
 interface IProps {
   children: React.ReactNode;
-  page: string;
+  page?: string;
 }
 
 export default function layout({ page, children }: IProps) {
