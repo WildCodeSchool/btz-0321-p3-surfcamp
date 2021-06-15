@@ -9,7 +9,7 @@ interface IProps {
 export default function Home({ name }: IProps) {
   return (
     <>
-      <div>hello world</div>
+      <div>hello world hello again</div>
     </>
   );
 }
