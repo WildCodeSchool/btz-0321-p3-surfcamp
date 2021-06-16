@@ -33,7 +33,7 @@ export default function Login() {
                 <button className="border py-1 w-28 rounded-lg my-2" type="submit">Se connecter</button>
                 <div className="flex flex-col text-center mt-2 mb-8">
                 <p className="text-xs">Je n'ai pas de compte, je m'en crée un <span className="text-red-400">ici</span></p>
-                <p className="text-xs">Identifiants introuvables ? pas <span className="text-red-400">ici</span></p>
+                <p className="text-xs">Identifiants introuvables ? Par <span className="text-red-400">ici</span></p>
                 </div>
             </form>
         </div>
