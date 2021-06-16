@@ -1,18 +1,13 @@
 import { useRouter } from "next/router";
-<<<<<<< HEAD
-
-const Country = () => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  return <p>Country: {id}</p>;
-};
-=======
 import Image from "next/image";
 import Citycard from "../../components/citycard/Citycard";
 
 const Biarritz = { town: "/Biarritz.jpg" };
 const Hossegor = { town: "/Hossegor.jpg" };
+const Nantes = { town: "/Nantes.jpeg" };
+const Hendaye = { town: "/Hendaye.jpeg" };
+const Lacanau = { town: "/Lacanau.jpeg" };
+const LaTorche = { town: "/Latorche.jpg" };
 
 function Country() {
   const router = useRouter();
@@ -65,9 +60,13 @@ function Country() {
         </div>
       </section>
       <section>
-        <div>
+        <div className="flex flex-wrap">
           <Citycard {...Biarritz} />
           <Citycard {...Hossegor} />
+          <Citycard {...Hendaye} />
+          <Citycard {...Lacanau} />
+          <Citycard {...LaTorche} />
+          <Citycard {...Nantes} />
         </div>
       </section>
       <footer></footer>
@@ -75,6 +74,5 @@ function Country() {
     </div>
   );
 }
->>>>>>> 70f0456a986d72d9c4a88e79bf0e676b49c5bb0f
 
 export default Country;

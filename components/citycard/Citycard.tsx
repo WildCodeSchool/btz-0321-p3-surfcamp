@@ -6,8 +6,8 @@ interface Iprops {
 
 function Citycard({ town }: Iprops): JSX.Element {
   return (
-    <div>
-      <Image src={town} alt="city" width={50} height={50} />
+    <div className="">
+      <Image src={town} alt="city" width={750} height={500} />
     </div>
   );
 }
