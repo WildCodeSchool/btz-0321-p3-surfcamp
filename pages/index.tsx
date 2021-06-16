@@ -2,8 +2,9 @@ import Image from "next/image";
 import Countrycard from "../components/countrycard/Countrycard";
 import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
+import Value from "../components/value/Value";
 
-const France = {
+const france = {
   country: "/Pays.webp",
   titlecountry: "France",
   titlecity: "Biarritz",
@@ -11,6 +12,25 @@ const France = {
 };
 
 const hostButton = { inputbutton: "DEVENIR HÔTE" };
+
+const valueTeam = {
+  imgvalue: "/Biarritz.jpg",
+  titlevalue: "La Team Surfcamp.fr",
+  textvalue:
+    "Notre équipe est constituée de surfeurs amateurs et professionnels. Une bande de copains originaires du Sud-Ouest de la France qui ont grandit dans les vagues, se sont laissés rôtir au soleil et grignoté par le sel. Mais bon sang, qu’est-ce qu’on adore ça !",
+};
+const valueValue = {
+  imgvalue: "/Biarritz.jpg",
+  titlevalue: "Nos valeurs",
+  textvalue:
+    "Chez surfcamp.fr, nous essayons de transmettre les valeurs qui nous sont propres et chères. Le développement de notre plateforme doit impérativement se faire dans les respects des principes suivants : Le respect de l’homme en tant qu’être humain, la pratique responsable et raisonnable vis à vis de l’écologie et Le sport et le découverte de soi",
+};
+const valueFriend = {
+  imgvalue: "/Biarritz.jpg",
+  titlevalue: "Amis surfeurs, contactez-nous !",
+  textvalue:
+    "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
+};
 
 export default function Home(): JSX.Element {
   return (
@@ -65,7 +85,7 @@ export default function Home(): JSX.Element {
         </p>
       </section>
       <section className="">
-        <Countrycard {...France} />
+        <Countrycard {...france} />
       </section>
       <section className="bg-BlueCamp text-white  p-10 text-xs">
         <h2 className="flex justify-center pb-4 text-xl">
@@ -79,10 +99,10 @@ export default function Home(): JSX.Element {
         </p>
       </section>
       <section className="relative m-0">
-        <Citycard {...France} />
+        <Citycard {...france} />
       </section>
       <section className="bg-BlueCamp text-white  p-10 text-xs">
-        <h2 className="flex justify-center pb-4 text-lg text-center">
+        <h2 className="flex justify-center pb-4 text-xl text-center">
           Surfcamp, Surfhouse ? Devenez hôte !{" "}
         </h2>
         <p className="flex text-center">
@@ -103,31 +123,23 @@ export default function Home(): JSX.Element {
           <MyButton {...hostButton} />
         </div>
       </section>
-
-      {/* <section className="relative">
-        <div>
-          <h2>Surfer en France</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            sit amet nisl vitae dolor elementum pulvinar vel et eros. Interdum
-            et malesuada fames ac ante ipsum primis in faucibus. Aliquam nibh
-            odio, mollis sed nisl ut, tincidunt lobortis eros. Suspendisse
-            potenti. Suspendisse potenti. Phasellus quis justo non eros
-            venenatis vehicula. Aenean in velit ornare, placerat ex nec,
-            vestibulum erat.
-          </p>
+      <section>
+        <div className="flex items-center content-center">
+          <Image
+            src="/surf.webp"
+            alt="surf home page index"
+            width={375}
+            height={375}
+          />
         </div>
       </section>
-      <section className="relative">
-        <div className="flex flex-wrap">
-          <Citycard {...Biarritz} />
-          <Citycard {...Hossegor} />
-          <Citycard {...Hendaye} />
-          <Citycard {...Lacanau} />
-          <Citycard {...LaTorche} />
-          <Citycard {...Nantes} />
-        </div>
-      </section> */}
+      <section>
+        <Value {...valueTeam} />
+        <hr className="border border-gray-500 mx-8 bg-gray-200" />
+        <Value {...valueValue} />
+        <hr className="border border-gray-500 mx-8 bg-gray-200" />
+        <Value {...valueFriend} />
+      </section>
       <footer></footer>
     </div>
   );
