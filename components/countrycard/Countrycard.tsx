@@ -2,13 +2,15 @@ import Image from "next/image";
 
 interface Iprops {
   country: string;
-  title: string;
+  titlecountry: string;
 }
 
-function Countrycard({ country, title }: Iprops): JSX.Element {
+function Countrycard({ country, titlecountry }: Iprops): JSX.Element {
   return (
-    <div className="">
-      <h2>{title}</h2>
+    <div className="flex items-center content-center">
+      <h2 className="absolute z-10 pl-16 text-4xl text-white pt-64">
+        {titlecountry}
+      </h2>
       <Image src={country} alt="city" width={375} height={375} />
     </div>
   );

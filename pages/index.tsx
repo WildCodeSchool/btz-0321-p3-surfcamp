@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Countrycard from "../components/countrycard/Countrycard";
+import Citycard from "../components/citycard/Citycard";
+import MyButton from "../components/button/MyButton";
 
-const France = { country: "/Pays.webp", title: "France" };
+const France = {
+  country: "/Pays.webp",
+  titlecountry: "France",
+  titlecity: "Biarritz",
+  city: "/Taghazout.webp",
+};
+
+const hostButton = { inputbutton: "DEVENIR HÔTE" };
 
 export default function Home(): JSX.Element {
   return (
@@ -44,19 +53,55 @@ export default function Home(): JSX.Element {
           propose de tels services, ceux-ci seront mentionnés dans sa fiche.
         </p>
       </section>
-      <section className="text-black p-10 text-xs">
-        <h2 className="flex justify-center pb-4 font-extrabold text-2xl">
-          Votre Surfcamp par Pays
+      <section className="text-gray-600 p-10 text-xs">
+        <h2 className="flex justify-center pb-4 text-xl">
+          Votre Surfcamp par pays
         </h2>
-        <p className="flex text-center">
+        <p className="flex text-center ">
           Recherchez votre surf camp dans les pays les plus réputés pour le surf
           ! Surf trip entre ami ou stage de surf en surf camp, retrouvez
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne, l'Indonésie
           et plein d'autres destinations surf !
         </p>
       </section>
-      <section className="relative">
+      <section className="">
         <Countrycard {...France} />
+      </section>
+      <section className="bg-BlueCamp text-white  p-10 text-xs">
+        <h2 className="flex justify-center pb-4 text-xl">
+          Votre Surfcamp par ville
+        </h2>
+        <p className="flex text-center">
+          Découvrez l'expérience surf qui vous convient en recherchant une
+          destination par ville, parmi les meilleurs spots au monde ! Pour
+          chaque ville, retrouvez toutes les infos sur le spot de surf de vos
+          rêves avant de partir !
+        </p>
+      </section>
+      <section className="relative m-0">
+        <Citycard {...France} />
+      </section>
+      <section className="bg-BlueCamp text-white  p-10 text-xs">
+        <h2 className="flex justify-center pb-4 text-lg text-center">
+          Surfcamp, Surfhouse ? Devenez hôte !{" "}
+        </h2>
+        <p className="flex text-center">
+          Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition votre
+          surf house près d'un spot, et cherchez à développer votre business
+          hors saison ? <br /> N'hésitez plus, devenez hôte gratuitement sur
+          surfcamp.fr !
+          <br />
+          <br /> Surfcamp.fr est la première plateforme de réservation pour les
+          vacances surf. En vous inscrivant chez nous, vous gagnez en visibilité
+          et permettez aux surfeurs du monde entier de découvrir votre
+          formidable établissement ! <br />
+          Vous n'avez qu'à cliquer sur le bouton ci-dessous et vous laisser
+          guider par le formulaire d'inscription.
+        </p>
+        <br />
+        <div className="flex justify-center pt-4">
+          <MyButton {...hostButton} />
+        </div>
       </section>
 
       {/* <section className="relative">
