@@ -133,7 +133,7 @@ export default function Home(): JSX.Element {
           />
         </div>
       </section>
-      <section>
+      <section className="sm:justify-evenly">
         <Value {...valueTeam} />
         <hr className="border border-gray-500 mx-8 bg-gray-200" />
         <Value {...valueValue} />
