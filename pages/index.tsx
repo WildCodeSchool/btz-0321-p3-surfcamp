@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Countrycard from "../components/countrycard/Countrycard";
+import MyButton from "../components/mybutton/MyButton";
 
 const France = { country: "/Pays.webp", title: "France" };
+const Button = { inputbutton: "Devenez Hôte" };
 
 export default function Home(): JSX.Element {
   return (
@@ -57,6 +59,7 @@ export default function Home(): JSX.Element {
       </section>
       <section className="relative">
         <Countrycard {...France} />
+        <MyButton {...Button} />
       </section>
 
       {/* <section className="relative">
