@@ -4,12 +4,9 @@ import { useState } from "react";
 
 export default function Profil() {
   const [show, setShow] = useState(false);
-  const Desktop = "lg:w-2/5";
 
   return (
-    <div
-      className={`flex flex-col border border-white rounded-lg bg-white mt-2 w-4/5 ${Desktop} `}
-    >
+    <div className="absolute right-2  flex flex-col border border-white rounded-lg bg-white mt-2 w-[300px] ">
       <div className="flex flex-col">
         <div className="flex flex-col w-full">
           <div className="flex bg-BlueCamp rounded-t-lg w-full h-32">
