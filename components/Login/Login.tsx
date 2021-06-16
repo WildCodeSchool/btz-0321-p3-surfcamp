@@ -10,7 +10,7 @@ export default function Login() {
     }
 
     return(
-        <div className="w-full h-screen bg-black bg-opacity-70 flex justify-center items-center">
+        <div>
             <form className=" flex text-white items-center px-8 h-auto rounded-lg flex-col bg-BlueCamp border    border-white" onSubmit={handleSubmit(onSubmit)} >
                 <div className="text-center my-2 mt-8">
                 <h2 className="text-2xl mb-2">Connection</h2>
