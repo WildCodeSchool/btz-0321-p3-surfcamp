@@ -1,5 +1,6 @@
 module.exports = {
   root: true, // Make sure eslint picks up the config at the root of the directory
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 2020, // Use the latest ecmascript standard
     sourceType: "module", // Allows using import/export statements
@@ -17,8 +18,11 @@ module.exports = {
     amd: true, // Enables require() and define() as global variables as per the amd spec.
     node: true, // Enables Node.js global variables and Node.js scoping.
   },
+  plugins: ["@typescript-eslint"],
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended", // Make this the last element so prettier config overrides other formatting rules
@@ -31,7 +35,11 @@ module.exports = {
       { namedComponents: "function-declaration" },
     ],
     "no-console": 1,
-    "react/prop-types": 1,
-    "react/jsx-filename-extension": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", ignoreRestSiblings: true },
+    ],
+    "react/jsx-filename-extension": [2, { extensions: [".tsx", ".jsx"] }],
   },
 };
