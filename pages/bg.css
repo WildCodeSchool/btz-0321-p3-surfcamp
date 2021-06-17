@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.my-bg {
+  background-image: url("../public/surfbgmobile.webp");
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-position: center;
+}
+
+.img-victoiria {
+  background-image: url("../public/Hossegor.jpg");
+}

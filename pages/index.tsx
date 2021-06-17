@@ -5,7 +5,7 @@ import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
-import Surfbg from "../public/surfbgmobile.webp";
+import Surfbg from "../public/Hendaye.jpeg";
 
 const france = {
   country: "/Pays.webp",
@@ -35,15 +35,9 @@ export default function Home(): JSX.Element {
         <title>Surfcamp Accueil</title>
       </Head>
       <section>
-        <div className="flex items-center content-center h-full">
-          <Image
-            src={Surfbg}
-            alt="background surf image"
-            className="h-screen bg-cover bg-no-repeat"
-          />
-        </div>
+        <div className="my-bg h-screen sm:w-screen"></div>
       </section>
-      <section className="bg-BlueCamp text-white p-10 text-xs">
+      <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           Notre site répertorie tous les tips à connaitre par pays et par spot.
           Vous retrouverez notamment les infos concernant les auberges, les
@@ -72,7 +66,7 @@ export default function Home(): JSX.Element {
           propose de tels services, ceux-ci seront mentionnés dans sa fiche.
         </p>
       </section>
-      <section className="text-gray-600 p-10 text-xs">
+      <section className="text-gray-600 p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
           Votre Surfcamp par pays
         </h2>
@@ -83,10 +77,13 @@ export default function Home(): JSX.Element {
           et plein d'autres destinations surf !
         </p>
       </section>
-      <section className="">
+      <section className="flex flex-row justify-around p-6">
+        <Countrycard {...france} />
+        <Countrycard {...france} />
+        <Countrycard {...france} />
         <Countrycard {...france} />
       </section>
-      <section className="bg-BlueCamp text-white  p-10 text-xs">
+      <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
           Votre Surfcamp par ville
         </h2>
@@ -96,34 +93,40 @@ export default function Home(): JSX.Element {
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !
         </p>
-      </section>
-      <section className="relative m-0">
-        <Citycard {...france} />
-      </section>
-      <section className="bg-BlueCamp text-white  p-10 text-xs">
-        <h2 className="flex justify-center pb-4 text-xl text-center">
-          Surfcamp, Surfhouse ? Devenez hôte !{" "}
-        </h2>
-        <p className="flex text-center">
-          Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition votre
-          surf house près d'un spot, et cherchez à développer votre business
-          hors saison ? <br /> N'hésitez plus, devenez hôte gratuitement sur
-          surfcamp.fr !
-          <br />
-          <br /> Surfcamp.fr est la première plateforme de réservation pour les
-          vacances surf. En vous inscrivant chez nous, vous gagnez en visibilité
-          et permettez aux surfeurs du monde entier de découvrir votre
-          formidable établissement ! <br />
-          Vous n'avez qu'à cliquer sur le bouton ci-dessous et vous laisser
-          guider par le formulaire d'inscription.
-        </p>
-        <br />
-        <div className="flex justify-center pt-4">
-          <MyButton {...hostButton} />
+        <div className="flex flex-row justify-around p-6">
+          <Citycard {...france} />
+          <Citycard {...france} />
+          <Citycard {...france} />
+          <Citycard {...france} />
         </div>
       </section>
-      <section>
-        <div className="flex items-center content-center h-full">
+      <section className="hidden sm:block">
+        <p>Map Google</p>
+      </section>
+      <section className="bg-BlueCamp text-white  text-xs sm:text-base flex flex-col sm:flex-row">
+        <div className="sm:w-1/2 p-10">
+          <h2 className="flex justify-center pb-4 text-xl text-center">
+            Surfcamp, Surfhouse ? Devenez hôte !{" "}
+          </h2>
+          <p className="flex text-center">
+            Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition
+            votre surf house près d'un spot, et cherchez à développer votre
+            business hors saison ? <br /> N'hésitez plus, devenez hôte
+            gratuitement sur surfcamp.fr !
+            <br />
+            <br /> Surfcamp.fr est la première plateforme de réservation pour
+            les vacances surf. En vous inscrivant chez nous, vous gagnez en
+            visibilité et permettez aux surfeurs du monde entier de découvrir
+            votre formidable établissement ! <br />
+            Vous n'avez qu'à cliquer sur le bouton ci-dessous et vous laisser
+            guider par le formulaire d'inscription.
+          </p>
+          <br />
+          <div className="flex justify-center pt-10">
+            <MyButton {...hostButton} />
+          </div>
+        </div>
+        <div className="sm:w-1/2 flex items-center content-center h-full">
           <Image
             src={Surfbg}
             alt="background surf image"
@@ -131,6 +134,7 @@ export default function Home(): JSX.Element {
           />
         </div>
       </section>
+      <section></section>
       <section className="sm:justify-evenly">
         <Value {...valueTeam} />
       </section>

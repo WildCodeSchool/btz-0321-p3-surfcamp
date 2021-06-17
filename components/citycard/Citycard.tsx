@@ -8,10 +8,16 @@ interface Iprops {
 function Citycard({ titlecity, city }: Iprops): JSX.Element {
   return (
     <div className="flex items-center content-center">
-      <h2 className="absolute z-10 pl-16 text-4xl text-white pt-64">
+      <h2 className="absolute z-10 pl-10 text-4xl text-white pt-44">
         {titlecity}
       </h2>
-      <Image src={city} alt="city" width={375} height={375} />
+      <Image
+        src={city}
+        alt="city"
+        width={250}
+        height={250}
+        className="rounded-xl px-2"
+      />
     </div>
   );
 }
