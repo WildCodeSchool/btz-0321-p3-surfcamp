@@ -5,6 +5,9 @@ import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
+import Surfbg from "../public/surfbgmobile.webp";
+import SurfValue from "../public/surfbgdesktop.webp";
+
 const france = {
   country: "/Pays.webp",
   titlecountry: "France",
@@ -32,13 +35,14 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Surfcamp Accueil</title>
       </Head>
-      <section className="flex items-center content-center">
-        <Image
-          src="/surfbg.jpg"
-          alt="background surf image"
-          width={375}
-          height={812}
-        />
+      <section>
+        <div className="flex items-center content-center h-full">
+          <Image
+            src={Surfbg}
+            alt="background surf image"
+            className="h-screen bg-cover bg-no-repeat"
+          />
+        </div>
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs">
         <p className="flex text-center">
@@ -120,12 +124,11 @@ export default function Home(): JSX.Element {
         </div>
       </section>
       <section>
-        <div className="flex items-center content-center">
+        <div className="flex items-center content-center h-full">
           <Image
-            src="/surf.webp"
-            alt="surf home page index"
-            width={375}
-            height={375}
+            src={Surfbg}
+            alt="background surf image"
+            className="h-screen bg-cover bg-no-repeat"
           />
         </div>
       </section>
