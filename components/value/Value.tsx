@@ -23,7 +23,6 @@ function Value({
         <h2 className="flex justify-start py-4 text-xl text-BlueCamp">
           {titleteam}
         </h2>
-        <hr className="flex border-2 border-gray-500" />
       </div>
 
       <p className="flex text-left text-gray-500">{textteam}</p>

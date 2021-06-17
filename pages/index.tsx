@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Head from "next/head";
 import Countrycard from "../components/countrycard/Countrycard";
 import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
@@ -28,7 +29,9 @@ const valueTeam = {
 export default function Home(): JSX.Element {
   return (
     <div>
-      <header></header>
+      <Head>
+        <title>Surfcamp Accueil</title>
+      </Head>
       <section className="flex items-center content-center">
         <Image
           src="/surfbg.jpg"
@@ -129,7 +132,6 @@ export default function Home(): JSX.Element {
       <section className="sm:justify-evenly">
         <Value {...valueTeam} />
       </section>
-      <footer></footer>
     </div>
   );
 }
