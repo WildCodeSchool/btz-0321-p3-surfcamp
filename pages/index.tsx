@@ -1,17 +1,22 @@
 import Image from "next/image";
 import Head from "next/head";
+
+import { useState, useEffect, useCallback } from "react";
+
 import Countrycard from "../components/countrycard/Countrycard";
 import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
-import SurfValue from "../public/surfbgdesktop.webp";
+import bgDesktop from "../public/surfbgdesktop.webp";
+import bgMobile from "../public/surfbgmobile.webp";
+import imgContact from "../public/imgcontact.jpg";
 
 const france = {
   country: "/Pays.webp",
   titlecountry: "France",
   titlecity: "Biarritz",
-  city: "/Taghazout.webp",
+  city: "/Biarritz.jpg",
 };
 
 const hostButton = { inputbutton: "DEVENIR HÔTE" };
@@ -27,17 +32,46 @@ const valueTeam = {
   textcontact:
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
-
-export default function Home(): JSX.Element {
+const useMediaQuery = (width: number) => {
+  const [targetReached, setTargetReached] = useState(false);
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width :${width}px)`);
+    media.addListener(updateTarget);
+    if (media.matches) {
+      setTargetReached(true);
+    }
+    return () => media.removeListener(updateTarget);
+  }, []);
+  return targetReached;
+};
+export default function Home() {
+  const isBreakingpoint = useMediaQuery(639);
   return (
     <div>
       <Head>
         <title>Surfcamp Accueil</title>
       </Head>
       <section>
+<<<<<<< HEAD
         <div className="flex items-center content-center h-full"></div>
+=======
+        <div className="flex bg-no-repeat w-screen bg-center bg-contain">
+          {isBreakingpoint ? (
+            <Image src={bgMobile} alt="bg desktop" />
+          ) : (
+            <Image src={bgDesktop} alt="bg mobile" />
+          )}
+        </div>
+>>>>>>> e5c7424084291239bea664fce1398dab5c2ca6fc
       </section>
-      <section className="bg-BlueCamp text-white p-10 text-xs">
+      <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           Notre site répertorie tous les tips à connaitre par pays et par spot.
           Vous retrouverez notamment les infos concernant les auberges, les
@@ -66,58 +100,75 @@ export default function Home(): JSX.Element {
           propose de tels services, ceux-ci seront mentionnés dans sa fiche.
         </p>
       </section>
-      <section className="text-gray-600 p-10 text-xs">
+      <section className="text-gray-600 p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
           Votre Surfcamp par pays
         </h2>
-        <p className="flex text-center ">
+        <p className="flex text-center p-4">
           Recherchez votre surf camp dans les pays les plus réputés pour le surf
           ! Surf trip entre ami ou stage de surf en surf camp, retrouvez
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne, l'Indonésie
           et plein d'autres destinations surf !
         </p>
+        <div className="flex flex-row justify-around p-6">
+          <Countrycard {...france} />
+          <Countrycard {...france} />
+          <Countrycard {...france} />
+          <Countrycard {...france} />
+        </div>
       </section>
-      <section className="">
-        <Countrycard {...france} />
-      </section>
-      <section className="bg-BlueCamp text-white  p-10 text-xs">
+      <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
           Votre Surfcamp par ville
         </h2>
-        <p className="flex text-center">
+        <p className="flex text-center p-4">
           Découvrez l'expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !
         </p>
-      </section>
-      <section className="relative m-0">
-        <Citycard {...france} />
-      </section>
-      <section className="bg-BlueCamp text-white  p-10 text-xs">
-        <h2 className="flex justify-center pb-4 text-xl text-center">
-          Surfcamp, Surfhouse ? Devenez hôte !{" "}
-        </h2>
-        <p className="flex text-center">
-          Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition votre
-          surf house près d'un spot, et cherchez à développer votre business
-          hors saison ? <br /> N'hésitez plus, devenez hôte gratuitement sur
-          surfcamp.fr !
-          <br />
-          <br /> Surfcamp.fr est la première plateforme de réservation pour les
-          vacances surf. En vous inscrivant chez nous, vous gagnez en visibilité
-          et permettez aux surfeurs du monde entier de découvrir votre
-          formidable établissement ! <br />
-          Vous n'avez qu'à cliquer sur le bouton ci-dessous et vous laisser
-          guider par le formulaire d'inscription.
-        </p>
-        <br />
-        <div className="flex justify-center pt-4">
-          <MyButton {...hostButton} />
+        <div className="flex flex-row justify-around p-6">
+          <Citycard {...france} />
+          <Citycard {...france} />
+          <Citycard {...france} />
+          <Citycard {...france} />
         </div>
+      </section>
+      <section className="hidden sm:block">
+        <p>Map Google</p>
+      </section>
+      <section className="bg-BlueCamp text-white  text-xs sm:text-base flex flex-col sm:flex-row">
+        <div className="sm:w-1/2 p-10">
+          <h2 className="flex justify-center pb-4 text-xl text-center">
+            Surfcamp, Surfhouse ? Devenez hôte !{" "}
+          </h2>
+          <p className="flex text-center">
+            Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition
+            votre surf house près d'un spot, et cherchez à développer votre
+            business hors saison ? <br /> N'hésitez plus, devenez hôte
+            gratuitement sur surfcamp.fr !
+            <br />
+            <br /> Surfcamp.fr est la première plateforme de réservation pour
+            les vacances surf. En vous inscrivant chez nous, vous gagnez en
+            visibilité et permettez aux surfeurs du monde entier de découvrir
+            votre formidable établissement ! <br />
+            Vous n'avez qu'à cliquer sur le bouton ci-dessous et vous laisser
+            guider par le formulaire d'inscription.
+          </p>
+          <br />
+          <div className="flex justify-center pt-10">
+            <MyButton {...hostButton} />
+          </div>
+        </div>
+<<<<<<< HEAD
       </section>
       <section>
         <div className="flex items-center content-center h-full"></div>
+=======
+        <div className="sm:w-1/2 flex items-center justify-center">
+          <Image src={imgContact} alt="background surf image" />
+        </div>
+>>>>>>> e5c7424084291239bea664fce1398dab5c2ca6fc
       </section>
       <section className="sm:justify-evenly">
         <Value {...valueTeam} />
