@@ -11,7 +11,11 @@ function Countrycard({ country, titlecountry }: Iprops): JSX.Element {
       <h2 className="absolute z-10 pl-16 text-4xl text-white pt-64">
         {titlecountry}
       </h2>
-      <Image src={country} alt="city" width={375} height={375} />
+      <img
+        src={country}
+        alt="mec en short"
+        className="bg-cover bg-no-repeat w-full"
+      />{" "}
     </div>
   );
 }

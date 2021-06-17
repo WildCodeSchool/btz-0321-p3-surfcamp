@@ -5,7 +5,6 @@ import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
-import Surfbg from "../public/surfbgmobile.webp";
 import SurfValue from "../public/surfbgdesktop.webp";
 
 const france = {
@@ -36,13 +35,7 @@ export default function Home(): JSX.Element {
         <title>Surfcamp Accueil</title>
       </Head>
       <section>
-        <div className="flex items-center content-center h-full">
-          <Image
-            src={Surfbg}
-            alt="background surf image"
-            className="h-screen bg-cover bg-no-repeat"
-          />
-        </div>
+        <div className="flex items-center content-center h-full"></div>
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs">
         <p className="flex text-center">
@@ -124,13 +117,7 @@ export default function Home(): JSX.Element {
         </div>
       </section>
       <section>
-        <div className="flex items-center content-center h-full">
-          <Image
-            src={Surfbg}
-            alt="background surf image"
-            className="h-screen bg-cover bg-no-repeat"
-          />
-        </div>
+        <div className="flex items-center content-center h-full"></div>
       </section>
       <section className="sm:justify-evenly">
         <Value {...valueTeam} />
