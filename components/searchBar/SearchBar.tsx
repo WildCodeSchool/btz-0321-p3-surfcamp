@@ -29,7 +29,6 @@ export default function SearchBar(): JSX.Element {
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            value={startDate}
             className={`w-full h-10 my-auto text-center border-l border-gray-400 focus:outline-none
             ${startDate ? "text-black" : "text-gray-400"}
             `}
@@ -42,7 +41,6 @@ export default function SearchBar(): JSX.Element {
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)}
-            value={endDate}
             className={`w-full h-10 text-center border-l border-gray-400 focus:outline-none
             ${endDate ? "text-black" : "text-gray-400"}
             `}
