@@ -7,16 +7,15 @@ import "react-datepicker/dist/react-datepicker.css";
 // }
 
 export default function SearchBar(): JSX.Element {
-  const [startDate, setStartDate] =
-    useState<Date | null | undefined>(undefined);
-  const [endDate, setEndDate] = useState<Date | null | undefined>(undefined);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   const mediumSc = "md:w-2/5 md:mx-auto";
   const desktop = "lg:w-2/5 lg:mx-auto";
 
   return (
     <div
-      className={`flex h-14 w-11/12 mx-auto items-center my-auto justify-between text-xs  bg-white rounded-lg ${mediumSc} ${desktop}`}
+      className={`flex h-14 w-11/12 mx-auto items-center my-auto justify-between border text-xs  bg-white rounded-lg ${mediumSc} ${desktop}`}
     >
       <form className="w-full h-full flex justify-between items-center">
         <div className="w-1/4 flex ">
