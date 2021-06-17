@@ -8,12 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@prisma/client": "^2.24.1",
+=======
+    "@types/react-datepicker": "^3.1.8",
+    "react-datepicker": "^4.1.1",
+    "react-query": "^3.17.0",
+>>>>>>> ff1ef16d873f4b967d90a01008ad250cc1d5df89
     "next": "^11.0.0",
     "next-redux-wrapper": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-query": "^3.16.0",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0"
   },
