@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Link from "next/link";
+import React from "react";
+
 import PropertyCard from "../components/propertyCard/PropertyCard";
 
 export default function propertCard() {
