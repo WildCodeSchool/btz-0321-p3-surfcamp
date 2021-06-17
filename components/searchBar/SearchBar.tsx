@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function SearchBar() {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+// interface Idate {
+//   date: Date;
+// }
+
+export default function SearchBar(): JSX.Element {
+  const [startDate, setStartDate] =
+    useState<Date | null | undefined>(undefined);
+  const [endDate, setEndDate] = useState<Date | null | undefined>(undefined);
 
   const mediumSc = "md:w-2/5 md:mx-auto";
   const desktop = "lg:w-2/5 lg:mx-auto";
-
-  console.log(startDate, endDate);
-  
 
   return (
     <div
@@ -33,7 +35,7 @@ export default function SearchBar() {
             ${startDate ? "text-black" : "text-gray-400"}
             `}
             placeholderText="Arrivée"
-            dateFormat='dd/MM/yyy'
+            dateFormat="dd/MM/yyyy"
             minDate={new Date()}
           />
         </div>
@@ -44,9 +46,9 @@ export default function SearchBar() {
             value={endDate}
             className={`w-full h-10 text-center border-l border-gray-400 focus:outline-none
             ${endDate ? "text-black" : "text-gray-400"}
-            `} 
+            `}
             placeholderText="Départ"
-            dateFormat='dd/MM/yyyy'
+            dateFormat="dd/MM/yyyy"
             minDate={new Date()}
           />
         </div>
