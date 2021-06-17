@@ -6,7 +6,6 @@ import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
 import Surfbg from "../public/surfbgmobile.webp";
-import SurfValue from "../public/surfbgdesktop.webp";
 
 const france = {
   country: "/Pays.webp",
