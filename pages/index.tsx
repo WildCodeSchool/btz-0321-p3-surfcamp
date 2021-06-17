@@ -32,7 +32,7 @@ const valueTeam = {
   textcontact:
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
-const useMediaQuery = ({ width }: any) => {
+const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
   const updateTarget = useCallback((e) => {
     if (e.matches) {
@@ -52,7 +52,7 @@ const useMediaQuery = ({ width }: any) => {
   return targetReached;
 };
 export default function Home() {
-  const isBreakingpoint = useMediaQuery(375);
+  const isBreakingpoint = useMediaQuery(639);
   return (
     <div>
       <Head>
