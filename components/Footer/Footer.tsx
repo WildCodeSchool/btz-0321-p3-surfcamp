@@ -2,7 +2,7 @@ import Images from "next/image";
 
 export default function Footer(): JSX.Element {
   return (
-    <div className="w-full bg-mainBlue text-white flex flex-col">
+    <div className="w-full bg-BlueCamp text-white flex flex-col">
       <div className="w-full flex justify-center p-4">
         <Images
           src="/Images/logoSC.svg"
