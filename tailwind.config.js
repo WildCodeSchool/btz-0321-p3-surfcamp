@@ -5,11 +5,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-<<<<<<< HEAD
-        mainBlue: "#1C2842",
-      },
-    },
-=======
         BlueCamp: "#1C2842",
       },
     },
@@ -19,7 +14,6 @@ module.exports = {
       lg: { max: "1023px" },
       xl: { max: "1279px" },
     },
->>>>>>> develop
   },
   variants: {
     extend: {
