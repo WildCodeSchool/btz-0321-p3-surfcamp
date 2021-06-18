@@ -11,7 +11,10 @@ function MyButton({ inputbutton }: Iprop): JSX.Element {
   return (
     <div>
       <Link href="/">
-        <a className="rounded-xl border-2 border-white text-white px-5 py-3 text-base flex">
+        <a
+          href="/"
+          className="rounded-xl border-2 border-white text-white px-5 py-3 text-base flex"
+        >
           <Image src={svgcle} alt="img button" className="items-center" />
           <div className="ml-2 flex items-center">{inputbutton}</div>
         </a>
