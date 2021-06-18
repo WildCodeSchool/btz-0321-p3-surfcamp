@@ -5,12 +5,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+<<<<<<< HEAD
         mainBlue: "#1C2842",
       },
     },
+=======
+        BlueCamp: "#1C2842",
+      },
+    },
+    screen: {
+      sm: { max: "639px" },
+      md: { max: "767px" },
+      lg: { max: "1023px" },
+      xl: { max: "1279px" },
+    },
+>>>>>>> develop
   },
   variants: {
-    extend: {},
+    extend: {
+      translate: ["active", "focus"],
+    },
   },
   plugins: [],
 };

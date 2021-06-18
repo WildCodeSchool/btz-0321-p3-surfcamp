@@ -14,7 +14,7 @@ export default function Footer() {
                 />
             </div>
             <div className="flex flex-col md:flex-row w-full text-center md:text-left">
-            <div className="w-full md:w-1/2 flex flex-col px-11 pb-11 w-full">
+            <div className="w-full md:w-1/2 flex flex-col px-11 pb-11">
             <h3 className="mb-6 text-lg font-bold">Un guide expert et avéré</h3>
            
             <p className="w-full">Nos articles camps de surf sont reconnus par la communauté pour apporter 
@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col text-center">
                 <h3 className="text-lg font-bold text-center ">Réseaux sociaux</h3>
-                <div className="flex justify-center justify-around  mt-14">
+                <div className="flex justify-center  mt-14">
                 <a href="#">
                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.211C0 25.7203 6.16892 32.7961 14.2371 34.231V21.8693H9.96594V17.1155H14.2371V13.3116C14.2371 9.03269 16.9891 6.65649 20.8815 6.65649C22.1144 6.65649 23.4442 6.84619 24.6771 7.03589V11.4103H22.4946C20.406 11.4103 19.9319 12.4558 19.9319 13.7879V17.1155H24.4877L23.7289 21.8693H19.9319V34.231C28 32.7961 34.1689 25.7217 34.1689 17.211C34.1689 7.74475 26.4809 0 17.0845 0C7.68801 0 0 7.74475 0 17.211Z" fill="#F4F4F4"/>
