@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@types/react-datepicker": "^3.1.8",
     "next": "^11.0.0",
     "next-redux-wrapper": "^7.0.0",
     "react": "^17.0.2",
@@ -21,6 +20,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.8",
+    "@types/react-datepicker": "^3.1.8",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "autoprefixer": "^10.0.4",

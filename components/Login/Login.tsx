@@ -8,7 +8,9 @@ export default function Login(): JSX.Element {
     handleSubmit,
   } = useForm();
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   const onSubmit = (data: object) => {
+    // eslint-disable-next-line no-console
     console.log(data);
   };
 
