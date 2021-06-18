@@ -6,7 +6,7 @@ interface IProps {
   page?: string;
 }
 
-export default function layout({ page, children }: IProps) {
+export default function layout({ page, children }: IProps): JSX.Element {
   return (
     <div className="layout">
       <Head>

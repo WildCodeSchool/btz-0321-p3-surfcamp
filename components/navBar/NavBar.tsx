@@ -1,7 +1,7 @@
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 
-export default function NavBar() {
+export default function NavBar(): JSX.Element {
   return (
     <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white">
       <Image
@@ -18,7 +18,9 @@ export default function NavBar() {
           height={50}
           alt="logo"
         />
-        <a className="px-2">login</a>
+        <a href="/login" className="px-2">
+          login
+        </a>
         <Image
           src="/images/francais.png"
           width={30}
