@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.5.2",
+    "@types/react-datepicker": "^3.1.8",
     "joi": "^17.4.0",
     "next": "^11.0.0",
     "next-redux-wrapper": "^7.0.0",
@@ -39,7 +41,7 @@
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
     "prisma": "^2.24.1",
-    "tailwindcss": "^2.1.1",
+    "tailwindcss": "^2.2.0",
     "typescript": "^4.3.2"
   },
   "lint-staged": {
