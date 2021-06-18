@@ -74,10 +74,10 @@ export default function Home(): JSX.Element {
           Votre Surfcamp par pays
         </h2>
         <p className="flex text-center ">
-          Recherchez votre surf camp dans les pays les plus réputés pour le surf
+          {`Recherchez votre surf camp dans les pays les plus réputés pour le surf
           ! Surf trip entre ami ou stage de surf en surf camp, retrouvez
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne, l'Indonésie
-          et plein d'autres destinations surf !
+          et plein d'autres destinations surf !`}
         </p>
       </section>
       <section className="">
@@ -88,10 +88,10 @@ export default function Home(): JSX.Element {
           Votre Surfcamp par ville
         </h2>
         <p className="flex text-center">
-          Découvrez l'expérience surf qui vous convient en recherchant une
+          {`  Découvrez l'expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
-          rêves avant de partir !
+          rêves avant de partir !`}
         </p>
       </section>
       <section className="relative m-0">
@@ -102,17 +102,18 @@ export default function Home(): JSX.Element {
           Surfcamp, Surfhouse ? Devenez hôte !{" "}
         </h2>
         <p className="flex text-center">
-          Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition votre
+          {` Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition votre
           surf house près d'un spot, et cherchez à développer votre business
           hors saison ? <br /> N'hésitez plus, devenez hôte gratuitement sur
-          surfcamp.fr !
+          surfcamp.fr !`}
           <br />
-          <br /> Surfcamp.fr est la première plateforme de réservation pour les
+          <br />{" "}
+          {`Surfcamp.fr est la première plateforme de réservation pour les
           vacances surf. En vous inscrivant chez nous, vous gagnez en visibilité
           et permettez aux surfeurs du monde entier de découvrir votre
           formidable établissement ! <br />
           Vous n'avez qu'à cliquer sur le bouton ci-dessous et vous laisser
-          guider par le formulaire d'inscription.
+          guider par le formulaire d'inscription.`}
         </p>
         <br />
         <div className="flex justify-center pt-4">
