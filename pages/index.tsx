@@ -52,24 +52,18 @@ const useMediaQuery = (width: number) => {
   return targetReached;
 };
 export default function Home() {
-  const isBreakingpoint = useMediaQuery(639);
+  const isBreakingpoint = useMediaQuery(375);
   return (
     <div>
       <Head>
         <title>Surfcamp Accueil</title>
       </Head>
-      <section>
-<<<<<<< HEAD
-        <div className="flex items-center content-center h-full"></div>
-=======
-        <div className="flex bg-no-repeat w-screen bg-center bg-contain">
-          {isBreakingpoint ? (
-            <Image src={bgMobile} alt="bg desktop" />
-          ) : (
-            <Image src={bgDesktop} alt="bg mobile" />
-          )}
-        </div>
->>>>>>> e5c7424084291239bea664fce1398dab5c2ca6fc
+      <section className="flex bg-no-repeat w-screen bg-center bg-contain">
+        {isBreakingpoint ? (
+          <Image src={bgMobile} alt="bg desktop" />
+        ) : (
+          <Image src={bgDesktop} alt="bg mobile" />
+        )}
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
@@ -96,13 +90,13 @@ export default function Home() {
           certains surf camps ne proposent pas seulement des cours de surf, mais
           également du yoga, des expériences de groupe, des voyages pour
           explorer les environs et beaucoup d’autres activités annexes. Chacun
-          de ces établissement à sa place sur notre site et lorsqu’un surfcamp
+          de ces établissement à sa place sur notre site et lorsqu’un surf camp
           propose de tels services, ceux-ci seront mentionnés dans sa fiche.
         </p>
       </section>
       <section className="text-gray-600 p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
-          Votre Surfcamp par pays
+          Votre surf camp par pays
         </h2>
         <p className="flex text-center p-4">
           Recherchez votre surf camp dans les pays les plus réputés pour le surf
@@ -119,7 +113,7 @@ export default function Home() {
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
-          Votre Surfcamp par ville
+          Votre surf camp par ville
         </h2>
         <p className="flex text-center p-4">
           Découvrez l'expérience surf qui vous convient en recherchant une
@@ -134,15 +128,24 @@ export default function Home() {
           <Citycard {...france} />
         </div>
       </section>
-      <section className="hidden sm:block">
-        <p>Map Google</p>
+      <section className="hidden sm:block p-10 text-xs sm:text-base ">
+        <h2 className="flex justify-center pb-4 text-xl text-gray-600">
+          Votre surf camp en parcourant le monde !
+        </h2>
+        <p className="flex text-center p-4 text-gray-600">
+          Découvrez l'expérience surf qui vous convient en recherchant une
+          destination par ville, parmi les meilleurs spots au monde ! Pour
+          chaque ville, retrouvez toutes les infos sur le spot de surf de vos
+          rêves avant de partir !
+        </p>
+        <p>-Map Google-</p>
       </section>
       <section className="bg-BlueCamp text-white  text-xs sm:text-base flex flex-col sm:flex-row">
-        <div className="sm:w-1/2 p-10">
-          <h2 className="flex justify-center pb-4 text-xl text-center">
-            Surfcamp, Surfhouse ? Devenez hôte !{" "}
+        <div className="sm:w-1/2 p-10 sm:flex sm:flex-col sm:items-center">
+          <h2 className="flex justify-center pb-4 text-xl text-center sm:pt-10">
+            Surf camp, Surf house ? Devenez hôte !{" "}
           </h2>
-          <p className="flex text-center">
+          <p className="flex text-left sm:pt-10">
             Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition
             votre surf house près d'un spot, et cherchez à développer votre
             business hors saison ? <br /> N'hésitez plus, devenez hôte
@@ -160,15 +163,9 @@ export default function Home() {
             <MyButton {...hostButton} />
           </div>
         </div>
-<<<<<<< HEAD
-      </section>
-      <section>
-        <div className="flex items-center content-center h-full"></div>
-=======
         <div className="sm:w-1/2 flex items-center justify-center">
           <Image src={imgContact} alt="background surf image" />
         </div>
->>>>>>> e5c7424084291239bea664fce1398dab5c2ca6fc
       </section>
       <section className="sm:justify-evenly">
         <Value {...valueTeam} />
