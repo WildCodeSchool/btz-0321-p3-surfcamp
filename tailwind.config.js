@@ -16,7 +16,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      translate: ["active", "focus"],
+    },
   },
   plugins: [],
 };

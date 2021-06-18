@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-// interface Idate {
-//   date: Date;
-// }
-
 export default function SearchBar(): JSX.Element {
   const [startDate, setStartDate] = useState<Date | undefined | null>(
     new Date()
