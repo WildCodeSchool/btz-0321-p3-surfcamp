@@ -110,13 +110,15 @@ export default function Home(): JSX.Element {
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne, l'Indonésie
           et plein d'autres destinations surf !`}
         </p>
-        <div className="flex flex-row justify-around p-6">
-          <SliderMobile />
+        {/* <div className="flex flex-row justify-around p-6">
           {/* <Countrycard {...france} />
           <Countrycard {...france} />
           <Countrycard {...france} />
-          <Countrycard {...france} /> */}
-        </div>
+        <Countrycard {...france} /> 
+        </div> */}
+      </section>
+      <section className="">
+        <SliderMobile />
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
