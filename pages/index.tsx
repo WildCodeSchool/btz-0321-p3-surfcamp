@@ -3,11 +3,10 @@ import Head from "next/head";
 
 import { useState, useEffect, useCallback } from "react";
 
-import Countrycard from "../components/countrycard/Countrycard";
-import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 import SliderMobile from "../components/slider/sliderMobile";
+import SliderDesktop from "../components/slider/sliderDesktop";
 
 import bgDesktop from "../public/surfbgdesktop.webp";
 import bgMobile from "../public/surfbgmobile.webp";
@@ -110,15 +109,9 @@ export default function Home(): JSX.Element {
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne, l'Indonésie
           et plein d'autres destinations surf !`}
         </p>
-        {/* <div className="flex flex-row justify-around p-6">
-          {/* <Countrycard {...france} />
-          <Countrycard {...france} />
-          <Countrycard {...france} />
-        <Countrycard {...france} /> 
-        </div> */}
       </section>
-      <section className="">
-        <SliderMobile />
+      <section>
+        <SliderDesktop />
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
@@ -131,12 +124,9 @@ export default function Home(): JSX.Element {
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !`}
         </p>
-        <div className="flex flex-row justify-around p-6">
-          <Citycard {...france} />
-          <Citycard {...france} />
-          <Citycard {...france} />
-          <Citycard {...france} />
-        </div>
+      </section>
+      <section>
+        <SliderMobile />
       </section>
       <section className="hidden sm:block p-10 text-xs sm:text-base ">
         <h2 className="flex justify-center pb-4 text-xl text-gray-600">

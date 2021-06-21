@@ -3,14 +3,24 @@ import Image from "next/image";
 import arrowLeft from "../../public/arrowleft.svg";
 import arrowRight from "../../public/arrowright.svg";
 
-function SliderMobile() {
+function SliderDesktop() {
   const imgTest: [
+    { img: string; title: string },
+    { img: string; title: string },
+    { img: string; title: string },
+    { img: string; title: string },
+    { img: string; title: string },
     { img: string; title: string },
     { img: string; title: string },
     { img: string; title: string }
   ] = [
     { img: "/Hossegor.jpg", title: "Hossegor" },
+    { img: "/Hossegor.jpg", title: "Hossegor" },
+    { img: "/Hossegor.jpg", title: "Hossegor" },
     { img: "/Lacanau.jpeg", title: "Lacanau" },
+    { img: "/Lacanau.jpeg", title: "Lacanau" },
+    { img: "/Lacanau.jpeg", title: "Lacanau" },
+    { img: "/Nantes.jpeg", title: "Nantes" },
     { img: "/Nantes.jpeg", title: "Nantes" },
   ];
   const [index, setIndex] = useState(0);
@@ -60,4 +70,4 @@ function SliderMobile() {
   );
 }
 
-export default SliderMobile;
+export default SliderDesktop;
