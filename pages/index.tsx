@@ -8,8 +8,8 @@ import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
-import bgDesktop from "../public/surfbgdesktop.webp";
-import bgMobile from "../public/surfbgmobile.webp";
+// import bgDesktop from "../public/surfbgdesktop.webp";
+// import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
 
 const france = {
@@ -52,19 +52,19 @@ const useMediaQuery = (width: number) => {
   return targetReached;
 };
 export default function Home(): JSX.Element {
-  const isBreakingpoint = useMediaQuery(375);
+  // const isBreakingpoint = useMediaQuery(375);
   return (
     <div>
       <Head>
         <title>{`Surfcamp Accueil`}</title>
       </Head>
-      <section className="flex bg-no-repeat w-screen bg-center bg-contain">
+      {/* <section className="flex bg-no-repeat w-screen bg-center bg-contain">
         {isBreakingpoint ? (
           <Image src={bgMobile} alt="bg desktop" />
         ) : (
           <Image src={bgDesktop} alt="bg mobile" />
         )}
-      </section>
+      </section> */}
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
