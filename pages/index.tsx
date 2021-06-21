@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import { useState, useEffect, useCallback } from "react";
 
-import Countrycard from "../components/countrycard/Countrycard";
 import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";

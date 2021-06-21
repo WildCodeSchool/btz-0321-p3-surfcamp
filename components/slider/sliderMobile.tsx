@@ -24,7 +24,7 @@ function SliderMobile() {
   return (
     <div className="relative">
       <button
-        className="absolute transform translate-y-52 translate-x-3 cursor-pointer z-20"
+        className="absolute transform translate-y-52 translate-x-9 cursor-pointer z-20"
         onClick={handleClickLeft}
       >
         <Image src={arrowLeft} alt="left" className="text-black" />
