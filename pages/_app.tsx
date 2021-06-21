@@ -5,13 +5,14 @@ import Layout from "../components/layout/Layout";
 import NavBar from "../components/navBar/NavBar";
 import SearchBar from "../components/searchBar/SearchBar";
 import "../styles/globals.css";
+import "../components/searchBar/SearchBar.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Layout>
       <NavBar />
-      <Component {...pageProps} />
       <SearchBar />
+      <Component {...pageProps} />
       <Footer />
     </Layout>
   );
