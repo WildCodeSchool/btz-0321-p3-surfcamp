@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <Filter />
       <Component {...pageProps} />
       <SearchBar />
+      <Component {...pageProps} />
       <Footer />
     </Layout>
   );

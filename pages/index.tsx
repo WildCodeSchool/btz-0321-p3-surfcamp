@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Head from "next/head";
 
-import { useState, useEffect, useCallback } from "react";
+// import { useState, useEffect, useCallback } from "react";
 
 import Countrycard from "../components/countrycard/Countrycard";
 import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 
-import bgDesktop from "../public/surfbgdesktop.webp";
-import bgMobile from "../public/surfbgmobile.webp";
+// import bgDesktop from "../public/surfbgdesktop.webp";
+// import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
 
 const france = {
@@ -32,39 +32,39 @@ const valueTeam = {
   textcontact:
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
-const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = useState(false);
-  const updateTarget = useCallback((e) => {
-    if (e.matches) {
-      setTargetReached(true);
-    } else {
-      setTargetReached(false);
-    }
-  }, []);
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width :${width}px)`);
-    media.addListener(updateTarget);
-    if (media.matches) {
-      setTargetReached(true);
-    }
-    return () => media.removeListener(updateTarget);
-  }, []);
-  return targetReached;
-};
+// const useMediaQuery = (width: number) => {
+//   const [targetReached, setTargetReached] = useState(false);
+//   const updateTarget = useCallback((e) => {
+//     if (e.matches) {
+//       setTargetReached(true);
+//     } else {
+//       setTargetReached(false);
+//     }
+//   }, []);
+//   useEffect(() => {
+//     const media = window.matchMedia(`(max-width :${width}px)`);
+//     media.addListener(updateTarget);
+//     if (media.matches) {
+//       setTargetReached(true);
+//     }
+//     return () => media.removeListener(updateTarget);
+//   }, []);
+//   return targetReached;
+// };
 export default function Home(): JSX.Element {
-  const isBreakingpoint = useMediaQuery(375);
+  // const isBreakingpoint = useMediaQuery(375);
   return (
     <div>
       <Head>
         <title>{`Surfcamp Accueil`}</title>
       </Head>
-      <section className="flex bg-no-repeat w-screen bg-center bg-contain">
+      {/* <section className="flex bg-no-repeat w-screen bg-center bg-contain">
         {isBreakingpoint ? (
           <Image src={bgMobile} alt="bg desktop" />
         ) : (
           <Image src={bgDesktop} alt="bg mobile" />
         )}
-      </section>
+      </section> */}
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
