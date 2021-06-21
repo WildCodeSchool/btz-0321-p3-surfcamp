@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Head from "next/head";
 
-import { useState, useEffect, useCallback } from "react";
+// import { useState, useEffect, useCallback } from "react";
 
 import Countrycard from "../components/countrycard/Countrycard";
 import Citycard from "../components/citycard/Citycard";
@@ -32,25 +32,25 @@ const valueTeam = {
   textcontact:
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
-const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = useState(false);
-  const updateTarget = useCallback((e) => {
-    if (e.matches) {
-      setTargetReached(true);
-    } else {
-      setTargetReached(false);
-    }
-  }, []);
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width :${width}px)`);
-    media.addListener(updateTarget);
-    if (media.matches) {
-      setTargetReached(true);
-    }
-    return () => media.removeListener(updateTarget);
-  }, []);
-  return targetReached;
-};
+// const useMediaQuery = (width: number) => {
+//   const [targetReached, setTargetReached] = useState(false);
+//   const updateTarget = useCallback((e) => {
+//     if (e.matches) {
+//       setTargetReached(true);
+//     } else {
+//       setTargetReached(false);
+//     }
+//   }, []);
+//   useEffect(() => {
+//     const media = window.matchMedia(`(max-width :${width}px)`);
+//     media.addListener(updateTarget);
+//     if (media.matches) {
+//       setTargetReached(true);
+//     }
+//     return () => media.removeListener(updateTarget);
+//   }, []);
+//   return targetReached;
+// };
 export default function Home(): JSX.Element {
   // const isBreakingpoint = useMediaQuery(375);
   return (
