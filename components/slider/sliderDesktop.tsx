@@ -1,28 +1,21 @@
 import { useState } from "react";
 import Image from "next/image";
+import CardSlider from "./cardSlider";
 import arrowLeft from "../../public/arrowleft.svg";
 import arrowRight from "../../public/arrowright.svg";
 
 function SliderDesktop() {
-  const imgTest: [
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string }
-  ] = [
+  const imgTest: { img: string; title: string }[] = [
     { img: "/Hossegor.jpg", title: "Hossegor" },
-    { img: "/Hossegor.jpg", title: "Hossegor" },
-    { img: "/Hossegor.jpg", title: "Hossegor" },
+    { img: "/Hossegor.jpg", title: "Bayonne" },
+    { img: "/Hossegor.jpg", title: "Anglet" },
+    { img: "/Hossegor.jpg", title: "Boucau" },
+    { img: "/Lacanau.jpeg", title: "Hendaye" },
+    { img: "/Lacanau.jpeg", title: "Capbreton" },
+    { img: "/Lacanau.jpeg", title: "Seignosse" },
     { img: "/Lacanau.jpeg", title: "Lacanau" },
-    { img: "/Lacanau.jpeg", title: "Lacanau" },
-    { img: "/Lacanau.jpeg", title: "Lacanau" },
-    { img: "/Nantes.jpeg", title: "Nantes" },
-    { img: "/Nantes.jpeg", title: "Nantes" },
   ];
+
   const [index, setIndex] = useState(0);
 
   const handleClickRight = () => {
@@ -32,39 +25,25 @@ function SliderDesktop() {
     setIndex(index === 0 ? imgTest.length - 1 : index - 1);
   };
   return (
-    <div className="relative">
+    <div className="relative w-max overflow-hidden">
       <button
-        className="absolute transform translate-y-52 translate-x-9 cursor-pointer z-20"
+        className="absolute transform translate-y-24 translate-x-9 cursor-pointer z-20"
         onClick={handleClickLeft}
       >
-        <Image src={arrowLeft} alt="left" className="text-black" />
+        <Image src={arrowLeft} alt="left" />
       </button>
       <button
-        className="absolute transform translate-y-52 translate-x-80 cursor-pointer z-20"
+        className="absolute transform translate-y-24 translate-x-80 cursor-pointer z-20"
         onClick={handleClickRight}
       >
-        <Image src={arrowRight} alt="right" className="text-black" />
+        <Image src={arrowRight} alt="right" />
       </button>
       <div
-        className="flex w-max overflow-hidden"
         style={{
-          transform: `translateX(${-375 * index}px)`,
+          transform: `translateX(${-240 * index}px)`,
         }}
       >
-        {imgTest.map((test, index) => (
-          <div key={index} className="flex items-center content-center">
-            <div className="absolute z-10 pl-10 sm:pl-8 text-4xl text-white pt-44 sm:pt-16">
-              <p>{test.title}</p>
-            </div>
-            <Image
-              src={test.img}
-              alt=""
-              width={375}
-              height={375}
-              className="bg-center bg-cover"
-            />
-          </div>
-        ))}
+        <CardSlider imgTest={imgTest} count={index} />
       </div>
     </div>
   );
