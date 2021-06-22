@@ -25,22 +25,25 @@ function SliderDesktop() {
     setIndex(index === 0 ? imgTest.length - 1 : index - 1);
   };
   return (
-    <div className="relative w-max overflow-hidden">
-      <button
-        className="absolute transform translate-y-24 translate-x-9 cursor-pointer z-20"
-        onClick={handleClickLeft}
-      >
-        <Image src={arrowLeft} alt="left" />
-      </button>
-      <button
-        className="absolute transform translate-y-24 translate-x-80 cursor-pointer z-20"
-        onClick={handleClickRight}
-      >
-        <Image src={arrowRight} alt="right" />
-      </button>
+    <div className="relative w-screen">
+      <div>
+        <button
+          className="absolute transform translate-y-24 translate-x-1 cursor-pointer z-30 justify-start"
+          onClick={handleClickLeft}
+        >
+          <Image src={arrowLeft} alt="left" />
+        </button>
+        <button
+          className="absolute transform translate-y-24 translate-x-full cursor-pointer z-30 justify-end"
+          onClick={handleClickRight}
+        >
+          <Image src={arrowRight} alt="right" />
+        </button>
+      </div>
       <div
+        className="w-max overflow-hidden"
         style={{
-          transform: `translateX(${-240 * index}px)`,
+          transform: `translateX(${-320 * index}px)`,
         }}
       >
         <CardSlider imgTest={imgTest} count={index} />

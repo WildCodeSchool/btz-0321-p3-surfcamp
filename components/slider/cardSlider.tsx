@@ -10,11 +10,17 @@ function CardSlider({ imgTest, count }: Iprop) {
     <div className="flex flex-row">
       {imgTest.map((test, index) => {
         return (
-          <div key={index} className="w-1/4 p-5">
-            <div className="absolute z-10 pl-10 sm:pl-8 text-4xl text-white pt-44 sm:pt-16">
+          <div key={index} className="w-1/4 h-1/4 p-5">
+            <div className="absolute z-10 pl-10 text-3xl text-white pt-36">
               <p>{test.title}</p>
             </div>
-            <Image src={test.img} alt="" width={200} height={200} />
+            <Image
+              src={test.img}
+              alt=""
+              width={280}
+              height={280}
+              className="rounded-xl"
+            />
           </div>
         );
       })}
