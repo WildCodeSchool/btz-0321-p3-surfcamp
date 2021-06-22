@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
-import arrowLeft from "../../public/arrowleft.svg";
-import arrowRight from "../../public/arrowright.svg";
+import Next from "./next";
+import Previous from "./previous";
 
 function SliderMobile() {
   const imgTest: [
@@ -15,26 +15,12 @@ function SliderMobile() {
   ];
   const [index, setIndex] = useState(0);
 
-  const handleClickRight = () => {
-    setIndex(index === imgTest.length - 1 ? 0 : index + 1);
-  };
-  const handleClickLeft = () => {
-    setIndex(index === 0 ? imgTest.length - 1 : index - 1);
-  };
   return (
     <div className="relative">
-      <button
-        className="absolute transform translate-y-52 translate-x-9 cursor-pointer z-20"
-        onClick={handleClickLeft}
-      >
-        <Image src={arrowLeft} alt="left" className="text-black" />
-      </button>
-      <button
-        className="absolute transform translate-y-52 translate-x-80 cursor-pointer z-20"
-        onClick={handleClickRight}
-      >
-        <Image src={arrowRight} alt="right" className="text-black" />
-      </button>
+      <div>
+        <Next imgTest={imgTest} count={index} setCount={setIndex} />
+        <Previous imgTest={imgTest} count={index} setCount={setIndex} />
+      </div>
       <div
         className="flex w-max overflow-hidden"
         style={{

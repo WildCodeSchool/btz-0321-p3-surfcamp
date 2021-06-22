@@ -111,7 +111,7 @@ export default function Home(): JSX.Element {
         </p>
       </section>
       <section>
-        <SliderDesktop />
+        {isBreakingpoint ? <SliderMobile /> : <SliderDesktop />}
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
@@ -126,7 +126,7 @@ export default function Home(): JSX.Element {
         </p>
       </section>
       <section>
-        <SliderMobile />
+        {isBreakingpoint ? <SliderMobile /> : <SliderDesktop />}
       </section>
       <section className="hidden sm:block p-10 text-xs sm:text-base ">
         <h2 className="flex justify-center pb-4 text-xl text-gray-600">
