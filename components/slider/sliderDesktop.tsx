@@ -18,19 +18,17 @@ function SliderDesktop() {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative w-screen">
-      <div>
-        <Next imgTest={imgTest} count={index} setCount={setIndex} />
-        <Previous imgTest={imgTest} count={index} setCount={setIndex} />
-      </div>
+    <div className="relative w-screen overflow-hidden">
+      <Previous imgTest={imgTest} count={index} setCount={setIndex} />
       <div
-        className="w-max overflow-hidden"
+        className="w-max "
         style={{
           transform: `translateX(${-320 * index}px)`,
         }}
       >
         <CardSlider imgTest={imgTest} count={index} />
       </div>
+      <Next imgTest={imgTest} count={index} setCount={setIndex} />
     </div>
   );
 }

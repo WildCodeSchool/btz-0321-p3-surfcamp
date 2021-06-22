@@ -13,7 +13,7 @@ function Next({ count, setCount, imgTest }: Iprops): JSX.Element {
   };
   return (
     <button
-      className="absolute transform translate-y-24 translate-x-full cursor-pointer z-30 justify-end"
+      className="absolute transform translate-y-24 translate-x-full cursor-pointer z-30 justify-end border-gray-500"
       onClick={handleClickNext}
     >
       <Image src={arrowNext} alt="right" />

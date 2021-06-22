@@ -16,13 +16,13 @@ function SliderMobile() {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <div>
         <Next imgTest={imgTest} count={index} setCount={setIndex} />
         <Previous imgTest={imgTest} count={index} setCount={setIndex} />
       </div>
       <div
-        className="flex w-max overflow-hidden"
+        className="flex w-max"
         style={{
           transform: `translateX(${-375 * index}px)`,
         }}
