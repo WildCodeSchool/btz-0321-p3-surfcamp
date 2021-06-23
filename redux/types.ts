@@ -1,6 +1,15 @@
+export interface AppState {
+  user: UserState;
+}
 export interface AppInitialState {
-  name: string;
+  user: UserState;
 }
 export interface AppPreLoadedState {
-  name: string;
+  user: UserState;
 }
+
+export interface UserState {
+  firstname: string;
+}
+
+export const SET_USER = "SET_USER";
