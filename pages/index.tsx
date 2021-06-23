@@ -1,23 +1,16 @@
 import Image from "next/image";
 import Head from "next/head";
 
-// import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-import Countrycard from "../components/countrycard/Countrycard";
-import Citycard from "../components/citycard/Citycard";
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
+import SliderMobile from "../components/slider/sliderMobile";
+import SliderDesktop from "../components/slider/sliderDesktop";
 
-// import bgDesktop from "../public/surfbgdesktop.webp";
-// import bgMobile from "../public/surfbgmobile.webp";
+import bgDesktop from "../public/surfbgdesktop.webp";
+import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
-
-const france = {
-  country: "/Pays.webp",
-  titlecountry: "France",
-  titlecity: "Biarritz",
-  city: "/Biarritz.jpg",
-};
 
 const hostButton = { inputbutton: "DEVENIR HÔTE" };
 
@@ -32,39 +25,43 @@ const valueTeam = {
   textcontact:
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
-// const useMediaQuery = (width: number) => {
-//   const [targetReached, setTargetReached] = useState(false);
-//   const updateTarget = useCallback((e) => {
-//     if (e.matches) {
-//       setTargetReached(true);
-//     } else {
-//       setTargetReached(false);
-//     }
-//   }, []);
-//   useEffect(() => {
-//     const media = window.matchMedia(`(max-width :${width}px)`);
-//     media.addListener(updateTarget);
-//     if (media.matches) {
-//       setTargetReached(true);
-//     }
-//     return () => media.removeListener(updateTarget);
-//   }, []);
-//   return targetReached;
-// };
+
+const useMediaQuery = (width: number) => {
+  const [targetReached, setTargetReached] = useState(false);
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width :${width}px)`);
+    media.addListener(updateTarget);
+    if (media.matches) {
+      setTargetReached(true);
+    }
+    return () => media.removeListener(updateTarget);
+  }, []);
+  return targetReached;
+};
+
 export default function Home(): JSX.Element {
-  // const isBreakingpoint = useMediaQuery(375);
+  const isBreakingpoint = useMediaQuery(375);
   return (
     <div>
       <Head>
         <title>{`Surfcamp Accueil`}</title>
       </Head>
-      {/* <section className="flex bg-no-repeat w-screen bg-center bg-contain">
-        {isBreakingpoint ? (
-          <Image src={bgMobile} alt="bg desktop" />
-        ) : (
-          <Image src={bgDesktop} alt="bg mobile" />
-        )}
-      </section> */}
+      <section className="flex bg-no-repeat h-screen overflow-hidden bg-center bg-contain">
+        <div className="h-full">
+          {isBreakingpoint ? (
+            <Image src={bgMobile} alt="bg desktop" />
+          ) : (
+            <Image src={bgDesktop} alt="bg mobile" />
+          )}
+        </div>
+      </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
@@ -105,12 +102,9 @@ export default function Home(): JSX.Element {
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne, l'Indonésie
           et plein d'autres destinations surf !`}
         </p>
-        <div className="flex flex-row justify-around p-6">
-          <Countrycard {...france} />
-          <Countrycard {...france} />
-          <Countrycard {...france} />
-          <Countrycard {...france} />
-        </div>
+      </section>
+      <section>
+        {isBreakingpoint ? <SliderMobile /> : <SliderDesktop />}
       </section>
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base">
         <h2 className="flex justify-center pb-4 text-xl">
@@ -123,12 +117,9 @@ export default function Home(): JSX.Element {
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !`}
         </p>
-        <div className="flex flex-row justify-around p-6">
-          <Citycard {...france} />
-          <Citycard {...france} />
-          <Citycard {...france} />
-          <Citycard {...france} />
-        </div>
+      </section>
+      <section>
+        {isBreakingpoint ? <SliderMobile /> : <SliderDesktop />}
       </section>
       <section className="hidden sm:block p-10 text-xs sm:text-base ">
         <h2 className="flex justify-center pb-4 text-xl text-gray-600">
