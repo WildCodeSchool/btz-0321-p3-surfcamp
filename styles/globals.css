@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+.backgroundSearchBar{
+    background-image: url('../public/surfbgdesktop.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
