@@ -7,7 +7,7 @@ import { AppInitialState, AppPreLoadedState } from "../redux/types";
 import { Store } from "redux";
 let store: Store | undefined;
 
-function initStore(initialState: AppInitialState) {
+function initStore(initialState: AppInitialState | any) {
   return createStore(
     reducers,
     initialState,

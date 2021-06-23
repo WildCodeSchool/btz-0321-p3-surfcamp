@@ -5,11 +5,13 @@ export interface AppState {
 }
 export interface AppInitialState {
   email: string,
-  password: string,
+  role: string,
+  startSession?: Date,
 }
 export interface AppPreLoadedState {
   email: string,
-  password: string,
+  role: string,
+  startSession?: Date,
 }
 
 export const SESSION_LOGIN = "SESSION_LOGIN";
