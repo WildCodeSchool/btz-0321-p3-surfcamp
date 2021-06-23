@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Head from "next/head";
 
 import { useState, useEffect, useCallback } from "react";
 
@@ -8,8 +7,8 @@ import Value from "../components/value/Value";
 import SliderMobile from "../components/slider/sliderMobile";
 import SliderDesktop from "../components/slider/sliderDesktop";
 
-import bgDesktop from "../public/surfbgdesktop.webp";
-import bgMobile from "../public/surfbgmobile.webp";
+// import bgDesktop from "../public/surfbgdesktop.webp";
+// import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
 
 const hostButton = { inputbutton: "DEVENIR HÔTE" };
@@ -50,10 +49,7 @@ export default function Home(): JSX.Element {
   const isBreakingpoint = useMediaQuery(375);
   return (
     <div>
-      <Head>
-        <title>{`Surfcamp Accueil`}</title>
-      </Head>
-      <section className="flex bg-no-repeat h-screen overflow-hidden bg-center bg-contain">
+      {/* <section className="flex bg-no-repeat h-screen overflow-hidden bg-center bg-contain">
         <div className="h-full">
           {isBreakingpoint ? (
             <Image src={bgMobile} alt="bg desktop" />
@@ -61,7 +57,7 @@ export default function Home(): JSX.Element {
             <Image src={bgDesktop} alt="bg mobile" />
           )}
         </div>
-      </section>
+      </section> */}
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
@@ -117,10 +113,9 @@ export default function Home(): JSX.Element {
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !`}
         </p>
-      </section>
-      <section>
         {isBreakingpoint ? <SliderMobile /> : <SliderDesktop />}
       </section>
+
       <section className="hidden sm:block p-10 text-xs sm:text-base ">
         <h2 className="flex justify-center pb-4 text-xl text-gray-600">
           {`          Votre surf camp en parcourant le monde !

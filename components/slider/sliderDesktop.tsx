@@ -20,7 +20,7 @@ function SliderDesktop(): JSX.Element {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative w-screen overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       <Previous imgTest={imgTest} count={index} setCount={setIndex} />
       <div
         className="w-max "
