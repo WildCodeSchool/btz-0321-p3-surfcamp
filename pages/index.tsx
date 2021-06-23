@@ -12,13 +12,6 @@ import bgDesktop from "../public/surfbgdesktop.webp";
 import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
 
-const france = {
-  country: "/Pays.webp",
-  titlecountry: "France",
-  titlecity: "Biarritz",
-  city: "/Biarritz.jpg",
-};
-
 const hostButton = { inputbutton: "DEVENIR HÔTE" };
 
 const valueTeam = {
