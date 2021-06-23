@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
-
+import Navbar from "../navBar/NavBar";
+import Footer from "../Footer/Footer";
 interface IProps {
   children: React.ReactNode;
   page?: string;
@@ -8,13 +9,14 @@ interface IProps {
 
 export default function layout({ page, children }: IProps): JSX.Element {
   return (
-    <div className="layout">
+    <div className="layout w-full">
       <Head>
         <title>{page}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="flex flex-col w-full min-h-screen">{children}</div>
+      <Navbar />
+      {children}
+      <Footer />
     </div>
   );
 }

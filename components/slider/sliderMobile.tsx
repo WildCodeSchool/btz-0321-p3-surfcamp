@@ -1,42 +1,31 @@
 import { useState } from "react";
 import Image from "next/image";
-import arrowLeft from "../../public/arrowleft.svg";
-import arrowRight from "../../public/arrowright.svg";
+import Next from "./next";
+import Previous from "./previous";
+import Hossegor from "../../public//Hossegor.jpg";
+import Lacanau from "../../public//Lacanau.jpeg";
+import Nantes from "../../public//Nantes.jpeg";
 
-function SliderMobile() {
+function SliderMobile(): JSX.Element {
   const imgTest: [
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string }
+    { img: StaticImageData; title: string },
+    { img: StaticImageData; title: string },
+    { img: StaticImageData; title: string }
   ] = [
-    { img: "/Hossegor.jpg", title: "Hossegor" },
-    { img: "/Lacanau.jpeg", title: "Lacanau" },
-    { img: "/Nantes.jpeg", title: "Nantes" },
+    { img: Hossegor, title: "Hossegor" },
+    { img: Lacanau, title: "Lacanau" },
+    { img: Nantes, title: "Nantes" },
   ];
   const [index, setIndex] = useState(0);
 
-  const handleClickRight = () => {
-    setIndex(index === imgTest.length - 1 ? 0 : index + 1);
-  };
-  const handleClickLeft = () => {
-    setIndex(index === 0 ? imgTest.length - 1 : index - 1);
-  };
   return (
-    <div className="relative">
-      <button
-        className="absolute transform translate-y-52 translate-x-9 cursor-pointer z-20"
-        onClick={handleClickLeft}
-      >
-        <Image src={arrowLeft} alt="left" className="text-black" />
-      </button>
-      <button
-        className="absolute transform translate-y-52 translate-x-80 cursor-pointer z-20"
-        onClick={handleClickRight}
-      >
-        <Image src={arrowRight} alt="right" className="text-black" />
-      </button>
+    <div className="relative overflow-hidden">
+      <div>
+        <Next imgTest={imgTest} count={index} setCount={setIndex} />
+        <Previous imgTest={imgTest} count={index} setCount={setIndex} />
+      </div>
       <div
-        className="flex w-max overflow-hidden"
+        className="flex w-max"
         style={{
           transform: `translateX(${-375 * index}px)`,
         }}
