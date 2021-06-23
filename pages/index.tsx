@@ -117,17 +117,19 @@ export default function Home(): JSX.Element {
       <section>
         {isBreakingpoint ? <SliderMobile /> : <SliderDesktop />}
       </section>
-      <section className="hidden sm:block p-10 text-xs sm:text-base ">
-        <h2 className="flex justify-center pb-4 text-xl text-gray-600">
+      <section className="hidden sm:block p-10 text-xs sm:text-base bg-BlueCamp">
+        <h2 className="flex justify-center pb-4 text-xl text-white">
           {`          Votre surf camp en parcourant le monde !
 `}{" "}
         </h2>
-        <p className="flex text-center p-4 text-gray-600">
+        <p className="flex text-center p-4 text-white">
           {` Découvrez l'expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !`}
         </p>
+      </section>
+      <section className="w-full h-96">
         <p>{`-Map Google-`}</p>
       </section>
       <section className="bg-BlueCamp text-white  text-xs sm:text-base flex flex-col sm:flex-row">
