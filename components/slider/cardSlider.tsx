@@ -4,7 +4,7 @@ interface Iprop {
   imgTest: { img: StaticImageData; title: string }[];
 }
 
-function CardSlider({ imgTest }: Iprop) {
+function CardSlider({ imgTest }: Iprop): JSX.Element {
   return (
     <div className="flex flex-row w-5/12 h-full">
       {imgTest.map((test, index) => {

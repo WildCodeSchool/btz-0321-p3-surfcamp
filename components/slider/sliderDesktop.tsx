@@ -5,7 +5,7 @@ import Previous from "./previous";
 import Hossegor from "../../public//Hossegor.jpg";
 import Lacanau from "../../public//Lacanau.jpeg";
 
-function SliderDesktop() {
+function SliderDesktop(): JSX.Element {
   const imgTest: { img: StaticImageData; title: string }[] = [
     { img: Hossegor, title: "France" },
     { img: Hossegor, title: "Costa Rica" },

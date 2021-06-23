@@ -6,7 +6,7 @@ import Hossegor from "../../public//Hossegor.jpg";
 import Lacanau from "../../public//Lacanau.jpeg";
 import Nantes from "../../public//Nantes.jpeg";
 
-function SliderMobile() {
+function SliderMobile(): JSX.Element {
   const imgTest: [
     { img: StaticImageData; title: string },
     { img: StaticImageData; title: string },
