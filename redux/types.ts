@@ -1,15 +1,19 @@
 export interface AppState {
-  user: UserState;
+  user: string,
+  email: string,
 }
 export interface AppInitialState {
-  user: UserState;
+  user: string,
+  email: string,
 }
 export interface AppPreLoadedState {
-  user: UserState;
+  user: string,
+  email: string,
 }
 
 export interface UserState {
-  firstname: string;
+  user: string,
+  email: string,
 }
 
-export const SET_USER = "SET_USER";
+export const IS_LOGIN = "IS_LOGIN";

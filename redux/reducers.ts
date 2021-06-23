@@ -1,19 +1,18 @@
 import { types } from "joi";
 import { AppInitialState, AppState } from "./types";
-import { Reducer, combineReducers } from "redux";
+import { Reducer, combineReducers, AnyAction } from "redux";
 
 export const initialState: AppState = {
-  user: {
-    firstname: "john",
-  },
+  user : "",
+  email:""
 };
 
-const userReducer: Reducer<AppInitialState> = (
+const userReducer = (
   state: AppState = initialState,
-  action
+  action:AnyAction
 ) => {
   switch (action.type) {
-    case types.SET_USER:
+    case types.IS_LOGIN:
       return {
         ...state,
         payload: action.payload,
@@ -22,7 +21,7 @@ const userReducer: Reducer<AppInitialState> = (
 };
 
 const reducers = {
-  uder: userReducer,
+  user: userReducer,
 };
 
 export default combineReducers(reducers);

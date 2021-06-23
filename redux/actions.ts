@@ -1,3 +1,3 @@
 import * as types from "./types";
 
-export const setUser = () => ({ type: types.SET_USER });
+export const isLogin = () => ({ type: types.IS_LOGIN });

@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import {useDispatch} from 'react-redux'
+import { isLogin } from "../../redux/actions";
 export default function Login(): JSX.Element {
+  const dispatch = useDispatch()
   const {
     register,
     formState: { errors },
@@ -12,6 +14,7 @@ export default function Login(): JSX.Element {
   const onSubmit = (data: object) => {
     // eslint-disable-next-line no-console
     console.log(data);
+    dispatch(isLogin())
   };
 
   return (
