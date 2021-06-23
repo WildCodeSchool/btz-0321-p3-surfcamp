@@ -2,7 +2,7 @@ import Image from "next/image";
 import arrowPrevious from "../../public/arrowleft.svg";
 
 interface Iprops {
-  imgTest: { img: string; title: string }[];
+  imgTest: { img: StaticImageData; title: string }[];
   setCount: Function;
   count: number;
 }

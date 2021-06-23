@@ -2,16 +2,19 @@ import { useState } from "react";
 import Image from "next/image";
 import Next from "./next";
 import Previous from "./previous";
+import Hossegor from "../../public//Hossegor.jpg";
+import Lacanau from "../../public//Lacanau.jpeg";
+import Nantes from "../../public//Nantes.jpeg";
 
 function SliderMobile() {
   const imgTest: [
-    { img: string; title: string },
-    { img: string; title: string },
-    { img: string; title: string }
+    { img: StaticImageData; title: string },
+    { img: StaticImageData; title: string },
+    { img: StaticImageData; title: string }
   ] = [
-    { img: "/Hossegor.jpg", title: "Hossegor" },
-    { img: "/Lacanau.jpeg", title: "Lacanau" },
-    { img: "/Nantes.jpeg", title: "Nantes" },
+    { img: Hossegor, title: "Hossegor" },
+    { img: Lacanau, title: "Lacanau" },
+    { img: Nantes, title: "Nantes" },
   ];
   const [index, setIndex] = useState(0);
 
