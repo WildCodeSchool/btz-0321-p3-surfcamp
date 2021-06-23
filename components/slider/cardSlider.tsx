@@ -2,10 +2,9 @@ import Image from "next/image";
 
 interface Iprop {
   imgTest: { img: StaticImageData; title: string }[];
-  count: number;
 }
 
-function CardSlider({ imgTest, count }: Iprop) {
+function CardSlider({ imgTest }: Iprop) {
   return (
     <div className="flex flex-row w-5/12 h-full">
       {imgTest.map((test, index) => {

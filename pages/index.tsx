@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Head from "next/head";
 
-// import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import MyButton from "../components/button/MyButton";
 import Value from "../components/value/Value";
 import SliderMobile from "../components/slider/sliderMobile";
 import SliderDesktop from "../components/slider/sliderDesktop";
 
-// import bgDesktop from "../public/surfbgdesktop.webp";
-// import bgMobile from "../public/surfbgmobile.webp";
+import bgDesktop from "../public/surfbgdesktop.webp";
+import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
 
 const france = {
@@ -32,7 +32,6 @@ const valueTeam = {
   textcontact:
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
-<<<<<<< HEAD
 
 const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -54,35 +53,13 @@ const useMediaQuery = (width: number) => {
   return targetReached;
 };
 
-=======
-// const useMediaQuery = (width: number) => {
-//   const [targetReached, setTargetReached] = useState(false);
-//   const updateTarget = useCallback((e) => {
-//     if (e.matches) {
-//       setTargetReached(true);
-//     } else {
-//       setTargetReached(false);
-//     }
-//   }, []);
-//   useEffect(() => {
-//     const media = window.matchMedia(`(max-width :${width}px)`);
-//     media.addListener(updateTarget);
-//     if (media.matches) {
-//       setTargetReached(true);
-//     }
-//     return () => media.removeListener(updateTarget);
-//   }, []);
-//   return targetReached;
-// };
->>>>>>> develop
 export default function Home(): JSX.Element {
-  // const isBreakingpoint = useMediaQuery(375);
+  const isBreakingpoint = useMediaQuery(375);
   return (
     <div>
       <Head>
         <title>{`Surfcamp Accueil`}</title>
       </Head>
-<<<<<<< HEAD
       <section className="flex bg-no-repeat h-screen overflow-hidden bg-center bg-contain">
         <div className="h-full">
           {isBreakingpoint ? (
@@ -92,15 +69,6 @@ export default function Home(): JSX.Element {
           )}
         </div>
       </section>
-=======
-      {/* <section className="flex bg-no-repeat w-screen bg-center bg-contain">
-        {isBreakingpoint ? (
-          <Image src={bgMobile} alt="bg desktop" />
-        ) : (
-          <Image src={bgDesktop} alt="bg mobile" />
-        )}
-      </section> */}
->>>>>>> develop
       <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
         <p className="flex text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
