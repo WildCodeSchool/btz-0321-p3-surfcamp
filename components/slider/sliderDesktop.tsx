@@ -28,7 +28,7 @@ function SliderDesktop() {
           transform: `translateX(${-320 * index}px)`,
         }}
       >
-        <CardSlider imgTest={imgTest} count={index} />
+        <CardSlider imgTest={imgTest} />
       </div>
       <Next imgTest={imgTest} count={index} setCount={setIndex} />
     </div>
