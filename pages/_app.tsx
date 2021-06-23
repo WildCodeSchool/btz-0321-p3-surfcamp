@@ -10,12 +10,8 @@ import Filter from "../components/Filter/Filter";
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Layout>
-      <NavBar />
-      <Filter />
       <Component {...pageProps} />
-      <SearchBar />
       <Component {...pageProps} />
-      <Footer />
     </Layout>
   );
 }
