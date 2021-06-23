@@ -1,10 +1,12 @@
-import { types } from "joi";
 import { AppInitialState, AppState } from "./types";
 import { Reducer, combineReducers, AnyAction } from "redux";
+import * as  types from '../redux/types'
+
 
 export const initialState: AppState = {
-  user : "",
-  email:""
+  email : "",
+  startSession: new Date(),
+  role: ""
 };
 
 const userReducer = (
@@ -12,12 +14,15 @@ const userReducer = (
   action:AnyAction
 ) => {
   switch (action.type) {
-    case types.IS_LOGIN:
+    case types.SESSION_LOGIN:
       return {
         ...state,
-        payload: action.payload,
+        email: action.payload.email,
+        role: action.payload.role,
+        startSession: action.payload.startSession,
       };
   }
+  return state
 };
 
 const reducers = {

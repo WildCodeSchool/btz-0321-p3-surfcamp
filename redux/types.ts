@@ -1,19 +1,15 @@
 export interface AppState {
-  user: string,
   email: string,
+  role: string,
+  startSession?: Date,
 }
 export interface AppInitialState {
-  user: string,
   email: string,
+  password: string,
 }
 export interface AppPreLoadedState {
-  user: string,
   email: string,
+  password: string,
 }
 
-export interface UserState {
-  user: string,
-  email: string,
-}
-
-export const IS_LOGIN = "IS_LOGIN";
+export const SESSION_LOGIN = "SESSION_LOGIN";
