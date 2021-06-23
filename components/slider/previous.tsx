@@ -3,7 +3,7 @@ import arrowPrevious from "../../public/arrowleft.svg";
 
 interface Iprops {
   imgTest: { img: StaticImageData; title: string }[];
-  setCount: Function;
+  setCount: (count: number) => void;
   count: number;
 }
 
