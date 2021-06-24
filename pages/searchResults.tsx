@@ -20,11 +20,11 @@ export default function searchResults(): JSX.Element {
             <Card2 />
           </div>
         </div>
-        <div className="hidden sm:flex  // w-full  flex-col ">
-          <div className="w-1/2 h-1/2">
+        <div className="hidden sm:flex  // w-full h-full flex-col ">
+          <div className="w-full">
             <GoogleMap />
           </div>
-          <div className="bg-BlueCamp text-white text-center ">
+          <div className="bg-BlueCamp text-white text-center w-full h-1/2 ">
             <ResultSEO />
           </div>
         </div>
