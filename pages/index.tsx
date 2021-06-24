@@ -7,6 +7,8 @@ import Value from "../components/value/Value";
 
 import TextSEOMain from "../components/TextSEOMain/TextSEOMain";
 import CarrousselCity from "../components/CarrousselCity/CarrousselCity";
+import Footer from "../components/Footer/Footer";
+import SearchBar from "../components/searchBar/SearchBar";
 
 const valueTeam = {
   titleteam: "La Team Surfcamp.fr",
@@ -23,16 +25,16 @@ const valueTeam = {
 export default function Home(): JSX.Element {
   return (
     <div>
+      <SearchBar />
+      <TextSEOMain />
       <CarrousselMain />
-
+      <CarrousselCity />
       <MainGoogleMap />
       <DevenezHote />
-      <TextSEOMain />
-      <CarrousselCity />
-
       <section className="sm:justify-evenly">
         <Value {...valueTeam} />
       </section>
+      <Footer />
     </div>
   );
 }
