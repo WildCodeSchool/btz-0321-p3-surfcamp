@@ -7,8 +7,6 @@ import Value from "../components/value/Value";
 import SliderMobile from "../components/slider/sliderMobile";
 import SliderDesktop from "../components/slider/sliderDesktop";
 
-// import bgDesktop from "../public/surfbgdesktop.webp";
-// import bgMobile from "../public/surfbgmobile.webp";
 import imgContact from "../public/imgcontact.jpg";
 
 const hostButton = { inputbutton: "DEVENIR HÔTE" };
