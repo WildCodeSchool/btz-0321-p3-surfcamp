@@ -15,7 +15,7 @@ export default function Login(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className="flex">
       <form
         className=" flex text-white items-center px-8 h-auto rounded-lg flex-col bg-BlueCamp border    border-white"
         onSubmit={handleSubmit(onSubmit)}
@@ -115,6 +115,11 @@ export default function Login(): JSX.Element {
           </button>
         </div>
       </form>
+      <div>
+        <button className="text-white ml-5 relative">
+          <a href="/">X</a>
+        </button>
+      </div>
     </div>
   );
 }
