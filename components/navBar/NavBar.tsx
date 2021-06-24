@@ -12,14 +12,12 @@ export default function NavBar(): JSX.Element {
       />
       <div></div>
       <div className="flex items-center text-lg ">
-        <Image
-          src="/images/menu-outline.svg"
-          width={50}
-          height={50}
-          alt="logo"
-        />
-        <a href="/login" className="px-2">
+        <a href="/login" className="px-2 hover:border-b">
           login
+        </a>
+        <p>/</p>
+        <a href="/signin" className="px-2 hover:border-b">
+          Sign In
         </a>
         <Image
           src="/images/francais.png"

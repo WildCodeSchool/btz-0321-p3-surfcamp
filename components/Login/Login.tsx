@@ -53,7 +53,9 @@ export default function Login(): JSX.Element {
           <div className="flex flex-col text-center mt-2 mb-8">
             <p className="text-xs">
               {" Je n'ai pas de compte, je m'en crée un "}
-              <span className="text-red-400">ici</span>
+              <span className="text-red-400">
+                <a href="/signin">ici</a>
+              </span>
             </p>
             <p className="text-xs">
               Identifiants introuvables ? Par{" "}

@@ -108,7 +108,9 @@ export default function SignInForm(): JSX.Element {
         <div className="flex flex-col text-center mt-2 mb-2">
           <p className="text-xs">
             Déjà un compte ? Connecte toi{" "}
-            <span className="text-red-400">ici</span>
+            <span className="text-red-400">
+              <a href="/login">ici</a>
+            </span>
           </p>
         </div>
         <button
