@@ -2,6 +2,7 @@ import React from "react";
 import DisplayCard from "../components/Displaycard/DisplayCard";
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Card2 from "../components/CardPattern/card2";
+import ResultSEO from "../components/resultSEO/resultSEO";
 
 export default function searchResults(): JSX.Element {
   return (
@@ -19,8 +20,13 @@ export default function searchResults(): JSX.Element {
             <Card2 />
           </div>
         </div>
-        <div className="hidden sm:flex  // w-full h-1/4  ">
-          <GoogleMap />
+        <div className="hidden sm:flex  // w-full  flex-col ">
+          <div className="w-1/2 h-1/2">
+            <GoogleMap />
+          </div>
+          <div className="bg-BlueCamp text-white text-center ">
+            <ResultSEO />
+          </div>
         </div>
       </div>
     </>
