@@ -3,9 +3,13 @@ import { useQuery } from "react-query";
 import Image from "next/image"
 import axios from 'axios';
 
-export default function Carroussel(): JSX.Element {
+interface IProps {
+    ressource: string;
+}
+
+export default function Carroussel({ressource}: IProps): JSX.Element {
     const [skipQuery, setSkipQuery] = useState(0)
-    const { error, data, refetch,isLoading } = useQuery('citypictures', () => axios(`http://localhost:5000/citypictures/?skip=${skipQuery}&take=4`));
+    const { error, data, refetch,isLoading } = useQuery(`${ressource}`, () => axios(`http://localhost:5000/${ressource}/?skip=${skipQuery}&take=4`));
 
     const forward = () => {
         setSkipQuery(c => c += 4)
@@ -24,13 +28,13 @@ export default function Carroussel(): JSX.Element {
 
     return (
         <div className="w-full flex items-center align-middle justify-around h-full">
-            <button onClick={forward}>FORWARD</button>
+            <button onClick={backward}>BACKWARD</button>
             {
                 data && data.data.map((image: { url: string}, index: number) => {
-                    return <div className="rounded-xl"><Image key={index} src={image.url} width={300} height={300} quality={100} /></div>
+                    return <div><Image key={index} src={image.url} width={300} height={300} quality={100} /></div>
                 })
             }
-            <button onClick={backward}>BACKWARD</button>
+            <button onClick={forward}>FORWARD</button>
         </div>
     )
 }
