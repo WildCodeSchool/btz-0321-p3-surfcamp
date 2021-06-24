@@ -10,14 +10,12 @@ export default function Carroussel(): JSX.Element {
     const forward = () => {
         setSkipQuery(c => c += 4)
         refetch()
-        console.log(skipQuery)
     }
     const backward = () => {
         if (skipQuery === 0) { setSkipQuery(0) }
         else {
             setSkipQuery(c => c -= 4)
             refetch()
-            console.log(skipQuery)
         }
     }
 
