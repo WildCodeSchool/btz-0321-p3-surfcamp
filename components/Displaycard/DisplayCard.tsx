@@ -1,3 +1,3 @@
 export default function DisplayCard() {
-  return <div>card</div>;
+  return <div></div>;
 }
