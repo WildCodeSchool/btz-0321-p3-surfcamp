@@ -1,7 +1,7 @@
 import React from "react";
 import DisplayCard from "../components/Displaycard/DisplayCard";
 import GoogleMap from "../components/GoogleMap/GoogleMap";
-import CardPattern from "../components/CardPattern/CardPattern";
+import Card2 from "../components/CardPattern/card2";
 
 export default function searchResults(): JSX.Element {
   return (
@@ -13,13 +13,13 @@ export default function searchResults(): JSX.Element {
           </div> */}
           <DisplayCard />
           <div className="">
-            <CardPattern />
-            <CardPattern />
-            <CardPattern />
-            <CardPattern />
+            <Card2 />
+            <Card2 />
+            <Card2 />
+            <Card2 />
           </div>
         </div>
-        <div className="w-full h-1/2 ">
+        <div className="hidden sm:flex  // w-full h-1/4  ">
           <GoogleMap />
         </div>
       </div>
