@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 import Carroussel from '../components/Carroussel/Carroussel'
-import CarrousselMain from "../components/carrousselCountry/carrousselCountry";
 import MainGoogleMap from "../components/MainGoogleMap/MainGoogleMap";
 import DevenezHote from "../components/DevenezHote/DevenezHote";
 import Value from "../components/value/Value";
