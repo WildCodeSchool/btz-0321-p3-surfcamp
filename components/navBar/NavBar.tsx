@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NavBar(): JSX.Element {
   return (
-    <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-0 ">
+    <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 top-0 ">
       <Image
         src="/images/surfCampLogo.png"
         width={150}
