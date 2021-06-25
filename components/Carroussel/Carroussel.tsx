@@ -32,7 +32,7 @@ export default function Carroussel({ ressource }: IProps): JSX.Element {
 			<button onClick={backward}>BACKWARD</button>
 			{
 				data && data.data.map((image: { url: string }, index: number) => {
-					return <div><Image key={index} src={image.url} width={300} height={300} quality={100} /></div>;
+					return <div key={index}><Image src={image.url} width={300} height={300} quality={100} /></div>;
 				})
 			}
 			<button onClick={forward}>FORWARD</button>
