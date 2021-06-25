@@ -15,7 +15,6 @@ const valueTeam = {
     "Parce que nous sommes en constante recherche de l’amélioration de nos services, de qualité d’article et de véracité d’informations, n’hésitez pas à nous contacter dans le cas où vous voudriez nous faire un retour d’expérience !",
 };
 
-
 function Value(): JSX.Element {
   return (
     <div className="flex flex-col p-10 bg-gray-200 sm:flex-row">
