@@ -34,8 +34,12 @@ export default function Carroussel({ ressource, take }: IProps): JSX.Element {
   };
 
   useEffect(() => {
-    setAnimation("scale-in-center");
-    setLoading(true);
+    if (data?.headers["content-length"]) {
+      setSkipQuery(0);
+    } else {
+      setAnimation("scale-in-center");
+      setLoading(true);
+    }
   }, [skipQuery]);
 
   if (error) return <div>...error</div>;
