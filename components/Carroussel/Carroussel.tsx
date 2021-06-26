@@ -25,21 +25,13 @@ export default function Carroussel({ ressource, take }: IProps): JSX.Element {
   };
 
   const backward = () => {
-    if (skipQuery === 0) {
-      setSkipQuery(0);
-    } else {
-      setSkipQuery((c) => (c -= parseInt(take)));
-      refetch();
-    }
+    setSkipQuery((c) => (c -= parseInt(take)));
+    refetch();
   };
 
   useEffect(() => {
-    if (data?.headers["content-length"]) {
-      setSkipQuery(0);
-    } else {
-      setAnimation("scale-in-center");
-      setLoading(true);
-    }
+    setAnimation("scale-in-center");
+    setLoading(true);
   }, [skipQuery]);
 
   if (error) return <div>...error</div>;
