@@ -5,22 +5,23 @@ import axios from "axios";
 
 interface IProps {
   ressource: string;
+  take: string
 }
 
-export default function Carroussel({ ressource }: IProps): JSX.Element {
+export default function Carroussel({ ressource, take }: IProps): JSX.Element {
   const [skipQuery, setSkipQuery] = useState(0);
   const { error, data, refetch, isLoading } = useQuery(`${ressource}`, () =>
-    axios(`http://localhost:5000/${ressource}/?skip=${skipQuery}&take=4`)
+    axios(`http://localhost:5000/${ressource}/?skip=${skipQuery}&take=${take}`)
   );
   const forward = () => {
-    setSkipQuery((c) => (c += 4));
+    setSkipQuery((c) => (c += parseInt(take)));
     refetch();
   };
   const backward = () => {
     if (skipQuery === 0) {
       setSkipQuery(0);
     } else {
-      setSkipQuery((c) => (c -= 4));
+      setSkipQuery((c) => (c -= parseInt(take)));
       refetch();
     }
   };

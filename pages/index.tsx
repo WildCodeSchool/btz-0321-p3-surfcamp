@@ -12,8 +12,8 @@ export default function Home(): JSX.Element {
     <div>
       <SearchBar />
       <TextSEOMain />
-      <Carroussel ressource="countrypictures" />
-      <Carroussel ressource="citypictures" />
+      <Carroussel take="1" ressource="countrypictures" />
+      <Carroussel take="4" ressource="citypictures" />
       <MainGoogleMap />
       <DevenezHote />
       <section className="sm:justify-evenly">
