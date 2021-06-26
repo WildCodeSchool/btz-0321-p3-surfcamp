@@ -5,7 +5,7 @@ import axios from "axios";
 
 interface IProps {
   ressource: string;
-  take: string
+  take: string;
 }
 
 export default function Carroussel({ ressource, take }: IProps): JSX.Element {
