@@ -38,6 +38,7 @@ export default function SearchBar(): JSX.Element {
               startDate={startDate}
               endDate={endDate}
               selectsRange
+              isClearable
               withPortal
               dateFormat="dd/MM/yyyy"
               placeholderText="Arrivée / Départ"

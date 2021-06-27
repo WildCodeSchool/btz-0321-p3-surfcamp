@@ -1,24 +1,38 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
+import { useMutation, useQuery } from "react-query";
+import axios from "axios";
+
+interface IUser {
+  email: string;
+  password: string;
+}
+
 export default function Login(): JSX.Element {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const onSubmit = (data: object) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
-    dispatch(isLogin({email: data.email, role:"ADMIN"}))
+  const onSubmit = (data: IUser) => {
+    const res = axios({
+      method: "post",
+      url: "http://172.23.255.92:5000/auth/login",
+      data: {
+        email: data.email,
+        password: data.password,
+      },
+    });
+    console.log(res);
   };
 
   return (
-    <div>
+    <div className="flex">
       <form
         className=" flex text-white items-center px-8 h-auto rounded-lg flex-col bg-BlueCamp border    border-white"
         onSubmit={handleSubmit(onSubmit)}
@@ -56,7 +70,9 @@ export default function Login(): JSX.Element {
           <div className="flex flex-col text-center mt-2 mb-8">
             <p className="text-xs">
               {" Je n'ai pas de compte, je m'en crée un "}
-              <span className="text-red-400">ici</span>
+              <span className="text-red-400">
+                <a href="/signin">ici</a>
+              </span>
             </p>
             <p className="text-xs">
               Identifiants introuvables ? Par{" "}
@@ -116,6 +132,11 @@ export default function Login(): JSX.Element {
           </button>
         </div>
       </form>
+      <div>
+        <button className="text-white ml-5 relative">
+          <a href="/">X</a>
+        </button>
+      </div>
     </div>
   );
 }
