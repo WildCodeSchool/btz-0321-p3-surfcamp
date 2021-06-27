@@ -14,7 +14,7 @@ export default function Login(): JSX.Element {
   const onSubmit = (data: object) => {
     // eslint-disable-next-line no-console
     console.log(data);
-    dispatch(isLogin({email: "juju", role:"ADMIN"}))
+    dispatch(isLogin({email: data.email, role:"ADMIN"}))
   };
 
   return (
