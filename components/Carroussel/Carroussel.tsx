@@ -38,13 +38,15 @@ export default function Carroussel({ ressource, take }: IProps): JSX.Element {
   if (isLoading) return <div>...loading</div>;
   return (
     <div className="w-full flex items-center align-middle justify-around h-full">
-      <button onClick={backward}>BACKWARD</button>
+      <button onClick={backward}>
+        <Image width={20} height={30} quality={100} src="/bwd.png" />
+      </button>
       {loading &&
         data?.data.map((image: { url: string }, index: number) => {
           return (
             <div className={`${animation}`} key={index}>
               <Image
-                className={`${animation}`}
+                className={`${animation} rounded-xl`}
                 src={image.url}
                 width={300}
                 height={300}
@@ -53,7 +55,9 @@ export default function Carroussel({ ressource, take }: IProps): JSX.Element {
             </div>
           );
         })}
-      <button onClick={forward}>FORWARD</button>
+      <button onClick={forward}>
+        <Image width={20} height={30} quality={100} src="/fwd.png" />
+      </button>
     </div>
   );
 }
