@@ -22,7 +22,7 @@ export default function Login(): JSX.Element {
   const onSubmit = (data: IUser) => {
     const res = axios({
       method: "post",
-      url: "http://172.23.255.92:5000/auth/login",
+      url: "http://localhost:5000/auth/login",
       data: {
         email: data.email,
         password: data.password,
