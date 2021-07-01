@@ -1,19 +1,24 @@
 import { combineReducers, AnyAction } from "redux";
 import * as types from "../redux/types";
 
-export const initialState: AppState = {
+export const initialState: types.AppState = {
+  id: "",
   email: "",
   startSession: new Date(),
   role: "",
 };
 
-const userReducer = (state: AppState = initialState, action: AnyAction) => {
+const userReducer = (
+  state: types.AppState = initialState,
+  action: AnyAction
+) => {
   switch (action.type) {
     case types.SESSION_LOGIN:
       return {
         ...state,
         email: action.payload.email,
         role: action.payload.role,
+        id: action.payload.id,
         startSession: action.payload.startSession,
       };
   }

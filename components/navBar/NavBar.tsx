@@ -1,9 +1,9 @@
 // import Link from "next/link";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function NavBar(): JSX.Element {
   return (
-    <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-0 ">
+    <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
       <Image
         src="/images/surfCampLogo.png"
         width={150}
@@ -26,6 +26,9 @@ export default function NavBar(): JSX.Element {
           alt="francais"
           className="rounded-full"
         />
+        <Link href="/profile">
+          <button>Profile</button>
+        </Link>
       </div>
     </div>
   );
