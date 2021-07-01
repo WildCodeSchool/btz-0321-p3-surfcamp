@@ -1,10 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import router from "next/router";
 import { useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
-import { useMutation, useQuery } from "react-query";
-import axios from "axios";
-
 interface IUser {
   email: string;
   password: string;
@@ -12,15 +11,14 @@ interface IUser {
 
 export default function Login(): JSX.Element {
   const dispatch = useDispatch();
-
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data: IUser) => {
-    const res = axios({
+  const onSubmit = async (data: IUser) => {
+    const res = await axios({
       method: "post",
       url: "http://localhost:5000/auth/login",
       data: {
@@ -28,7 +26,9 @@ export default function Login(): JSX.Element {
         password: data.password,
       },
     });
-    console.log(res);
+
+    dispatch(isLogin(res.data));
+    router.push("/");
   };
 
   return (

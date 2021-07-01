@@ -5,6 +5,7 @@ import thunkMiddleware from "redux-thunk";
 import reducers from "./reducers";
 import { AppInitialState, AppPreLoadedState } from "../redux/types";
 import { Store } from "redux";
+
 let store: Store | undefined;
 
 function initStore(initialState: AppInitialState | any) {
