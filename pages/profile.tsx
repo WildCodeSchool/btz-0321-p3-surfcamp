@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Modal from "../components/Modal/Modal";
 interface IProfile {
   firstName?: string;
   lastName?: string;
@@ -24,7 +25,7 @@ export default function Profile(): JSX.Element {
   const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
     new Date()
   );
-
+  const [isModal, setIsModal] = useState(true);
   const onSubmit = async (data: IProfile) => {
     await axios({
       method: "PUT",
@@ -37,10 +38,18 @@ export default function Profile(): JSX.Element {
         phoneNumber: data.phoneNumber && data.phoneNumber,
       },
     });
+    setIsModal(true);
   };
 
+  console.log(isModal);
   return (
     <div className="w-full flex px-40 text-BlueCamp h-full">
+      {isModal && (
+        <Modal
+          setIsModal={setIsModal}
+          message="Profil mis à jour avec succes"
+        />
+      )}
       <div className="h-full min-h-screen pt-48 flex-col items-center align-middle  flex w-3/12">
         <span className="text-left font-bold my-4 transform -translate-x-3 text-2xl w-1/2">
           Profil
