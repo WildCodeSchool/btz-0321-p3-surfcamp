@@ -5,12 +5,12 @@ import DevenezHote from "../components/DevenezHote/DevenezHote";
 import Value from "../components/value/Value";
 import TextSEOMain from "../components/TextSEOMain/TextSEOMain";
 import Footer from "../components/Footer/Footer";
-import SearchBar from "../components/searchBar/SearchBar";
+import Header from "../components/Header/Header";
 
 export default function Home(): JSX.Element {
   return (
     <div>
-      <SearchBar />
+      <Header />
       <TextSEOMain />
       <Carroussel take="1" ressource="countrypictures" />
       <Carroussel take="4" ressource="citypictures" />
