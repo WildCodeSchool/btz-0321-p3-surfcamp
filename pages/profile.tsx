@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
@@ -64,42 +65,42 @@ export default function Profile(): JSX.Element {
           Dites-en nous un peu plus sur vous.
         </p>
 
-        <div className="w-full flex flex-col items-center justify-center align-middle">
+        <div className="w-full flex">
           <form
-            className="flex flex-col items-center w-full  align-middle"
+            className="flex flex-col items-center w-full h-full  align-middle"
             onSubmit={handleSubmit(onSubmit)}
           >
             <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              Prénom :
+              <span className="w-full">Prénom :</span>
               <input
-                className="border border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border border-gray-600 w-full  outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="text"
                 placeholder="Prénom"
                 {...register("firstName", {})}
               />
             </label>
             <label className="text-BlueCamp w-full flex my-4 justify-between font-bold">
-              Nom :
+              <span className="w-full">Nom :</span>
               <input
-                className="border border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border border-gray-600 w-full outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="text"
                 placeholder="Abbadie"
                 {...register("lastName", {})}
               />
             </label>
             <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              Email :
+              <span className="w-full">Email :</span>
               <input
-                className="border border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border w-full border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="text"
                 placeholder={data?.data.email ? data?.data.email : "Email ..."}
                 {...register("email", {})}
               />
             </label>
             <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              Tel. :
+              <span className="w-full">Tel. :</span>
               <input
-                className="border border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border w-full border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="phoneNumber"
                 placeholder="Mobile number"
                 {...register("phoneNumber", {})}
@@ -114,17 +115,18 @@ export default function Profile(): JSX.Element {
                 <option value="Mr.">Mr.</option>
               </select>
             </div>
-            <div className="w-full flex items-end justify-end align-middle text-black h-20">
+            <div className="w-full flex items-end justify-between align-middle text-black h-20">
+              <span className="w-full font-bold">Date de naissance :</span>
               <DatePicker
-                className="border text-center border-black rounded-md"
+                className="border text-center w-full border-black rounded-md"
                 placeholderText="JJ/MM/AAAA"
                 onChange={(date) => setBirthDate(date)}
               />
             </div>
-            <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              A Propos :
+            <label className="text-BlueCamp  my-4 w-full flex justify-between font-bold">
+              <span className="w-full">A Propos :</span>
               <textarea
-                className="border border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border w-full border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 placeholder="A Propos"
                 {...register("text area")}
               />
@@ -137,6 +139,18 @@ export default function Profile(): JSX.Element {
               />
             </div>
           </form>
+
+          <div className="w-4/12 flex flex-col align-middle justify-start items-center h-full">
+            {data?.data.picture && (
+              <Image
+                src={data?.data.picture}
+                width={200}
+                height={200}
+                quality={100}
+                className="rounded-full"
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
