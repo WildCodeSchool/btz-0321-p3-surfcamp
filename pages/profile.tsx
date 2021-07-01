@@ -25,11 +25,13 @@ export default function Profile(): JSX.Element {
   const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
     new Date()
   );
+  console.log(data);
+  const [error, setError] = useState("");
   const [isModal, setIsModal] = useState(false);
   const onSubmit = async (data: IProfile) => {
     await axios({
       method: "PUT",
-      url: `http://localhost:5000/users/${id}`,
+      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/users/${id}`,
       data: {
         email: data.Email,
         firstname: data.firstName && data.firstName,
@@ -37,15 +39,20 @@ export default function Profile(): JSX.Element {
         birthDate: birthDate && birthDate,
         phoneNumber: data.phoneNumber && data.phoneNumber,
       },
-    });
-    setIsModal(true);
+    })
+      .then((res) => setIsModal(true))
+      .catch((err) => setError("Echec de la mise à jour du profil"));
   };
+  if (error)
+    return (
+      <Modal setError={setError} setIsModal={setIsModal} message={error} />
+    );
 
-  console.log(isModal);
   return (
     <div className="w-full flex px-40 text-BlueCamp h-full">
       {isModal && (
         <Modal
+          setError={setError}
           setIsModal={setIsModal}
           message="Profil mis à jour avec succes"
         />
@@ -84,7 +91,7 @@ export default function Profile(): JSX.Element {
               <input
                 className="border border-gray-600 w-full  outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="text"
-                placeholder="Prénom"
+                placeholder={data?.data.firstname}
                 {...register("firstName", {})}
               />
             </label>
