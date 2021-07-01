@@ -25,7 +25,7 @@ export default function Profile(): JSX.Element {
   const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
     new Date()
   );
-  const [isModal, setIsModal] = useState(true);
+  const [isModal, setIsModal] = useState(false);
   const onSubmit = async (data: IProfile) => {
     await axios({
       method: "PUT",
