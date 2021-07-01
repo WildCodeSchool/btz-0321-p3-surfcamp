@@ -1,17 +1,34 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import router from "next/router";
+import { useDispatch } from "react-redux";
+import { isLogin } from "../../redux/actions";
+interface IUser {
+  email: string;
+  password: string;
+}
 
 export default function Login(): JSX.Element {
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const onSubmit = (data: object) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+  const onSubmit = async (data: IUser) => {
+    const res = await axios({
+      method: "post",
+      url: "http://localhost:5000/auth/login",
+      data: {
+        email: data.email,
+        password: data.password,
+      },
+    });
+
+    dispatch(isLogin(res.data));
+    router.push("/");
   };
 
   return (
