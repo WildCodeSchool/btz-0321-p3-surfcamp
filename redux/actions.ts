@@ -6,6 +6,11 @@ export const isLogin =
   (dispatch: Dispatch<{ type: string; payload: types.AppState }>) => {
     return dispatch({
       type: types.SESSION_LOGIN,
-      payload: { email: user.email, role: user.role, startSession: new Date() },
+      payload: {
+        email: user.email,
+        role: user.role,
+        startSession: new Date(),
+        id: user.id,
+      },
     });
   };
