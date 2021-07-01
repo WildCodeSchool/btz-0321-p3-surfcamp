@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NavBar(): JSX.Element {
   return (
-    <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white fixed z-50  ">
+    <div className="flex justify-between items-center px-4 h-20 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-0 ">
       <Image
         src="/images/surfCampLogo.png"
         width={150}
@@ -12,14 +12,12 @@ export default function NavBar(): JSX.Element {
       />
       <div></div>
       <div className="flex items-center text-lg ">
-        <Image
-          src="/images/menu-outline.svg"
-          width={50}
-          height={50}
-          alt="logo"
-        />
-        <a href="/login" className="px-2">
+        <a href="/login" className="px-2 hover:border-b">
           login
+        </a>
+        <p>/</p>
+        <a href="/signin" className="px-2 hover:border-b">
+          Sign In
         </a>
         <Image
           src="/images/francais.png"

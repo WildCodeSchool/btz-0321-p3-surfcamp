@@ -25,7 +25,7 @@ export default function SignInForm(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className="flex">
       <form
         className=" flex text-white items-center px-8 h-auto rounded-lg flex-col bg-BlueCamp border    border-white"
         onSubmit={handleSubmit(onSubmit)}
@@ -108,7 +108,9 @@ export default function SignInForm(): JSX.Element {
         <div className="flex flex-col text-center mt-2 mb-2">
           <p className="text-xs">
             Déjà un compte ? Connecte toi{" "}
-            <span className="text-red-400">ici</span>
+            <span className="text-red-400">
+              <a href="/login">ici</a>
+            </span>
           </p>
         </div>
         <button
@@ -162,6 +164,11 @@ export default function SignInForm(): JSX.Element {
           </div>
         </button>
       </form>
+      <div>
+        <button className="text-white ml-5 relative">
+          <a href="/">X</a>
+        </button>
+      </div>
     </div>
   );
 }

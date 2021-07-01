@@ -6,7 +6,7 @@ export default function Footer(): JSX.Element {
       <div className="w-full flex justify-center p-4">
         <Images
           src="/Images/logoSC.svg"
-          width={200}
+          width={150}
           height={100}
           alt="Logo SurfCamp"
         />
@@ -15,7 +15,7 @@ export default function Footer(): JSX.Element {
         <div className="w-full md:w-1/2 flex flex-col px-11 pb-11">
           <h3 className="mb-6 text-lg font-bold">Un guide expert et avéré</h3>
 
-          <p className="w-full">
+          <p className="w-full text-sm">
             Nos articles camps de surf sont reconnus par la communauté pour
             apporter de réels conseils aux surfeurs désireux de voir le monde et
             de s’essayer à l’expérience surf à l’étranger. Notre support est
@@ -33,13 +33,13 @@ export default function Footer(): JSX.Element {
               <h3 className="mb-6 text-lg font-bold text-center md:text-left">
                 Société
               </h3>
-              <a className="pb-2" href="/login">
+              <a className="pb-2 text-sm" href="/login">
                 Qui sommes nous ?
               </a>
-              <a className="pb-2" href="/login">
+              <a className="pb-2 text-sm" href="/login">
                 Mentions légales
               </a>
-              <a className="pb-2" href="/login">
+              <a className="pb-2 text-sm" href="/login">
                 Confidentialité
               </a>
             </div>
@@ -84,18 +84,18 @@ export default function Footer(): JSX.Element {
             </div>
             <div className="flex flex-col">
               <h3 className="mb-6 text-lg font-bold">Pour nous rejoindre</h3>
-              <a className="pb-2" href="/login">
+              <a className="pb-2 text-sm" href="/login">
                 Publicité
               </a>
-              <a className="pb-2" href="login">
+              <a className="pb-2 text-sm" href="login">
                 A propos
               </a>
-              <a className="pb-2" href="login">
+              <a className="pb-2 text-sm" href="login">
                 Contact
               </a>
             </div>
           </div>
-          <div className="flex justify-center ">
+          <div className="flex justify-center text-sm">
             <p>2020 SurfCamp.fr, Inc. Tout droits réservés</p>
           </div>
         </div>
