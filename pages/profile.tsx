@@ -25,8 +25,7 @@ export default function Profile(): JSX.Element {
   const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
     new Date()
   );
-  console.log(data);
-  const [error, setError] = useState("");
+  const [error, setIsError] = useState("");
   const [isModal, setIsModal] = useState(false);
   const onSubmit = async (data: IProfile) => {
     await axios({
@@ -41,18 +40,18 @@ export default function Profile(): JSX.Element {
       },
     })
       .then((res) => setIsModal(true))
-      .catch((err) => setError("Echec de la mise à jour du profil"));
+      .catch((err) => setIsError("Echec de la mise à jour du profil"));
   };
   if (error)
     return (
-      <Modal setError={setError} setIsModal={setIsModal} message={error} />
+      <Modal setIsError={setIsError} setIsModal={setIsModal} message={error} />
     );
 
   return (
     <div className="w-full flex px-40 text-BlueCamp h-full">
       {isModal && (
         <Modal
-          setError={setError}
+          setIsError={setIsError}
           setIsModal={setIsModal}
           message="Profil mis à jour avec succes"
         />
