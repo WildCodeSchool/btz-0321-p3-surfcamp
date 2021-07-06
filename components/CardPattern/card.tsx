@@ -20,8 +20,6 @@ export default function Card({
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong: {error.message}</div>;
 
- 
-
   return (
     <div>
       <div className="CARD PLACEMENT m-2 w-2/2 border rounded-md border-gray-400 font-bold text-gray-500 flex flex-col">
