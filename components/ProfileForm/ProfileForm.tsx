@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useQuery, useMutation } from "react-query";
-import { date } from "joi";
+import EditButton from "../Buttons/EditButton";
 
 interface IProfile {
   firstname?: string | null;
@@ -30,8 +30,6 @@ type formData = {
 export default function ProfileForm() {
   const { id } = useSelector((state: any) => state.user);
   const { register, handleSubmit } = useForm();
-  const [isModal, setIsModal] = useState(false);
-  const [error, setError] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const mutation = useMutation<null, AxiosError, IProfile>((newUser) =>
     axios.put(`http://localhost:5000/users/${id}`, newUser)
@@ -42,10 +40,9 @@ export default function ProfileForm() {
   );
 
   const onSubmit = async (data: formData) => {
-    console.log(birthDate);
     mutation.mutate({
-      firstname: data.firstName ? data.firstName : null,
-      lastname: data.lastName ? data.lastName : null,
+      firstname: data.firstName,
+      lastname: data.lastName,
       email: data.email,
       phoneNumber: data.phoneNumber,
       birthDate: birthDate !== null ? birthDate?.toISOString() : null,
@@ -53,72 +50,65 @@ export default function ProfileForm() {
   };
 
   return (
-    <div className="w-full items-center justify-center h-full align-middle flex">
+    <div className="w-full my-20 items-center justify-center h-full align-middle flex">
       {id ? (
         <form
           className="flex flex-col items-center w-full h-full  align-middle"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <label className="text-BlueCamp my-4 w-full flex justify-start font-bold">
+          <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Prénom :</span>
             <input
-              className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-md px-4 py-1 text-base"
+              className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
               placeholder={data?.data.firstname}
               {...register("firstName", {})}
             />
           </label>
-          <label className="text-BlueCamp w-full flex my-4 justify-start font-bold">
+          <label className="text-BlueCamp text-sm w-full flex my-4 justify-start font-bold">
             <span className="w-4/12">Nom :</span>
             <input
-              className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-md px-4 py-1 text-base"
+              className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
               placeholder={data?.data.lastname}
               {...register("lastName", {})}
             />
           </label>
-          <label className="text-BlueCamp my-4 w-full flex align-middle items-center justify-start font-bold">
+          <label className="text-BlueCamp text-sm my-4 w-full h-8 flex align-middle items-center justify-start font-bold">
             <span className="w-4/12">Email :</span>
             {isEdit ? (
               <input
-                className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-1 text-base"
+                className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="text"
-                placeholder={data?.data.email ? data?.data.email : "Email ..."}
+                placeholder={data?.data.email}
                 {...register("email", {})}
               />
             ) : (
-              <div className=" w-4/12 outline-none focus:outline-none rounded-md px-4 py-2 text-base font-light">
+              <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
                 {data?.data.email}
               </div>
             )}
-            <button onClick={() => setIsEdit((s) => !s)}>
-              {" "}
-              <img
-                className="border-2 cursor-pointer border-gray-600 rounded-sm p-1 h-full bg-gray-500 w-7"
-                src="/edit.png"
-                alt=""
-              />
-            </button>
+            <EditButton setIsEdit={setIsEdit} />
           </label>
-          <label className="text-BlueCamp my-4 w-full flex justify-start font-bold">
+          <label className="text-BlueCamp text-sm h-6 my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Tel. :</span>
             {isEdit ? (
               <input
-                className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-1 text-base"
+                className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="phoneNumber"
                 placeholder={data?.data.phoneNumber}
                 {...register("phoneNumber", {})}
               />
             ) : (
-              <div className=" w-4/12 outline-none focus:outline-none rounded-md px-4 py-2 text-base font-light">
+              <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
                 {data?.data.phoneNumber}
               </div>
             )}
           </label>
-          <label className="text-BlueCamp my-4 w-full flex justify-start font-bold">
+          <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Genre :</span>
             <select
-              className="borde w-4/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-1 text-base"
+              className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs"
               {...register}
             >
               <option className="w-4/12" value="Mr.">
@@ -129,22 +119,23 @@ export default function ProfileForm() {
               </option>
             </select>
           </label>
-          <div className="w-full flex items-end justify-start align-middle text-black h-20">
-            <span className="w-4/12 font-bold">Date de naissance :</span>
+          <div className="w-full  flex items-end justify-start align-middle text-black h-6">
+            <span className="w-4/12 text-sm font-bold">
+              Date de naissance :
+            </span>
             <DatePicker
-              className="border text-center w-full border-black rounded-md"
+              className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
               {...register("birthdate", {})}
               placeholderText={new Date(data?.data.birthDate).toLocaleString()}
               isClearable
               dateFormat="dd/MM/yyyy"
-              withPortal
               onChange={(date: Date) => setBirthDate(date)}
             />
           </div>
           <label className="text-BlueCamp  my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">A Propos :</span>
+            <span className="w-4/12 text-sm">A Propos :</span>
             <textarea
-              className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-1 text-base"
+              className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-sm p-2  text-xs"
               placeholder="A Propos"
               {...register("text area")}
             />
@@ -153,7 +144,7 @@ export default function ProfileForm() {
           <div className="w-full flex justify-start items-end align-middle">
             <span className="w-4/12"></span>
             <input
-              className="border py-1 border-gray-600 bg-BlueCamp text-white outline-none focus:outline-none rounded-md px-4  text-base"
+              className="border  border-gray-600 bg-BlueCamp  text-white outline-none focus:outline-none rounded-sm px-4  text-lg"
               type="submit"
             />
           </div>

@@ -2,9 +2,9 @@ import React from "react";
 
 export default function TextSEOMain(): JSX.Element {
   return (
-    <div>
-      <section className="bg-BlueCamp text-white p-10 text-xs sm:text-base z-20">
-        <p className="flex text-center">
+    <div className="w-full bg-BlueCamp flex flex-col items-center align-middle justify-center">
+      <section className=" lg:w-9/12 font-light text-white p-5 flex flex-col items-center align-middle justify-center text-xs ">
+        <p className="flex w-full text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
   Vous retrouverez notamment les infos concernant les auberges, les
   hôtels, les hébergements et les commodités sur place, l’ambiance, le

@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import ProfileForm from "../components/ProfileForm/ProfileForm";
-
+import { useRouter } from "next/router";
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from "../components/Modal/Modal";
-
-interface IProfile {
-  firstName?: string;
-  lastName?: string;
-  Email?: string;
-  phoneNumber?: string;
-  birthDate?: string;
-  about?: string;
-}
+import { isLogin } from "../redux/actions";
 
 export default function Profile(): JSX.Element {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [error, setError] = useState("");
   const [isModal, setIsModal] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
+
+  const handleLogout = () => {
+    dispatch(
+      isLogin({ id: "", email: "", role: "", picture: "", firstname: "" })
+    );
+    router.reload();
+  };
 
   return (
     <div className="w-full flex px-40 text-BlueCamp h-full">
@@ -31,7 +31,7 @@ export default function Profile(): JSX.Element {
       {error && (
         <Modal setError={setError} setIsModal={setIsModal} message={error} />
       )}
-      <div className="h-full min-h-screen pt-48 flex-col items-center align-middle  flex w-3/12">
+      <div className="h-full min-h-screen pt-20 flex-col items-center align-middle  flex w-3/12">
         <span className="text-left font-bold my-4 transform -translate-x-3 text-2xl w-1/2">
           Profil
         </span>
@@ -39,11 +39,13 @@ export default function Profile(): JSX.Element {
           <li className="w-1/2 text-xl text-left">Profil</li>
           <li className="w-1/2 text-xl text-left">Réglages</li>
           <li className="w-1/2 text-xl text-left">Réservations</li>
-          <li className="w-1/2 text-xl text-left">Gestion</li>
-          <li className="w-1/2 text-xl text-left">Déconnexion</li>
+          <li className="w-1/2 text-xl text-left">Gestion</li>{" "}
+          <li className="w-1/2 text-xl text-left">
+            <button onClick={handleLogout}>Déconnexion</button>
+          </li>
         </ul>
       </div>
-      <div className="h-full min-h-screen pt-48 flex-col items-center align-middle  flex w-9/12">
+      <div className="h-full min-h-screen pt-20 flex-col items-center align-middle  flex w-9/12">
         <span className="text-left  font-bold my-4 transform -translate-x-3 text-2xl w-full">
           Informations Personnelles
         </span>
