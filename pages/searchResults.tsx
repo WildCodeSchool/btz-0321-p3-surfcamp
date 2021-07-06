@@ -18,8 +18,8 @@ export default function searchResults(): JSX.Element {
 
   return (
     <>
-      <div className=" flex  w-full h-full top-20 fixed  ">
-        <div className="w-full h-full overflow-y-auto ">
+      <div className=" flex  w-full h-full top-10 fixed  ">
+        <div className="w-1/2 h-full overflow-y-auto ">
           <DisplayCard />
           <div className="mb-24">
             {data.map((property) => {
@@ -27,13 +27,14 @@ export default function searchResults(): JSX.Element {
             })}
           </div>
         </div>
-        <div className="hidden sm:flex  // w-full h-full flex-col ">
-          <div className="w-full">
+        <div className="hidden sm:flex  // w-1/2 h-full flex-col ">
+          <div className="w-1/2 h-1/2">
             <GoogleMap />
           </div>
-          <div className="bg-BlueCamp text-white text-center w-full h-1/2 ">
+         
+          <div className="bg-BlueCamp text-white text-center w-1/2 h-1/3 fixed bottom-0">
             <ResultSEO />
-          </div>
+          </div>  
         </div>
       </div>
     </>
