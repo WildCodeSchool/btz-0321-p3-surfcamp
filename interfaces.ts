@@ -10,3 +10,16 @@ export interface Property {
   createdAt: string;
   userId: string;
 }
+
+export interface AddressProperty {
+  id: string;
+  zipcode: string;
+  city: string;
+  street: string;
+  streetNumber: string;
+  lat: string;
+  long: string;
+  countryCode: string;
+  createdAt: string;
+  addressId: string;
+}

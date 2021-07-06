@@ -12,15 +12,17 @@ export default function searchResults(): JSX.Element {
       (res) => res.json()
     )
   );
+
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong: {error.message}</div>;
+
   return (
     <>
       <div className=" flex  w-full h-full top-20 fixed  ">
         <div className="w-full h-full overflow-y-auto ">
           <DisplayCard />
           <div className="mb-24">
-            {data!.map((property) => {
+            {data.map((property) => {
               return <Card key={property.id} {...property} />;
             })}
           </div>
