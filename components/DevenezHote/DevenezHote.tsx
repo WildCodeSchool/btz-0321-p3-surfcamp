@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import imgContact from "../../public/imgcontact.jpg";
-import MyButton from "../../components/button/MyButton";
+import MyButton from "../button/MyButton";
 export default function DevenezHote(): JSX.Element {
   const hostButton = { inputbutton: "DEVENIR HÔTE" };
 
