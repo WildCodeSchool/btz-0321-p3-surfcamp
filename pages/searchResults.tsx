@@ -31,10 +31,9 @@ export default function searchResults(): JSX.Element {
           <div className="w-1/2 h-1/2">
             <GoogleMap />
           </div>
-         
           <div className="bg-BlueCamp text-white text-center w-1/2 h-1/3 fixed bottom-0">
             <ResultSEO />
-          </div>  
+          </div>
         </div>
       </div>
     </>

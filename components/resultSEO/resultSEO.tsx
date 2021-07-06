@@ -1,6 +1,5 @@
 import CarrousselResults from "../CarrousselResults/CarrousselResults";
 
-
 export default function ResultSEO(): JSX.Element {
   return (
     <div className="h-full w-full flex flex-col justify-around p-5">

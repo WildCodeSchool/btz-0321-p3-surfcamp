@@ -20,14 +20,20 @@ export default function Card({
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong: {error.message}</div>;
 
-  console.log(data);
+ 
 
   return (
     <div>
       <div className="CARD PLACEMENT m-2 w-2/2 border rounded-md border-gray-400 font-bold text-gray-500 flex flex-col">
         <div className="CARD SIZE flex flex-col bg-white rounded-md // lg:flex-row md:w-2/2 ">
           <div className="IMAGE flex rounded-l-md md:w-full // md:h-full  lg:w-1/3 ">
-            <Image src={Hossegor} layout="fixed" height={"250px"} alt="hoss" className="md:rounded-l-md // rounded-t-md"/>
+            <Image
+              src={Hossegor}
+              layout="fixed"
+              height={"250px"}
+              alt="hoss"
+              className="md:rounded-l-md // rounded-t-md"
+            />
           </div>
           <div className="INFORMATION flex flex-col space-y-2 p-2  w-full  md:w-full lg:justify-around">
             <div className="mx-2  \ lg:text-base">

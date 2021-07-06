@@ -10,7 +10,6 @@ interface IProps {
 
 export default function CarrousselResults({ ressource, take }: IProps): JSX.Element {
   const [skipQuery, setSkipQuery] = useState(0);
-  const [animation, setAnimation] = useState("");
   const [loading, setLoading] = useState(true);
 
   const { error, data, refetch, isLoading } = useQuery(`${ressource}`, () =>
@@ -21,7 +20,6 @@ export default function CarrousselResults({ ressource, take }: IProps): JSX.Elem
     setLoading(false);
     setSkipQuery((c) => (c += parseInt(take)));
     refetch();
-    setAnimation("");
   };
 
   const backward = () => {
@@ -30,7 +28,6 @@ export default function CarrousselResults({ ressource, take }: IProps): JSX.Elem
   };
 
   useEffect(() => {
-    setAnimation("scale-in-center");
     setLoading(true);
   }, [skipQuery]);
 
@@ -42,13 +39,8 @@ export default function CarrousselResults({ ressource, take }: IProps): JSX.Elem
       {loading &&
         data?.data.map((image: { url: string }, index: number) => {
           return (
-            <div  key={index}>
-              <Image
-                src={image.url}
-                width={100}
-                height={100}
-                quality={100}
-              />
+            <div key={index}>
+              <Image src={image.url} width={100} height={100} quality={100} />
             </div>
           );
         })}
