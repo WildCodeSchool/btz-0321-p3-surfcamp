@@ -1,31 +1,21 @@
 import Image from "next/image";
 import Hossegor from "../../public/Hossegor.jpg";
-import axios from "axios";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { useQuery } from "react-query";
+import { Property } from "../../interfaces";
 
-const queryClient = new QueryClient();
-
-export default function Card(): JSX.Element {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <getProperties />
-    </QueryClientProvider>
+export default function Card({
+  addressId,
+  type,
+  priceByNight,
+  description,
+}: Property): JSX.Element {
+  const { data, error, isLoading } = useQuery<Property[]>(
+    ["address", addressId],
+    () =>
+      fetch(
+        `${process.env.NEXT_PUBLIC_DATAAPI_URL}/addresses/${addressId}`
+      ).then((res) => res.json())
   );
-}
-function getProperties(): JSX.Element {
-  // const { isLoading, error, data } = useQuery(
-  //   "properties",
-  //   async () =>
-  //     await axios
-  //       .get(`${process.env.NEXT_PUBLIC_GET_PROPERTIES}`)
-  //       .then((res) => res.json())
-  //);
-
-  const { isLoading, error, data } = useQuery("properties", () =>
-  fetch (`${process.env.NEXT_PUBLIC_GET_PROPERTIES}`).then((res)=> res.json()),
-
-  if (isLoading) return "Loading...";
-  if (error) return "Oooops il y a un error quelque part:" + error.message;
 
   return (
     <div className="CARD PLACEMENT m-2 w-2/2 border rounded-md border-black flex flex-col">
@@ -39,13 +29,13 @@ function getProperties(): JSX.Element {
           </div>
           <div className="flex justify-between mx-2 text-lg lg:text-xl">
             <h1>city</h1>
-            <h2>50$ nuit</h2>
+            <h2>{priceByNight}$ la nuit</h2>
           </div>
           <div className="mx-2 text-xs \ lg:text-base">
-            <p>{data.type}</p>
+            <p>{type}</p>
           </div>
           <div className="flex mx-2 \ md:mb-5 \ text-sm / lg:text-base">
-            <p>{data.description}</p>
+            <p>{description}</p>
           </div>
           <footer className="flex justify-between align-baseline pt-5 text-xs lg:text-sm ">
             <div className="">npersonpersonnes</div>
