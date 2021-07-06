@@ -6,6 +6,8 @@ export const initialState: types.AppState = {
   email: "",
   startSession: new Date(),
   role: "",
+  picture: "",
+  firstname: "",
 };
 
 const userReducer = (
@@ -16,9 +18,11 @@ const userReducer = (
     case types.SESSION_LOGIN:
       return {
         ...state,
+        picture: action.payload.picture,
         email: action.payload.email,
         role: action.payload.role,
         id: action.payload.id,
+        firstname: action.payload.firstname,
         startSession: action.payload.startSession,
       };
   }
