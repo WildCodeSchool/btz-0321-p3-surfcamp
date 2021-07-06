@@ -25,9 +25,9 @@ export default function Profile(): JSX.Element {
   const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
     new Date()
   );
-  console.log(data);
   const [error, setError] = useState("");
   const [isModal, setIsModal] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   const onSubmit = async (data: IProfile) => {
     await axios({
       method: "PUT",
@@ -40,8 +40,8 @@ export default function Profile(): JSX.Element {
         phoneNumber: data.phoneNumber && data.phoneNumber,
       },
     })
-      .then((res) => setIsModal(true))
-      .catch((err) => setError("Echec de la mise à jour du profil"));
+      .then(() => setIsModal(true))
+      .catch(() => setError("Echec de la mise à jour du profil"));
   };
   if (error)
     return (
@@ -86,69 +86,97 @@ export default function Profile(): JSX.Element {
             className="flex flex-col items-center w-full h-full  align-middle"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              <span className="w-full">Prénom :</span>
+            <label className="text-BlueCamp my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">Prénom :</span>
               <input
-                className="border border-gray-600 w-full  outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="text"
                 placeholder={data?.data.firstname}
                 {...register("firstName", {})}
               />
             </label>
-            <label className="text-BlueCamp w-full flex my-4 justify-between font-bold">
-              <span className="w-full">Nom :</span>
+            <label className="text-BlueCamp w-full flex my-4 justify-start font-bold">
+              <span className="w-4/12">Nom :</span>
               <input
-                className="border border-gray-600 w-full outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="text"
-                placeholder="Abbadie"
+                placeholder={data?.data.lastName}
                 {...register("lastName", {})}
               />
             </label>
-            <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              <span className="w-full">Email :</span>
-              <input
-                className="border w-full border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
-                type="text"
-                placeholder={data?.data.email ? data?.data.email : "Email ..."}
-                {...register("email", {})}
-              />
+            <label className="text-BlueCamp my-4 w-full flex align-middle items-center justify-start font-bold">
+              <span className="w-4/12">Email :</span>
+              {isEdit ? (
+                <input
+                  className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                  type="text"
+                  placeholder={
+                    data?.data.email ? data?.data.email : "Email ..."
+                  }
+                  {...register("email", {})}
+                />
+              ) : (
+                <div className=" w-4/12 outline-none focus:outline-none rounded-md px-4 py-2 text-base font-light">
+                  {data?.data.email}
+                </div>
+              )}
+              <button onClick={() => setIsEdit((s) => !s)}>
+                {" "}
+                <img
+                  className="border-2 cursor-pointer border-gray-600 rounded-sm p-1 h-full bg-gray-500 w-7"
+                  src="/edit.png"
+                  alt=""
+                />
+              </button>
             </label>
-            <label className="text-BlueCamp my-4 w-full flex justify-between font-bold">
-              <span className="w-full">Tel. :</span>
-              <input
-                className="border w-full border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
-                type="phoneNumber"
-                placeholder="Mobile number"
-                {...register("phoneNumber", {})}
-              />
+            <label className="text-BlueCamp my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">Tel. :</span>
+              {isEdit ? (
+                <input
+                  className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                  type="phoneNumber"
+                  placeholder={data?.data.phoneNumber}
+                  {...register("phoneNumber", {})}
+                />
+              ) : (
+                <div className=" w-4/12 outline-none focus:outline-none rounded-md px-4 py-2 text-base font-light">
+                  {data?.data.phoneNumber}
+                </div>
+              )}
             </label>
-            <div className="w-full items-end flex justify-end">
+            <label className="text-BlueCamp my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">Genre :</span>
               <select
-                className="border border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="borde w=4/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 {...register}
               >
-                <option value="Mr.">Mme.</option>
-                <option value="Mr.">Mr.</option>
+                <option className="w-4/12" value="Mr.">
+                  Mme.
+                </option>
+                <option className="w-4/12" value="Mr.">
+                  Mr.
+                </option>
               </select>
-            </div>
-            <div className="w-full flex items-end justify-between align-middle text-black h-20">
-              <span className="w-full font-bold">Date de naissance :</span>
+            </label>
+            <div className="w-full flex items-end justify-start align-middle text-black h-20">
+              <span className="w-4/12 font-bold">Date de naissance :</span>
               <DatePicker
                 className="border text-center w-full border-black rounded-md"
                 placeholderText="JJ/MM/AAAA"
                 onChange={(date) => setBirthDate(date)}
               />
             </div>
-            <label className="text-BlueCamp  my-4 w-full flex justify-between font-bold">
-              <span className="w-full">A Propos :</span>
+            <label className="text-BlueCamp  my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">A Propos :</span>
               <textarea
-                className="border w-full border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
+                className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 placeholder="A Propos"
                 {...register("text area")}
               />
             </label>
 
-            <div className="w-full flex justify-end items-end align-middle">
+            <div className="w-full flex justify-start items-end align-middle">
+              <span className="w-4/12"></span>
               <input
                 className="border border-gray-600 bg-BlueCamp text-white outline-none focus:outline-none rounded-md px-4 py-2 text-xl"
                 type="submit"
