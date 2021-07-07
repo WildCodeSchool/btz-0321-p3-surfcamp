@@ -56,7 +56,7 @@ export default function Profile(): JSX.Element {
           Surf Camp Anglet, Logement avec cours decouverte
         </span>
         <div className="flex w-full">
-          <div className="flex flex-col bg-gray-600 w-full h-96 m-1 p-2">
+          <div className="flex flex-col bg-gray-600 w-full h-96 m-1 p-2 justify-between">
             <div className="flex justify-between">
               <div className="">icons</div>
               <div className="">share</div>
@@ -65,7 +65,7 @@ export default function Profile(): JSX.Element {
               <Image
                 src={Hossegor}
                 layout="responsive"
-                height={"250px"}
+                height={"650px"}
                 alt="hoss"
               />
             </div>
@@ -143,21 +143,35 @@ export default function Profile(): JSX.Element {
           </section>
           <section>
             <div className="EQUIPMENT flex flex-col space-y-2">
-              <div className="flex space-x-4">
-                <div className="h-10 w-1/12 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
+              <div className="flex space-x-4 flex justify-around">
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-gray-400 "></div>
+                  <p className="w-11/12">cuisine</p>
+                </div>
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-gray-400 "></div>
+                  <p className="w-11/12">douche privée</p>
+                </div>
               </div>
-              <div className="flex space-x-4">
-                <div className="h-10 w-1/12 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
+              <div className="flex space-x-4 flex justify-around">
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-gray-400 "></div>
+                  <p className="w-11/12">cuisine</p>
+                </div>
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-gray-400 "></div>
+                  <p className="w-11/12">douche privée</p>
+                </div>
               </div>
-              <div className="flex space-x-4">
-                <div className="h-10 w-1/12 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
-              </div>
-              <div className="flex space-x-4">
-                <div className="h-10 w-1/12 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
+              <div className="flex space-x-4 flex justify-around">
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-gray-400 "></div>
+                  <p className="w-11/12">cuisine</p>
+                </div>
+                <div className="flex space-x-4">
+                  <div className="h-10 w-10 bg-gray-400 "></div>
+                  <p className="w-11/12">douche privée</p>
+                </div>
               </div>
             </div>
           </section>
