@@ -1,5 +1,4 @@
 import React from "react";
-import DisplayCard from "../components/Displaycard/DisplayCard";
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Card from "../components/CardPattern/card";
 import ResultSEO from "../components/resultSEO/resultSEO";
@@ -14,15 +13,14 @@ export default function searchResults(): JSX.Element {
   );
 
   if (isLoading) return <div>Loading... </div>;
-  if (error) return <div>Something went wrong: {error.message}</div>;
+  if (error) return <div>Something went wrong</div>;
 
   return (
     <>
       <div className=" flex  w-full h-full top-10 fixed  ">
         <div className="w-1/2 h-full overflow-y-auto ">
-          <DisplayCard />
           <div className="mb-24">
-            {data.map((property) => {
+            {data?.map((property) => {
               return <Card key={property.id} {...property} />;
             })}
           </div>

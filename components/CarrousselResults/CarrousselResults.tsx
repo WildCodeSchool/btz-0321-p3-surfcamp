@@ -8,7 +8,10 @@ interface IProps {
   take: string;
 }
 
-export default function CarrousselResults({ ressource, take }: IProps): JSX.Element {
+export default function CarrousselResults({
+  ressource,
+  take,
+}: IProps): JSX.Element {
   const [skipQuery, setSkipQuery] = useState(0);
   const [loading, setLoading] = useState(true);
 
