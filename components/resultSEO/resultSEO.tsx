@@ -3,7 +3,7 @@ import CarrousselResults from "../CarrousselResults/CarrousselResults";
 export default function ResultSEO(): JSX.Element {
   return (
     <div className="h-full w-full flex flex-col justify-around p-5">
-      <div className="md:hidden lg:flex">
+      <div className="hidden xl:flex">
         <CarrousselResults take="4" ressource="citypictures" />
       </div>
       <div className=" text-xs">
