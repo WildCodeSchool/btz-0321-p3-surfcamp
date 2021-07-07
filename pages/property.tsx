@@ -55,12 +55,12 @@ export default function Profile(): JSX.Element {
         <span className="text-left  font-bold  text-xl">
           Surf Camp Anglet, Logement avec cours decouverte
         </span>
-        <div className="flex w-full">
-          <div className="flex flex-col bg-gray-600 w-full h-96 m-1 p-2 justify-between">
-            <div className="flex justify-between">
-              <div className="">icons</div>
-              <div className="">share</div>
-            </div>
+        <div className="flex w-full flex-col">
+          <div className="flex justify-between">
+            <div className="">icons</div>
+            <div className="">share</div>
+          </div>
+          <div className="flex flex-col w-full m-1 p-2 justify-between">
             <div className="">
               <Image
                 src={Hossegor}
@@ -69,10 +69,10 @@ export default function Profile(): JSX.Element {
                 alt="hoss"
               />
             </div>
-            <div className="flex justify-end">
-              <div className="">rating</div>
-              <div className="">(25)Commentaires</div>
-            </div>
+          </div>
+          <div className="flex justify-end">
+            <div className="">rating</div>
+            <div className="">(25)Commentaires</div>
           </div>
         </div>
         <div className="w-full flex flex-col">
