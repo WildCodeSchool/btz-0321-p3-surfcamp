@@ -6,7 +6,7 @@ export default function ResultSEO(): JSX.Element {
       <div className="hidden xl:flex">
         <CarrousselResults take="4" ressource="citypictures" />
       </div>
-      <div className=" text-xs">
+      <div className=" text-sm">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eos
         labore tempore qui repellat maiores distinctio voluptatibus blanditiis
         deserunt explicabo consectetur non optio cumque sequi, quis, veniam

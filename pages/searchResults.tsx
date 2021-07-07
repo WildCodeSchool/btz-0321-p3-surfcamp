@@ -26,10 +26,10 @@ export default function searchResults(): JSX.Element {
           </div>
         </div>
         <div className="hidden sm:flex  // w-1/2 h-full flex-col ">
-          <div className="w-1/2 h-1/2">
+          <div className="w-full h-full">
             <GoogleMap />
           </div>
-          <div className="bg-BlueCamp text-white text-center w-1/2 h-1/3 fixed bottom-0">
+          <div className="bg-BlueCamp text-white text-center w-1/2 h-1/2 fixed bottom-0">
             <ResultSEO />
           </div>
         </div>
