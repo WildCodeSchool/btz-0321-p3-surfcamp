@@ -39,6 +39,7 @@ export default function testReq({
   propertyPictures,
 }): JSX.Element {
   const { getAllUsers } = useQuery<User[]>("users", () => user.getAll());
+
   const { getAllProperties } = useQuery<Property[]>("properties", () =>
     property.getAll()
   );
