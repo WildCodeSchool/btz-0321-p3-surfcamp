@@ -27,9 +27,9 @@ export default function Profile(): JSX.Element {
   };
 
   return (
-    <div className="flex flex-col w-full text-BlueCamp h-full px-5 mb-16 md:px-20 lg:px-40">
+    <div className="flex flex-col w-full text-BlueCamp h-full px-5 mb-16 md:px-20 lg:px-64">
       <section className="TETE ANNONCE-----------------------------">
-        <div className="h-full  pt-16 flex flex-col ">
+        <div className="h-full  pt-16 flex flex-col mt-12 ">
           <span className="text-left  font-bold  text-xl">
             Surf Camp Anglet, Logement avec cours decouverte
           </span>
@@ -43,7 +43,7 @@ export default function Profile(): JSX.Element {
                 <Image
                   src={Hossegor}
                   layout="responsive"
-                  height={"650px"}
+                  height={"270px"}
                   alt="hoss"
                 />
               </div>
@@ -194,11 +194,11 @@ export default function Profile(): JSX.Element {
       </section>
 
       <section className="PRIX ------------------------------------">
-        <div className="flex flex-col bg-BlueCamp rounded-md h-full p-2 sm:px-20 text-white">
-          <form className=" h-full flex justify-between items-center m-5">
+        <div className="flex flex-col bg-BlueCamp rounded-md  p-2 sm:px-20 text-white lg:mt-10 lg:mx-40">
+          <form className=" h-full flex justify-end items-center m-5">
             <div className="px-4 flex flex-col">
               <DatePicker
-                className="w-full text-center  text-gray-600  text-sm font-bold flex flex-col rounded-md"
+                className="w-full text-center mr-8 p-1  text-gray-600  text-sm font-bold flex flex-col rounded-md"
                 onChange={onChange}
                 startDate={startDate}
                 endDate={endDate}
@@ -211,7 +211,7 @@ export default function Profile(): JSX.Element {
               />
             </div>
             <div className=" h-full">
-              <button className="h-full w-full px-4 border border-white rounded-md focus:outline-none font-bold md:text-sm text-sm">
+              <button className="h-full w-full p-1 px-4 border border-white rounded-md focus:outline-none font-bold md:text-sm text-sm">
                 <a href="/property">Rechercher</a>
               </button>
             </div>
