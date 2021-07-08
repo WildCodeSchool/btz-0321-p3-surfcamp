@@ -4,17 +4,22 @@ import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Card from "../components/CardPattern/card";
 import ResultSEO from "../components/resultSEO/resultSEO";
 import { useQuery } from "react-query";
-import { Property } from "../interfaces";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 export default function searchResults(): JSX.Element {
-  const { data, error, isLoading } = useQuery<Property[]>("properties", () =>
-    fetch(`${process.env.NEXT_PUBLIC_DATAAPI_URL}/properties?limit=20`).then(
-      (res) => res.json()
-    )
+  const router = useRouter();
+  const { city } = router.query;
+  const { data, error, isLoading } = useQuery("properties", () =>
+    axios({
+      method: "GET",
+      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/search/${city}`,
+    })
   );
 
+  console.log(data?.data);
   if (isLoading) return <div>Loading... </div>;
-  if (error) return <div>Something went wrong: {error.message}</div>;
+  if (error) return <div>Something went wrong</div>;
 
   return (
     <>
@@ -22,7 +27,7 @@ export default function searchResults(): JSX.Element {
         <div className="w-full h-full overflow-y-auto ">
           <DisplayCard />
           <div className="mb-24">
-            {data.map((property) => {
+            {data?.data.map((property) => {
               return <Card key={property.id} {...property} />;
             })}
           </div>
