@@ -1,13 +1,6 @@
 import Image from "next/image";
-<<<<<<< HEAD
 import Hossegor from "../../public/Images/Hossegor.jpg";
-import { useQuery } from "react-query";
-import { Property } from "../../interfaces";
-import { AddressProperty } from "../../interfaces";
-=======
-import Hossegor from "../../public/Hossegor.jpg";
 import { PropertyWithAddress } from "../../interfaces";
->>>>>>> 647bf994d98107a4f69cb7c6343d462b5121b856
 
 export default function Card({
   addressId,
