@@ -11,6 +11,8 @@ export const isLogin =
         role: user.role,
         startSession: new Date(),
         id: user.id,
+        picture: user.picture,
+        firstname: user.firstname,
       },
     });
   };

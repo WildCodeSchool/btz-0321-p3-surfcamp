@@ -1,15 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import router from "next/router";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
+import { AxiosResponse } from "axios";
+
 interface IUser {
   email: string;
   password: string;
 }
 
 export default function Login(): JSX.Element {
+  const router = useRouter();
   const dispatch = useDispatch();
   const {
     register,
@@ -18,7 +21,7 @@ export default function Login(): JSX.Element {
   } = useForm();
 
   const onSubmit = async (data: IUser) => {
-    const res = await axios({
+    const res: AxiosResponse<any> | void = await axios({
       method: "post",
       url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`,
       data: {
@@ -26,8 +29,7 @@ export default function Login(): JSX.Element {
         password: data.password,
       },
     });
-
-    dispatch(isLogin(res.data));
+    dispatch(isLogin(res?.data));
     router.push("/");
   };
 
