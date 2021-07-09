@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 
 const schema = Joi.object({
+  firstname: Joi.string().required(),
+  lastname: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().min(6).required(),
   confirmPassword: Joi.any().valid(Joi.ref("password")).required(),

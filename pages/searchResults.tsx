@@ -4,27 +4,27 @@ import Card from "../components/CardPattern/card";
 import ResultSEO from "../components/resultSEO/resultSEO";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
-import axios from "axios";
+import { property } from "../API/requests";
+import { Property } from "../interfaces";
 
 export default function searchResults(): JSX.Element {
   const router = useRouter();
   const { city } = router.query;
-  const { data, error, isLoading } = useQuery("properties", () =>
-    axios({
-      method: "GET",
-      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/search/${city}`,
-    })
+  const { data, error, isLoading } = useQuery<Property[]>("properties", () =>
+    property.search(`${city}`)
   );
 
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong</div>;
+
+  console.log(data);
 
   return (
     <>
       <div className=" flex  w-full h-full top-10 fixed  ">
         <div className="w-1/2 h-full overflow-y-auto ">
           <div className="mb-24">
-            {data?.data.map((property) => {
+            {data?.map((property) => {
               return <Card key={property.id} {...property} />;
             })}
           </div>
