@@ -1,25 +1,16 @@
 import Image from "next/image";
+
 import Hossegor from "../../public/Images/Hossegor.jpg";
-import { useQuery } from "react-query";
-import { Property } from "../../interfaces";
-import { AddressProperty } from "../../interfaces";
+import { PropertyWithAddress } from "../../interfaces";
+
 
 export default function Card({
   addressId,
   type,
   priceByNight,
   description,
-}: Property): JSX.Element {
-  const { data, error, isLoading } = useQuery<AddressProperty[]>(
-    ["address", addressId],
-    () =>
-      fetch(
-        `${process.env.NEXT_PUBLIC_DATAAPI_URL}/addresses/${addressId}`
-      ).then((res) => res.json())
-  );
-  if (isLoading) return <div>Loading... </div>;
-  if (error) return <div>Something went wrong: {error.message}</div>;
-
+  ...property
+}: PropertyWithAddress): JSX.Element {
   return (
     <div>
       <div className="CARD PLACEMENT m-2 w-2/2 border rounded-md border-gray-400 font-bold text-gray-500 flex flex-col">
@@ -35,10 +26,12 @@ export default function Card({
           </div>
           <div className="INFORMATION flex flex-col space-y-2 p-2  w-full  md:w-full lg:justify-around">
             <div className="mx-2  \ lg:text-base">
-              <p>{data.countryCode}</p>
+              <p>{property.address.country.name}</p>
             </div>
             <div className="flex justify-between mx-2 text-lg lg:text-xl">
-              <h1 className=" font-bold">{data.city}</h1>
+              <h1 className=" font-bold text-gray-500">
+                {property.address.city.name}
+              </h1>
               <h2 className="lg:text-3xl text-xl">{priceByNight}$/n </h2>
             </div>
             <div className="mx-2 text-xs \ lg:text-base">
