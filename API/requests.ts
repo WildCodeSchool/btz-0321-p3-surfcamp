@@ -1,5 +1,4 @@
 import axios from "axios";
-import { UseQueryOptions } from "react-query";
 import {
   Property,
   User,
