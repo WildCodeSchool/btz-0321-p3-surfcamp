@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UseQueryOptions } from "react-query";
 import {
   Property,
   User,
@@ -53,6 +54,11 @@ export const property = {
     id?: string;
   }): Promise<null> =>
     axios.put(`${API_URL}/properties/${id}`, property).then((res) => res.data),
+
+  search: (city: string): Promise<Array<Property>> =>
+    axios
+      .get(`${API_URL}/properties/search/?city=${city}`)
+      .then((res) => res.data),
 };
 
 export const address = {
