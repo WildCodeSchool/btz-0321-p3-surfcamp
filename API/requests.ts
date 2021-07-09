@@ -23,7 +23,7 @@ export const user = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/users/${id}`).then((res) => res.data),
 
-  create: ({ user }: { id: string }): Promise<User> =>
+  create: ({ user }: { user: string }): Promise<User> =>
     axios.post(`${API_URL}/users`, user).then((res) => res.data),
 
   update: ({ user, id }: { user: User; id?: string }): Promise<User> => {
@@ -42,7 +42,7 @@ export const property = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/properties/${id}`).then((res) => res.data),
 
-  create: ({ property }: { id: string }): Promise<Property> =>
+  create: ({ property }: { property: string }): Promise<Property> =>
     axios.post(`${API_URL}/properties`, property).then((res) => res.data),
 
   update: ({
@@ -65,7 +65,7 @@ export const address = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/addresses/${id}`).then((res) => res.data),
 
-  create: ({ address }: { id: string }): Promise<User> =>
+  create: ({ address }: { address: string }): Promise<User> =>
     axios.post(`${API_URL}/addresses`, address).then((res) => res.data),
 
   update: ({ address, id }: { address: Address; id?: string }): Promise<null> =>
@@ -82,10 +82,10 @@ export const city = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/cities/${id}`).then((res) => res.data),
 
-  create: ({ cities }: { id: string }): Promise<User> =>
+  create: ({ cities }: { cities: string }): Promise<User> =>
     axios.post(`${API_URL}/cities`, cities).then((res) => res.data),
 
-  update: ({ cities, id }: { city: City; id?: string }): Promise<null> =>
+  update: ({ cities, id }: { cities: City; id?: string }): Promise<null> =>
     axios.put(`${API_URL}/cities/${id}`, cities).then((res) => res.data),
 };
 
@@ -99,14 +99,14 @@ export const comment = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/comments/${id}`).then((res) => res.data),
 
-  create: ({ comments }: { id: string }): Promise<Comment> =>
+  create: ({ comments }: { comments: string }): Promise<Comment> =>
     axios.post(`${API_URL}/comments`, comments).then((res) => res.data),
 
   update: ({
     comments,
     id,
   }: {
-    comment: Comment;
+    comments: Comment;
     id?: string;
   }): Promise<null> =>
     axios.put(`${API_URL}/comments/${id}`, comments).then((res) => res.data),
@@ -122,14 +122,14 @@ export const country = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/countries/${id}`).then((res) => res.data),
 
-  create: ({ countries }: { id: string }): Promise<Country> =>
+  create: ({ countries }: { countries: string }): Promise<Country> =>
     axios.post(`${API_URL}/countries`, countries).then((res) => res.data),
 
   update: ({
     countries,
     id,
   }: {
-    country: Country;
+    countries: Country;
     id?: string;
   }): Promise<null> =>
     axios.put(`${API_URL}/countries/${id}`, countries).then((res) => res.data),
@@ -145,14 +145,14 @@ export const feature = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/features/${id}`).then((res) => res.data),
 
-  create: ({ features }: { id: string }): Promise<Feature> =>
+  create: ({ features }: { features: string }): Promise<Feature> =>
     axios.post(`${API_URL}/features`, features).then((res) => res.data),
 
   update: ({
     features,
     id,
   }: {
-    feature: Feature;
+    features: Feature;
     id?: string;
   }): Promise<null> =>
     axios.put(`${API_URL}/features/${id}`, features).then((res) => res.data),
@@ -167,7 +167,7 @@ export const cityPicture = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/citypictures/${id}`).then((res) => res.data),
 
-  create: ({ citypicture }: { id: string }): Promise<CityPicture> =>
+  create: ({ citypicture }: { citypicture: string }): Promise<CityPicture> =>
     axios.post(`${API_URL}/citypictures`, citypicture).then((res) => res.data),
 
   update: ({
@@ -191,7 +191,11 @@ export const countryPicture = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/countrypictures/${id}`).then((res) => res.data),
 
-  create: ({ countrypicture }: { id: string }): Promise<CountryPicture> =>
+  create: ({
+    countrypicture,
+  }: {
+    countrypicture: string;
+  }): Promise<CountryPicture> =>
     axios
       .post(`${API_URL}/countrypictures`, countrypicture)
       .then((res) => res.data),
@@ -217,7 +221,11 @@ export const propertyPicture = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/propertypictures/${id}`).then((res) => res.data),
 
-  create: ({ propertypicture }: { id: string }): Promise<PropertyPicture> =>
+  create: ({
+    propertypicture,
+  }: {
+    propertypicture: string;
+  }): Promise<PropertyPicture> =>
     axios
       .post(`${API_URL}/propertypictures`, propertypicture)
       .then((res) => res.data),

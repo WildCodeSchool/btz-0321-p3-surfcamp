@@ -26,23 +26,39 @@ import {
 } from "../interfaces";
 import { GetServerSideProps } from "next";
 
-export default function testReq({
-  users,
-  properties,
-  addresses,
-  cities,
-  comments,
-  countries,
-  features,
-  cityPictures,
-  countryPictures,
-  propertyPictures,
-}): JSX.Element {
+interface testReq {
+  users: string[];
+  properties: string[];
+  addresses: string[];
+  cities: string;
+  comments: string;
+  countries: string;
+  features: string;
+  cityPictures: string;
+  countryPictures: string;
+  propertyPictures: string;
+}
+
+export default function testReq(props: testReq): JSX.Element {
+  const {
+    users,
+    properties,
+    addresses,
+    cities,
+    comments,
+    countries,
+    features,
+    cityPictures,
+    countryPictures,
+    propertyPictures,
+  } = props as testReq;
+
   useQuery<User[]>("users", () => user.getAll());
 
   useQuery<Property[]>("properties", () => property.getAll());
 
   useQuery<Address[]>("addresses", () => address.getAll());
+
   useQuery<City[]>("cities", () => city.getAll());
 
   useQuery<Comment[]>("comments", () => comment.getAll());
@@ -60,7 +76,6 @@ export default function testReq({
   );
 
   useEffect(() => {
-    // console.log(data);
     console.log({
       users,
       properties,
