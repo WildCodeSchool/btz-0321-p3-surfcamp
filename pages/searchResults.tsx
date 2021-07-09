@@ -17,7 +17,6 @@ export default function searchResults(): JSX.Element {
     })
   );
 
-  console.log(data?.data);
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong</div>;
 
