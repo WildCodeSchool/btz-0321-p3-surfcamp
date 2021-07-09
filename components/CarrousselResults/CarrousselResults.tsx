@@ -8,9 +8,11 @@ interface IProps {
   take: string;
 }
 
-export default function Carroussel({ ressource, take }: IProps): JSX.Element {
+export default function CarrousselResults({
+  ressource,
+  take,
+}: IProps): JSX.Element {
   const [skipQuery, setSkipQuery] = useState(0);
-  const [animation, setAnimation] = useState("");
   const [loading, setLoading] = useState(true);
 
   const { error, data, refetch, isLoading } = useQuery(`${ressource}`, () =>
@@ -21,45 +23,31 @@ export default function Carroussel({ ressource, take }: IProps): JSX.Element {
     setLoading(false);
     setSkipQuery((c) => (c += parseInt(take)));
     refetch();
-    setAnimation("");
   };
 
   const backward = () => {
-    setLoading(false);
     setSkipQuery((c) => (c -= parseInt(take)));
     refetch();
-    setAnimation("");
   };
 
   useEffect(() => {
-    setAnimation("scale-in-center");
     setLoading(true);
   }, [skipQuery]);
 
   if (error) return <div>...error</div>;
   if (isLoading) return <div>...loading</div>;
   return (
-    <div className="w-full flex items-center my-8 align-middle justify-around h-full">
-      <button onClick={backward}>
-        <Image width={10} height={20} src="/backward.png" />
-      </button>
+    <div className="w-full flex items-center align-middle justify-around h-full">
+      <button onClick={backward}>BW</button>
       {loading &&
         data?.data.map((image: { url: string }, index: number) => {
           return (
-            <div className="mx-2" key={index}>
-              <Image
-                className={`${animation} rounded-md mx-4`}
-                src={image.url}
-                width={200}
-                height={200}
-                quality={100}
-              />
+            <div key={index}>
+              <Image src={image.url} width={100} height={100} quality={100} />
             </div>
           );
         })}
-      <button onClick={forward}>
-        <Image width={10} height={20} src="/forward.png" />
-      </button>
+      <button onClick={forward}>FW</button>
     </div>
   );
 }

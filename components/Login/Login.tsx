@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
 import { AxiosResponse } from "axios";
-import Modal from "../Modal/Modal";
+
 interface IUser {
   email: string;
   password: string;
@@ -13,8 +13,6 @@ interface IUser {
 
 export default function Login(): JSX.Element {
   const router = useRouter();
-  const [error, setError] = useState("");
-  const [, setIsModal] = useState(false);
   const dispatch = useDispatch();
   const {
     register,
@@ -30,18 +28,10 @@ export default function Login(): JSX.Element {
         email: data.email,
         password: data.password,
       },
-    }).catch(function () {
-      return setError("User Incorrect");
     });
     dispatch(isLogin(res?.data));
     router.push("/");
   };
-
-  if (error) {
-    return (
-      <Modal setError={setError} setIsModal={setIsModal} message={error} />
-    );
-  }
 
   return (
     <div className="flex">
