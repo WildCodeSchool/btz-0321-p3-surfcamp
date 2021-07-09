@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hossegor from "../../public/Hossegor.jpg";
+import Hossegor from "../../public/Images/Hossegor.jpg";
 import { useQuery } from "react-query";
 import { Property } from "../../interfaces";
 import { AddressProperty } from "../../interfaces";

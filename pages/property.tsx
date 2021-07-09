@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import Image from "next/image";
-
-import Hossegor from "../public/Hossegor.jpg";
+import Hossegor from "../public/Images/Hossegor.jpg";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";

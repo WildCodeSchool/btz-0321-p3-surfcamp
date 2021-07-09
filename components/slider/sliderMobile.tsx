@@ -2,9 +2,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Next from "./next";
 import Previous from "./previous";
-import Hossegor from "../../public//Hossegor.jpg";
-import Lacanau from "../../public//Lacanau.jpeg";
-import Nantes from "../../public//Nantes.jpeg";
+import Hossegor from "../../public/Images/Hossegor.jpg";
+import Lacanau from "../../public/Images/Lacanau.jpeg";
+import Nantes from "../../public/Images/Nantes.jpeg";
 
 function SliderMobile(): JSX.Element {
   const imgTest: [
