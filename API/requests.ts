@@ -13,7 +13,6 @@ import {
 } from "../interfaces";
 
 const API_URL = process.env.NEXT_PUBLIC_DATAAPI_URL;
-
 export const user = {
   getAll: (): Promise<User[]> =>
     axios.get(`${API_URL}/users`).then((res) => res.data),
