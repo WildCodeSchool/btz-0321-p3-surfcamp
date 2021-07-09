@@ -30,12 +30,12 @@ interface testReq {
   users: string[];
   properties: string[];
   addresses: string[];
-  cities: string;
-  comments: string;
-  countries: string;
-  features: string;
-  cityPictures: string;
-  countryPictures: string;
+  cities: string[];
+  comments: string[];
+  countries: string[];
+  features: string[];
+  cityPictures: string[];
+  countryPictures: string[];
   propertyPictures: string;
 }
 
@@ -51,7 +51,7 @@ export default function testReq(props: testReq): JSX.Element {
     cityPictures,
     countryPictures,
     propertyPictures,
-  } = props as testReq;
+  } = props;
 
   useQuery<User[]>("users", () => user.getAll());
 
@@ -67,12 +67,12 @@ export default function testReq(props: testReq): JSX.Element {
 
   useQuery<Feature[]>("features", () => feature.getAll());
 
-  useQuery<CityPicture[]>("cityPictures", () => cityPictures.getAll());
+  useQuery<CityPicture[]>("cityPictures", () => cityPicture.getAll());
 
-  useQuery<CountryPicture[]>("countryPictures", () => countryPictures.getAll());
+  useQuery<CountryPicture[]>("countryPictures", () => countryPicture.getAll());
 
   useQuery<PropertyPicture[]>("propertyPictures", () =>
-    propertyPictures.getAll()
+    propertyPicture.getAll()
   );
 
   useEffect(() => {
