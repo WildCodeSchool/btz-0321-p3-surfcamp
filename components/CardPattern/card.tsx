@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import Hossegor from "../../public/Images/Hossegor.jpg";
 import { PropertyWithAddress } from "../../interfaces";
 
