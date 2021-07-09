@@ -38,36 +38,25 @@ export default function testReq({
   countryPictures,
   propertyPictures,
 }): JSX.Element {
-  const { getAllUsers } = useQuery<User[]>("users", () => user.getAll());
+  useQuery<User[]>("users", () => user.getAll());
 
-  const { getAllProperties } = useQuery<Property[]>("properties", () =>
-    property.getAll()
-  );
-  const { getAllAddresses } = useQuery<Address[]>("addresses", () =>
-    address.getAll()
-  );
-  const { getAllCities } = useQuery<City[]>("cities", () => city.getAll());
+  useQuery<Property[]>("properties", () => property.getAll());
 
-  const { getAllComments } = useQuery<Comment[]>("comments", () =>
-    comment.getAll()
-  );
+  useQuery<Address[]>("addresses", () => address.getAll());
+  useQuery<City[]>("cities", () => city.getAll());
 
-  const { getAllCountries } = useQuery<Country[]>("countries", () =>
-    country.getAll()
-  );
-  const { getAllFeatures } = useQuery<Feature[]>("features", () =>
-    feature.getAll()
-  );
-  const { getAllCityPictures } = useQuery<CityPicture[]>("cityPictures", () =>
-    cityPictures.getAll()
-  );
-  const { getAllCountryPictures } = useQuery<CountryPicture[]>(
-    "countryPictures",
-    () => countryPictures.getAll()
-  );
-  const { getAllPropertyPictures } = useQuery<PropertyPicture[]>(
-    "propertyPictures",
-    () => propertyPictures.getAll()
+  useQuery<Comment[]>("comments", () => comment.getAll());
+
+  useQuery<Country[]>("countries", () => country.getAll());
+
+  useQuery<Feature[]>("features", () => feature.getAll());
+
+  useQuery<CityPicture[]>("cityPictures", () => cityPictures.getAll());
+
+  useQuery<CountryPicture[]>("countryPictures", () => countryPictures.getAll());
+
+  useQuery<PropertyPicture[]>("propertyPictures", () =>
+    propertyPictures.getAll()
   );
 
   useEffect(() => {
