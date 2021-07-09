@@ -9,6 +9,21 @@ export interface Property {
   phoneNUmber: string;
   createdAt: string;
   userId: string;
+  address: Address;
+}
+
+export interface PropertyWithAddress {
+  id: string;
+  name: string;
+  description: string;
+  type: "HOUSE" | "SURFSCHOOL" | "SURFCAMP";
+  priceByNight: string;
+  availability: "AVAILABLE" | "PENDING";
+  addressId: string;
+  phoneNUmber: string;
+  createdAt: string;
+  userId: string;
+  address: Address;
 }
 
 export interface AddressProperty {
@@ -50,6 +65,8 @@ export interface Address {
   countryId: string;
   userId?: string;
   propertyId?: string;
+  city: City;
+  country: Country;
 }
 
 export interface City {
