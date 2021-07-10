@@ -80,8 +80,8 @@ export default function Profile(): JSX.Element {
             <div className="flex space-x-4">
               <div className="h-10 w-1/12 bg-gray-400 "></div>
               <p className="w-11/12">
-                Nettoyage renforcé Cet hôte s'engage à appliquer le processus de
-                nettoyage renforcé en 5 étapes d'SurfCamp. En voir plus
+                Nettoyage renforcé Cet hôte s`&apos;`engage à appliquer le processus de
+                nettoyage renforcé en 5 étapes d`&apos;`SurfCamp. En voir plus
               </p>
             </div>
             <div className="flex space-x-4">
@@ -94,7 +94,7 @@ export default function Profile(): JSX.Element {
             <div className="flex space-x-4">
               <div className="h-10 w-1/12 bg-gray-400 "></div>
               <p className="w-11/12">
-                Équipements du quotidien L'hôte a équipé ce logement pour les
+                Équipements du quotidien L`&apos;`hôte a équipé ce logement pour les
                 séjours longue durée. Les équipements suivants sont inclus :
                 cuisine, parking gratuit et chauffage.
               </p>
@@ -102,7 +102,7 @@ export default function Profile(): JSX.Element {
             <div className="flex space-x-4">
               <div className="h-10 w-1/12 bg-gray-400 "></div>
               <p className="w-11/12">
-                Règlement intérieur L'hôte n'autorise pas les animaux de
+                Règlement intérieur L`&apos;`hôte n`&apos;`autorise pas les animaux de
                 compagnie ou les fêtes, et le logement est non-fumeur. En voir
                 plus
               </p>
@@ -165,7 +165,7 @@ export default function Profile(): JSX.Element {
                 </div>
                 <div className="flex space-x-4">
                   <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Pas d'animaux</p>
+                  <p className="w-11/12">Pas d`&apos;`animaux</p>
                 </div>
                 <div className="flex space-x-4">
                   <div className="h-10 w-1/12 bg-gray-400 "></div>
@@ -268,7 +268,7 @@ export default function Profile(): JSX.Element {
               </p>
               <p className="">
                 Les consignes d`&apos;`Airbnb en matière de distanciation physique et
-                d'autres consignes liées au COVID-19 s`&apos;`appliquent.
+                d`&apos;`autres consignes liées au COVID-19 s`&apos;`appliquent.
               </p>
 
               <a href="/property" className="font-bold">
