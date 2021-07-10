@@ -5,8 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
-
 export default function Profile(): JSX.Element {
   const [startDate, setStartDate] = useState<Date | undefined | null>(null);
   const [endDate, setEndDate] = useState<Date | undefined | null>(new Date());
@@ -80,8 +78,9 @@ export default function Profile(): JSX.Element {
             <div className="flex space-x-4">
               <div className="h-10 w-1/12 bg-gray-400 "></div>
               <p className="w-11/12">
-                Nettoyage renforcé Cet hôte s`&apos;`engage à appliquer le processus de
-                nettoyage renforcé en 5 étapes d`&apos;`SurfCamp. En voir plus
+                Nettoyage renforcé Cet hôte s&apos;engage à appliquer le
+                processus de nettoyage renforcé en 5 étapes d&apos;SurfCamp. En
+                voir plus
               </p>
             </div>
             <div className="flex space-x-4">
@@ -94,17 +93,17 @@ export default function Profile(): JSX.Element {
             <div className="flex space-x-4">
               <div className="h-10 w-1/12 bg-gray-400 "></div>
               <p className="w-11/12">
-                Équipements du quotidien L`&apos;`hôte a équipé ce logement pour les
-                séjours longue durée. Les équipements suivants sont inclus :
+                Équipements du quotidien L&apos;hôte a équipé ce logement pour
+                les séjours longue durée. Les équipements suivants sont inclus :
                 cuisine, parking gratuit et chauffage.
               </p>
             </div>
             <div className="flex space-x-4">
               <div className="h-10 w-1/12 bg-gray-400 "></div>
               <p className="w-11/12">
-                Règlement intérieur L`&apos;`hôte n`&apos;`autorise pas les animaux de
-                compagnie ou les fêtes, et le logement est non-fumeur. En voir
-                plus
+                Règlement intérieur L&apos;hôte n&apos;autorise pas les animaux
+                de compagnie ou les fêtes, et le logement est non-fumeur. En
+                voir plus
               </p>
             </div>
           </div>
@@ -165,7 +164,7 @@ export default function Profile(): JSX.Element {
                 </div>
                 <div className="flex space-x-4">
                   <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Pas d`&apos;`animaux</p>
+                  <p className="w-11/12">Pas d&apos;animaux</p>
                 </div>
                 <div className="flex space-x-4">
                   <div className="h-10 w-1/12 bg-gray-400 "></div>
@@ -250,10 +249,10 @@ export default function Profile(): JSX.Element {
         <div className="flex flex-col mt-5">
           <div className="flex flex-col space-y-4 mt-5 md:flex-row md:justify-around md:p-8 md:space-x-52">
             <div className="space-y-5">
-              <span className="font-bold">Conditions d`&apos;`annulation</span>
+              <span className="font-bold">Conditions d&apos;annulation</span>
               <p className="text-justify">
                 Annulez avant 5:00 PM le 3 juin et obtenez un remboursement
-                total, à l`&apos;`exception des 30 premiers jours et des frais de
+                total, à l&apos;exception des 30 premiers jours et des frais de
                 service.
               </p>
               <a href="/property" className="font-bold">
@@ -263,12 +262,12 @@ export default function Profile(): JSX.Element {
             <div className="space-y-5">
               <span className="font-bold">Santé et sécurité</span>
               <p className="text-justify">
-                S`&apos;`engage à appliquer le processus de nettoyage renforcé de
+                S&apos;engage à appliquer le processus de nettoyage renforcé de
                 SurfCamp.
               </p>
               <p className="">
-                Les consignes d`&apos;`Airbnb en matière de distanciation physique et
-                d`&apos;`autres consignes liées au COVID-19 s`&apos;`appliquent.
+                Les consignes d&apos;Airbnb en matière de distanciation physique
+                et d&apos;autres consignes liées au COVID-19 s&apos;appliquent.
               </p>
 
               <a href="/property" className="font-bold">
