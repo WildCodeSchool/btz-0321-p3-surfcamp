@@ -6,8 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Profile(): JSX.Element {
-  const [startDate, setStartDate] = useState<Date | undefined | null>(null);
-  const [endDate, setEndDate] = useState<Date | undefined | null>(new Date());
+ 
+
 
 
 
