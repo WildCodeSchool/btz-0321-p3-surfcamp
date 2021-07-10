@@ -16,11 +16,11 @@ export default function Home(): JSX.Element {
         <h4 className="w-full lg:w-8/12 text-center">
           Votre surf camp par Pays
         </h4>
-        <div className="w-full lg:w-8/12 text-center">
+        <div className="w-full  text-center">
           Recherchez votre surf camp dans les pays les plus réputés pour le surf
           ! Surf trip entre ami ou stage de surf en surf camp, retrouvez
-          notamment le Maroc, le Portugal, le Costa Rica, l&aposlsquoEspagne,
-          l&aposlsquoIndonésie et plein d&aposautres destinations surf !
+          notamment le Maroc, le Portugal, le Costa Rica, l&apos;lsquoEspagne,
+          l&apos;lsquoIndonésie et plein d&apos;autres destinations surf !
         </div>
         <Carroussel take="4" ressource="countrypictures" />
       </div>
@@ -28,8 +28,8 @@ export default function Home(): JSX.Element {
         <h4 className="w-full text-white text-center">
           Votre surf camp par Ville
         </h4>
-        <div className="w-full lg:w-8/12 text-white text-center">
-          Découvrez l&aposexpérience surf qui vous convient en recherchant une
+        <div className="w-full  text-white text-center">
+          Découvrez l&apos;expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !

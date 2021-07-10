@@ -8,6 +8,7 @@ import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useQuery, useMutation } from "react-query";
 import EditButton from "../Buttons/EditButton";
+import router from "next/router";
 
 interface IProfile {
   firstname?: string | null;
@@ -53,7 +54,7 @@ export default function ProfileForm() {
     <div className="w-full my-20 items-center justify-center h-full align-middle flex">
       {id ? (
         <form
-          className="flex flex-col items-center w-full h-full  align-middle"
+          className="flex flex-col items-center  w-full h-full  align-middle"
           onSubmit={handleSubmit(onSubmit)}
         >
           <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
@@ -151,7 +152,14 @@ export default function ProfileForm() {
         </form>
       ) : (
         <div className="w-full flex items-center justify-center align-middle h-full">
-          Pas encore de compte ? Par ici !
+          Pas encore de compte ? Par{" "}
+          <button
+            className="mx-1 text-red-600 underline"
+            onClick={() => router.push("/signin")}
+          >
+            ici
+          </button>{" "}
+          !
         </div>
       )}
       <div className="w-4/12 flex flex-col align-middle justify-start items-center h-full">
