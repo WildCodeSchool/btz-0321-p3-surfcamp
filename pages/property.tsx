@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Hossegor from "../public/Images/Hossegor.jpg";
 import "react-datepicker/dist/react-datepicker.css";
@@ -6,11 +6,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Profile(): JSX.Element {
- 
-
-
-
-
   return (
     <div className="flex flex-col w-full text-BlueCamp h-full px-5 mb-16 md:px-20 lg:px-64">
       <section className="TETE ANNONCE-----------------------------">
