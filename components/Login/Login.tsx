@@ -25,7 +25,7 @@ export default function Login(): JSX.Element {
   } = useForm();
 
   const onSubmit = async (data: IUser) => {
-    const res: AxiosResponse<any> | void = await axios({
+    await axios({
       method: "post",
       url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`,
       data: {
