@@ -7,9 +7,9 @@ export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
 
   return (
-    <div className="flex justify-between  items-center align-middle px-4 h-10 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
+    <div className="flex justify-between  items-center align-middle pl-4 h-10 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
       <Link href="/">
-        <button className="h-full flex items-center align-middle justify-center">
+        <button className="h-full hover:opacity-40 active:scale-95 focus:outline-none outline-none flex items-center align-middle justify-center">
           <Image
             className="cursor-pointer"
             src="/images/surfCampLogo.png"
@@ -20,30 +20,26 @@ export default function NavBar(): JSX.Element {
         </button>
       </Link>
       <div></div>
-      <div className="flex items-center text-sm ">
-        <a href="/login" className="px-2 hover:border-b">
+      <div className="flex relative items-center text-sm ">
+        <a href="/login" className="px-2 active:scale-95 hover:border-b">
           login
         </a>
-        <p>/</p>
-        <a href="/signin" className="px-2 hover:border-b">
+        <p>-</p>
+        <a href="/signin" className="px-2 active:scale-95 hover:border-b">
           Sign In
         </a>
-        {user.picture && (
-          <Image
-            src={user.picture}
-            width={30}
-            height={30}
-            alt="francais"
-            className="rounded-full"
-          />
-        )}
         <Link href="/profile">
           {user.firstname ? (
-            <button>{user.firstname}</button>
+            <button className="mx-2">{user.firstname}</button>
           ) : (
-            <button>Profile</button>
+            <button className="mx-2 active:scale-95 outline-none focus:outline-none">
+              Profile
+            </button>
           )}
         </Link>
+        {user.picture && (
+          <Image src={user.picture} width={40} height={40} alt="francais" />
+        )}
       </div>
     </div>
   );

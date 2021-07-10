@@ -7,36 +7,6 @@ import Modal from "../components/Modal/Modal";
 import { isLogin } from "../redux/actions";
 
 export default function Profile(): JSX.Element {
-<<<<<<< HEAD
-  const { id } = useSelector((state: any) => state.user);
-  const { data } = useQuery("user", () =>
-    axios({ method: "GET", url: `http://localhost:5000/users/${id}` })
-  );
-  const { register, handleSubmit } = useForm();
-  const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
-    new Date()
-  );
-  const [error, setIsError] = useState("");
-  const [isModal, setIsModal] = useState(false);
-  const onSubmit = async (data: IProfile) => {
-    await axios({
-      method: "PUT",
-      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/users/${id}`,
-      data: {
-        email: data.Email,
-        firstname: data.firstName && data.firstName,
-        lastname: data.lastName && data.lastName,
-        birthDate: birthDate && birthDate,
-        phoneNumber: data.phoneNumber && data.phoneNumber,
-      },
-    })
-      .then((res) => setIsModal(true))
-      .catch((err) => setIsError("Echec de la mise à jour du profil"));
-  };
-  if (error)
-    return (
-      <Modal setIsError={setIsError} setIsModal={setIsModal} message={error} />
-=======
   const dispatch = useDispatch();
   const router = useRouter();
   const [error, setError] = useState("");
@@ -45,16 +15,15 @@ export default function Profile(): JSX.Element {
   const handleLogout = () => {
     dispatch(
       isLogin({ id: "", email: "", role: "", picture: "", firstname: "" })
->>>>>>> c571435c8c874eee18243d34a8861fd38b8f16a0
     );
     router.reload();
   };
 
   return (
-    <div className="w-full flex px-40 text-BlueCamp h-full">
+    <div className="w-full flex lg:flex-row flex-col px-10 lg:px-40 text-BlueCamp h-full">
       {isModal && (
         <Modal
-          setIsError={setIsError}
+          setError={setError}
           setIsModal={setIsModal}
           message="Profil mis à jour avec succes"
         />
@@ -62,25 +31,24 @@ export default function Profile(): JSX.Element {
       {error && (
         <Modal setError={setError} setIsModal={setIsModal} message={error} />
       )}
-      <div className="h-full min-h-screen pt-20 flex-col items-center align-middle  flex w-3/12">
-        <span className="text-left font-bold my-4 transform -translate-x-3 text-2xl w-1/2">
-          Profil
-        </span>
-        <ul className=" flex w-full flex-col items-center justify-center align-middle">
-          <li className="w-1/2 text-xl text-left">Profil</li>
-          <li className="w-1/2 text-xl text-left">Réglages</li>
-          <li className="w-1/2 text-xl text-left">Réservations</li>
-          <li className="w-1/2 text-xl text-left">Gestion</li>{" "}
-          <li className="w-1/2 text-xl text-left">
+      <div className="h-24  lg:h-full lg:min-h-screen pt-20 lg:flex-col items-center align-middle  flex lg:w-3/12">
+        <ul className=" flex w-full flex-row lg:flex-col items-center justify-center align-middle">
+          <li className="w-1/2 cursor-pointer my-2 hover:underline text-xl text-left">
+            Réglages
+          </li>
+          <li className="w-1/2 cursor-pointer my-2 hover:underline text-xl text-left">
+            Gestion
+          </li>{" "}
+          <li className="w-1/2 hover:text-red-600 my-2 text-xl text-left">
             <button onClick={handleLogout}>Déconnexion</button>
           </li>
         </ul>
       </div>
-      <div className="h-full min-h-screen pt-20 flex-col items-center align-middle  flex w-9/12">
-        <span className="text-left  font-bold my-4 transform -translate-x-3 text-2xl w-full">
+      <div className="h-full min-h-screen pt-10 lg:pt-20 flex-col items-center align-middle  flex lg:w-9/12">
+        <span className="lg:text-left text-center  font-bold my-4 transform -translate-x-3 text-2xl w-full">
           Informations Personnelles
         </span>
-        <p className="w-full">
+        <p className="w-full text-center lg:text-left">
           Notre mission est de vous fournir la meilleure epérience qui soit.
           Pour ce, nous avons besoin d’en savoir un peu plus sur vous et ce que
           vous aimez.
