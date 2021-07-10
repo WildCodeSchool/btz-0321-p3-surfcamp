@@ -180,9 +180,9 @@ export default function Profile(): JSX.Element {
             <div className="px-4 flex flex-col">
               <DatePicker
                 className="w-full text-center mr-8 p-1  text-gray-600  text-sm font-bold flex flex-col rounded-md"
-                onChange={onChange}
-                startDate={startDate}
-                endDate={endDate}
+                onChange={() => new Date()}
+                startDate={new Date()}
+                endDate={new Date()}
                 selectsRange
                 isClearable
                 withPortal
