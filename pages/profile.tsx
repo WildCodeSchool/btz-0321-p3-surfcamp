@@ -31,15 +31,15 @@ export default function Profile(): JSX.Element {
       {error && (
         <Modal setError={setError} setIsModal={setIsModal} message={error} />
       )}
-      <div className="h-24  lg:h-full lg:min-h-screen pt-20 lg:flex-col items-center align-middle  flex lg:w-3/12">
+      <div className="h-24  lg:h-full lg:min-h-screen pt-32 lg:flex-col items-center align-middle  flex lg:w-3/12">
         <ul className=" flex w-full flex-row lg:flex-col items-center justify-center align-middle">
-          <li className="w-1/2 cursor-pointer my-2 hover:underline text-xl text-left">
+          <li className="w-1/3 cursor-pointer my-2 hover:underline text-xl text-left">
             Réglages
           </li>
-          <li className="w-1/2 cursor-pointer my-2 hover:underline text-xl text-left">
+          <li className="w-1/3 cursor-pointer my-2 hover:underline text-xl text-left">
             Gestion
           </li>{" "}
-          <li className="w-1/2 hover:text-red-600 my-2 text-xl text-left">
+          <li className="w-1/3 hover:text-red-600 my-2 text-xl text-left">
             <button onClick={handleLogout}>Déconnexion</button>
           </li>
         </ul>

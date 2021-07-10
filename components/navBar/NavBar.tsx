@@ -1,10 +1,24 @@
 // import Link from "next/link";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { isLogin } from "../../redux/actions";
 export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(
+      isLogin({
+        email: "",
+        firstname: "",
+        id: "",
+        picture: "",
+        role: "",
+        startSession: new Date(),
+      })
+    );
+  };
 
   return (
     <div className="flex justify-between  items-center align-middle pl-4 h-10 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
@@ -21,13 +35,19 @@ export default function NavBar(): JSX.Element {
       </Link>
       <div></div>
       <div className="flex relative items-center text-sm ">
-        <a href="/login" className="px-2 active:scale-95 hover:border-b">
-          login
-        </a>
-        <p>-</p>
-        <a href="/signin" className="px-2 active:scale-95 hover:border-b">
-          Sign In
-        </a>
+        {!user.firstname ? (
+          <div className="flex">
+            <a href="/login" className="px-2 active:scale-95 hover:border-b">
+              login
+            </a>
+            <p>-</p>
+            <a href="/signin" className="px-2 active:scale-95 hover:border-b">
+              Sign In
+            </a>
+          </div>
+        ) : (
+          <button onClick={handleClick}>Logout</button>
+        )}
         <Link href="/profile">
           {user.firstname ? (
             <button className="mx-2">{user.firstname}</button>
@@ -38,7 +58,15 @@ export default function NavBar(): JSX.Element {
           )}
         </Link>
         {user.picture && (
-          <Image src={user.picture} width={40} height={40} alt="francais" />
+          <Link href="/profile">
+            <Image
+              className="cursor-pointer"
+              src={user.picture}
+              width={40}
+              height={40}
+              alt="francais"
+            />
+          </Link>
         )}
       </div>
     </div>

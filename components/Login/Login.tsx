@@ -32,16 +32,21 @@ export default function Login(): JSX.Element {
         email: data.email,
         password: data.password,
       },
-    }).catch((err) => {
-      return setError(err);
-    });
-    dispatch(isLogin(res?.data));
-    router.push("/");
+    })
+      .then((r) => {
+        if (r.status === 404) {
+          return setError("user not found");
+        }
+        dispatch(isLogin(r.data));
+        router.push("/");
+      })
+      .catch((err) => {
+        setError(err);
+      });
   };
+
   if (error)
-    return (
-      <Modal setIsModal={setIsModal} setError={setError} message="Error" />
-    );
+    <Modal setIsModal={setIsModal} message={error} setError={setError} />;
   return (
     <div className="flex">
       <form
