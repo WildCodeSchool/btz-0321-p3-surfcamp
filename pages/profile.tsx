@@ -5,47 +5,14 @@ import { useRouter } from "next/router";
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from "../components/Modal/Modal";
 import { isLogin } from "../redux/actions";
-
 export default function Profile(): JSX.Element {
-<<<<<<< HEAD
-  const { id } = useSelector((state: any) => state.user);
-  const { data } = useQuery("user", () =>
-    axios({ method: "GET", url: `http://localhost:5000/users/${id}` })
-  );
-  const { register, handleSubmit } = useForm();
-  const [birthDate, setBirthDate] = useState<Date | [Date, Date] | null>(
-    new Date()
-  );
-  const [error, setIsError] = useState("");
-  const [isModal, setIsModal] = useState(false);
-  const onSubmit = async (data: IProfile) => {
-    await axios({
-      method: "PUT",
-      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/users/${id}`,
-      data: {
-        email: data.Email,
-        firstname: data.firstName && data.firstName,
-        lastname: data.lastName && data.lastName,
-        birthDate: birthDate && birthDate,
-        phoneNumber: data.phoneNumber && data.phoneNumber,
-      },
-    })
-      .then((res) => setIsModal(true))
-      .catch((err) => setIsError("Echec de la mise à jour du profil"));
-  };
-  if (error)
-    return (
-      <Modal setIsError={setIsError} setIsModal={setIsModal} message={error} />
-=======
   const dispatch = useDispatch();
   const router = useRouter();
   const [error, setError] = useState("");
   const [isModal, setIsModal] = useState(false);
-
   const handleLogout = () => {
     dispatch(
       isLogin({ id: "", email: "", role: "", picture: "", firstname: "" })
->>>>>>> c571435c8c874eee18243d34a8861fd38b8f16a0
     );
     router.reload();
   };
