@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
-import { AxiosResponse } from "axios";
 import Modal from "../Modal/Modal";
 
 interface IUser {
