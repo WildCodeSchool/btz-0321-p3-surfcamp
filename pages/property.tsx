@@ -5,14 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-interface IProfile {
-  firstName?: string;
-  lastName?: string;
-  Email?: string;
-  phoneNumber?: string;
-  birthDate?: string;
-  about?: string;
-}
+
 
 export default function Profile(): JSX.Element {
   const [startDate, setStartDate] = useState<Date | undefined | null>(null);
