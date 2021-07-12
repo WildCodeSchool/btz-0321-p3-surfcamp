@@ -48,106 +48,118 @@ export default function ProfileForm(): JSX.Element {
   };
 
   return (
-    <div className="w-full my-20 items-center justify-center h-full align-middle flex">
+    <div className="w-full items-center justify-center h-full align-middle flex">
       {id ? (
-        <form
-          className="flex flex-col items-center w-full h-full  align-middle"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">Prénom :</span>
-            <input
-              className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
-              type="text"
-              placeholder={data?.firstname}
-              {...register("firstName", {})}
-            />
-          </label>
-          <label className="text-BlueCamp text-sm w-full flex my-4 justify-start font-bold">
-            <span className="w-4/12">Nom :</span>
-            <input
-              className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
-              type="text"
-              placeholder={data?.lastname}
-              {...register("lastName", {})}
-            />
-          </label>
-          <label className="text-BlueCamp text-sm my-4 w-full h-8 flex align-middle items-center justify-start font-bold">
-            <span className="w-4/12">Email :</span>
-            {isEdit ? (
+        <div>
+          <span className="lg:text-left text-center  font-bold my-4 transform -translate-x-3 text-2xl w-full">
+            Informations Personnelles
+          </span>
+          <p className="w-full text-center lg:text-left">
+            Notre mission est de vous fournir la meilleure epérience qui soit.
+            Pour ce, nous avons besoin d’en savoir un peu plus sur vous et ce
+            que vous aimez.
+            <br />
+            Dites-en nous un peu plus sur vous.
+          </p>
+          <form
+            className="flex flex-col items-center w-full h-full  align-middle"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">Prénom :</span>
               <input
-                className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
+                className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="text"
-                placeholder={data?.email}
-                {...register("email", {})}
+                placeholder={data?.firstname}
+                {...register("firstName", {})}
               />
-            ) : (
-              <div className="  outline-none focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
-                {data?.email}
-              </div>
-            )}
-            <EditButton setIsEdit={setIsEdit} />
-          </label>
-          <label className="text-BlueCamp text-sm h-6 my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">Tel. :</span>
-            {isEdit ? (
+            </label>
+            <label className="text-BlueCamp text-sm w-full flex my-4 justify-start font-bold">
+              <span className="w-4/12">Nom :</span>
               <input
-                className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
-                type="phoneNumber"
-                placeholder={data?.phoneNumber}
-                {...register("phoneNumber", {})}
+                className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
+                type="text"
+                placeholder={data?.lastname}
+                {...register("lastName", {})}
               />
-            ) : (
-              <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
-                {data?.phoneNumber}
-              </div>
-            )}
-          </label>
-          <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">Genre :</span>
-            <select
-              className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs"
-              {...register}
-            >
-              <option className="w-4/12" value="Mr.">
-                Mme.
-              </option>
-              <option className="w-4/12" value="Mr.">
-                Mr.
-              </option>
-            </select>
-          </label>
-          <div className="w-full  flex items-end justify-start align-middle text-black h-6">
-            <span className="w-4/12 text-sm font-bold">
-              Date de naissance :
-            </span>
-            <DatePicker
-              className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
-              {...register("birthdate", {})}
-              placeholderText={data?.birthDate.toLocaleString()}
-              isClearable
-              selected={birthDate}
-              dateFormat="dd/MM/yyyy"
-              onChange={(date: Date) => setBirthDate(date)}
-            />
-          </div>
-          <label className="text-BlueCamp  my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12 text-sm">A Propos :</span>
-            <textarea
-              className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-sm p-2  text-xs"
-              placeholder="A Propos"
-              {...register("text area")}
-            />
-          </label>
+            </label>
+            <label className="text-BlueCamp text-sm my-4 w-full h-8 flex align-middle items-center justify-start font-bold">
+              <span className="w-4/12">Email :</span>
+              {isEdit ? (
+                <input
+                  className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
+                  type="text"
+                  placeholder={data?.email}
+                  {...register("email", {})}
+                />
+              ) : (
+                <div className="  outline-none focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
+                  {data?.email}
+                </div>
+              )}
+              <EditButton setIsEdit={setIsEdit} />
+            </label>
+            <label className="text-BlueCamp text-sm h-6 my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">Tel. :</span>
+              {isEdit ? (
+                <input
+                  className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
+                  type="phoneNumber"
+                  placeholder={data?.phoneNumber}
+                  {...register("phoneNumber", {})}
+                />
+              ) : (
+                <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
+                  {data?.phoneNumber}
+                </div>
+              )}
+            </label>
+            <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12">Genre :</span>
+              <select
+                className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs"
+                {...register}
+              >
+                <option className="w-4/12" value="Mr.">
+                  Mme.
+                </option>
+                <option className="w-4/12" value="Mr.">
+                  Mr.
+                </option>
+              </select>
+            </label>
+            <div className="w-full  flex items-end justify-start align-middle text-black h-6">
+              <span className="w-4/12 text-sm font-bold">
+                Date de naissance :
+              </span>
+              <DatePicker
+                className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
+                {...register("birthdate", {})}
+                placeholderText={data?.birthDate.toLocaleString()}
+                isClearable
+                selected={birthDate}
+                dateFormat="dd/MM/yyyy"
+                onChange={(date: Date) => setBirthDate(date)}
+              />
+            </div>
+            <label className="text-BlueCamp  my-4 w-full flex justify-start font-bold">
+              <span className="w-4/12 text-sm">A Propos :</span>
+              <textarea
+                className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-sm p-2  text-xs"
+                placeholder="A Propos"
+                {...register("text area")}
+              />
+            </label>
 
-          <div className="w-full flex justify-start items-end align-middle">
-            <span className="w-4/12"></span>
-            <input
-              className="border  border-gray-600 bg-BlueCamp  text-white outline-none focus:outline-none rounded-sm px-4  text-lg"
-              type="submit"
-            />
-          </div>
-        </form>
+            <div className="w-full flex justify-start items-end align-middle">
+              <span className="w-4/12"></span>
+              <input
+                className="border  border-gray-600 bg-BlueCamp  text-white outline-none focus:outline-none rounded-sm px-4  text-lg"
+                type="submit"
+              />
+            </div>
+          </form>
+        </div>
       ) : (
         <div className="w-full flex items-center justify-center align-middle h-full">
           Pas encore de compte ? Par ici !

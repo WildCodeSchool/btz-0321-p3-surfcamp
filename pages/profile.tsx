@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import ProfileForm from "../components/ProfileForm/ProfileForm";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import "react-datepicker/dist/react-datepicker.css";
+import ProfileForm from "../components/ProfileForm/ProfileForm";
 import Modal from "../components/Modal/Modal";
+import HostForm from "../components/HostForm/HostForm";
+import { useDispatch } from "react-redux";
 import { isLogin } from "../redux/actions";
+import "react-datepicker/dist/react-datepicker.css";
+
 export default function Profile(): JSX.Element {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -17,14 +19,16 @@ export default function Profile(): JSX.Element {
     router.reload();
   };
 
-  const [settings, setSettings] = useState();
-  const [propertyHandle, setPropertyHandle] = useState();
+  const [settings, setSettings] = useState(false);
+  const [propertyHandle, setPropertyHandle] = useState(false);
 
   const handleSetting = () => {
-    setSettings((previousState) => !previousState);
+    setSettings(true);
+    setPropertyHandle(false);
   };
   const handlePropertyHandle = () => {
-    setPropertyHandle((previousState) => !previousState);
+    setPropertyHandle(true);
+    setSettings(false);
   };
 
   return (
@@ -53,17 +57,6 @@ export default function Profile(): JSX.Element {
         </ul>
       </div>
       <div className="h-full min-h-screen pt-10 lg:pt-20 flex-col items-center align-middle  flex lg:w-9/12">
-        <span className="lg:text-left text-center  font-bold my-4 transform -translate-x-3 text-2xl w-full">
-          Informations Personnelles
-        </span>
-        <p className="w-full text-center lg:text-left">
-          Notre mission est de vous fournir la meilleure epérience qui soit.
-          Pour ce, nous avons besoin d’en savoir un peu plus sur vous et ce que
-          vous aimez.
-          <br />
-          Dites-en nous un peu plus sur vous.
-        </p>
-
         <div className="w-full h-full items-center align-middle justify-center flex">
           {settings && <ProfileForm />}
           {propertyHandle && <HostForm />}
