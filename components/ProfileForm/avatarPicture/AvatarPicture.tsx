@@ -24,8 +24,12 @@ export default function AvatarPicture({
         className="rounded-full"
         alt="avatar"
       /> */}
-      <div className="rounded-full">
-        <img className="object-fill" src={picture || "/avatar.png"} alt="" />
+      <div className="rounded-full relative h-36 w-32">
+        <img
+          className=" relative rounded-full"
+          src={picture || "/avatar.png"}
+          alt=""
+        />
       </div>
       <div className="flex w-full justify-between">
         <div className="w-1/2">

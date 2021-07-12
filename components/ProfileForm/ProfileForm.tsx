@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
-import AvatarPicture from "./avatarPicture/avatarPicture";
+import AvatarPicture from "./avatarPicture/AvatarPicture";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import Image from "next/image";
@@ -33,7 +33,7 @@ type FormData = {
 
 export default function ProfileForm() {
   const { id } = useSelector((state: any) => state.user);
-  const { data } = useQuery("user", () => user.getOne(id));
+  const { data, refetch } = useQuery("user", () => user.getOne(id));
   const { register, handleSubmit, setValue } = useForm<FormData>();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
@@ -95,7 +95,10 @@ export default function ProfileForm() {
               <div className="text-red w-full text-center">
                 Profil mis à jour avec succes
                 <button
-                  onClick={() => setIsUpdated(false)}
+                  onClick={() => {
+                    setIsUpdated(false);
+                    refetch();
+                  }}
                   className="bg-BlueCamp text-white p-1 rounded-sm mx-2"
                 >
                   OK
