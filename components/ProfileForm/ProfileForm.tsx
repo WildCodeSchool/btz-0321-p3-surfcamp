@@ -5,7 +5,6 @@ import DatePicker from "react-datepicker";
 import AvatarPicture from "./avatarPicture/AvatarPicture";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
-import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useQuery, useMutation } from "react-query";
 import EditButton from "../Buttons/EditButton";
@@ -48,7 +47,7 @@ export default function ProfileForm() {
   );
 
   const [birthDate, setBirthDate] = useState<Date | null | undefined>(
-    new Date(data?.birthDate! || null)
+    new Date(data?.birthDate! || new Date())
   );
   useEffect(() => {
     if (data) {
@@ -59,8 +58,6 @@ export default function ProfileForm() {
   }, [data]);
 
   const onSubmit = async (data: FormData) => {
-    console.log(data);
-
     mutation.mutate({
       firstname: data.firstname,
       lastname: data.lastname,
@@ -210,9 +207,7 @@ export default function ProfileForm() {
             !
           </div>
         )}
-        {id && (
-          <AvatarPicture url={url} setUrl={setUrl} picture={data?.picture} />
-        )}
+        {id && <AvatarPicture setUrl={setUrl} picture={data?.picture} />}
       </div>
     </div>
   );
