@@ -47,7 +47,7 @@ export default function ProfileForm() {
   );
 
   const [birthDate, setBirthDate] = useState<Date | null | undefined>(
-    new Date(data?.birthDate! || null)
+    data?.birthDate
   );
   useEffect(() => {
     if (data) {
