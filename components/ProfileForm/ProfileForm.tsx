@@ -11,11 +11,11 @@ import EditButton from "../Buttons/EditButton";
 import { user } from "../../API/requests";
 import router from "next/router";
 interface IProfile {
-  firstname?: string | null;
-  lastname?: string | null;
+  firstname?: string;
+  lastname?: string;
   email?: string;
   phoneNumber?: string;
-  birthDate?: string | null;
+  birthDate?: Date | null;
   about?: string;
   picture?: string;
 }
@@ -25,14 +25,18 @@ type FormData = {
   lastname: string;
   email?: string;
   phoneNumber?: string;
-  birthDate?: string;
+  birthDate?: Date;
   about?: string;
   picture?: string;
 };
 
 export default function ProfileForm() {
   const { id } = useSelector((state: any) => state.user);
-  const { data, refetch } = useQuery("user", () => user.getOne(id));
+  const [birthDate, setBirthDate] = useState<Date | null | undefined>(null);
+  const { data, refetch } = useQuery<IProfile, AxiosError, IProfile>(
+    "user",
+    () => user.getOne(id)
+  );
   const { register, handleSubmit, setValue } = useForm<FormData>();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
@@ -46,24 +50,24 @@ export default function ProfileForm() {
     }
   );
 
-  const [birthDate, setBirthDate] = useState<Date | null | undefined>(
-    data?.birthDate || null
-  );
   useEffect(() => {
     if (data) {
       Object.entries(data).forEach(([key, value]) => {
         setValue(key as keyof FormData, value);
+        console.log(typeof data?.birthDate, birthDate);
       });
+      setBirthDate(new Date(data!.birthDate!));
     }
   }, [data]);
 
   const onSubmit = async (data: FormData) => {
+    console.log(data);
     mutation.mutate({
       firstname: data.firstname,
       lastname: data.lastname,
       email: data.email,
       phoneNumber: data.phoneNumber,
-      birthDate: birthDate !== null ? birthDate?.toISOString() : null,
+      birthDate: birthDate,
       picture: url,
     });
   };
@@ -88,7 +92,7 @@ export default function ProfileForm() {
             className="flex flex-col items-center mt-20 w-full h-full  align-middle"
             onSubmit={handleSubmit(onSubmit)}
           >
-            {isUpdated && (
+            {isUpdated && data?.birthDate && (
               <div className="text-red w-full text-center">
                 Profil mis à jour avec succes
                 <button
@@ -130,7 +134,7 @@ export default function ProfileForm() {
                   {...register("email", {})}
                 />
               ) : (
-                <div className="outline-none focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
+                <div className="outline-none w-4/12 focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
                   {data?.email}
                 </div>
               )}
@@ -153,10 +157,7 @@ export default function ProfileForm() {
             </label>
             <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
               <span className="w-4/12">Genre :</span>
-              <select
-                className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs"
-                {...register}
-              >
+              <select className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs">
                 <option className="w-4/12" value="Mr.">
                   Mme.
                 </option>
@@ -171,11 +172,8 @@ export default function ProfileForm() {
               </span>
               <DatePicker
                 className="border p-1 focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
-                {...register("birthDate", {})}
-                placeholderText={
-                  data?.birthDate && data?.birthDate.toLocaleString()
-                }
                 isClearable
+                placeholderText={birthDate?.toISOString()}
                 selected={birthDate}
                 dateFormat="dd/MM/yyyy"
                 onChange={(date: Date) => setBirthDate(date)}
@@ -186,7 +184,6 @@ export default function ProfileForm() {
               <textarea
                 className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-sm p-2  text-xs"
                 placeholder="A Propos"
-                {...register("about")}
               />
             </label>
 
