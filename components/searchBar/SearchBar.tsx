@@ -20,7 +20,7 @@ export default function SearchBar(): JSX.Element {
       >
         <div className=" flex ">
           <input
-            className="  rounded-l-lg focus:outline-none font-bold text-gray-400 text-center text-md md:text-base"
+            className="  rounded-l-lg focus:outline-none font-bold text-gray-400 text-center text-md md:text-base px-10"
             type="text"
             placeholder="Destination"
             onChange={(e) => setKeyWord(e.target.value)}
