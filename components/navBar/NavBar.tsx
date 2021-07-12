@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
+import Logo from "../../public/Images/surfCampLogo.png";
+
+
 export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
@@ -26,7 +29,7 @@ export default function NavBar(): JSX.Element {
         <button className="h-full hover:opacity-40 active:scale-95 focus:outline-none outline-none flex items-center align-middle justify-center">
           <Image
             className="cursor-pointer"
-            src="/images/surfCampLogo.png"
+            src={Logo}
             width={90}
             height={33}
             alt="logo"

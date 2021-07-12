@@ -5,13 +5,11 @@ import { useRouter } from "next/router";
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from "../components/Modal/Modal";
 import { isLogin } from "../redux/actions";
-
 export default function Profile(): JSX.Element {
   const dispatch = useDispatch();
   const router = useRouter();
   const [error, setError] = useState("");
   const [isModal, setIsModal] = useState(false);
-
   const handleLogout = () => {
     dispatch(
       isLogin({ id: "", email: "", role: "", picture: "", firstname: "" })
