@@ -8,7 +8,7 @@ import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useQuery, useMutation } from "react-query";
 import EditButton from "../Buttons/EditButton";
-
+import { user } from "../../API/requests";
 interface IProfile {
   firstname?: string | null;
   lastname?: string | null;
@@ -30,14 +30,12 @@ type formData = {
 export default function ProfileForm() {
   const { id } = useSelector((state: any) => state.user);
   const { register, handleSubmit } = useForm();
-  const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState<boolean>(false);
   const mutation = useMutation<null, AxiosError, IProfile>((newUser) =>
     axios.put(`http://localhost:5000/users/${id}`, newUser)
   );
   const [birthDate, setBirthDate] = useState<Date | null>(null);
-  const { data } = useQuery("user", () =>
-    axios({ method: "GET", url: `http://localhost:5000/users/${id}` })
-  );
+  const { data } = useQuery("user", () => user.getOne(id));
 
   const onSubmit = async (data: formData) => {
     mutation.mutate({
@@ -56,12 +54,12 @@ export default function ProfileForm() {
           className="flex flex-col items-center w-full h-full  align-middle"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
+          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Prénom :</span>
             <input
               className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
-              placeholder={data?.data.firstname}
+              placeholder={data?.firstname}
               {...register("firstName", {})}
             />
           </label>
@@ -70,7 +68,7 @@ export default function ProfileForm() {
             <input
               className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
-              placeholder={data?.data.lastname}
+              placeholder={data?.lastname}
               {...register("lastName", {})}
             />
           </label>
@@ -80,12 +78,12 @@ export default function ProfileForm() {
               <input
                 className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="text"
-                placeholder={data?.data.email}
+                placeholder={data?.email}
                 {...register("email", {})}
               />
             ) : (
-              <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
-                {data?.data.email}
+              <div className="  outline-none focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
+                {data?.email}
               </div>
             )}
             <EditButton setIsEdit={setIsEdit} />
@@ -96,12 +94,12 @@ export default function ProfileForm() {
               <input
                 className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="phoneNumber"
-                placeholder={data?.data.phoneNumber}
+                placeholder={data?.phoneNumber}
                 {...register("phoneNumber", {})}
               />
             ) : (
               <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
-                {data?.data.phoneNumber}
+                {data?.phoneNumber}
               </div>
             )}
           </label>
@@ -126,8 +124,9 @@ export default function ProfileForm() {
             <DatePicker
               className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
               {...register("birthdate", {})}
-              placeholderText={new Date(data?.data.birthDate).toLocaleString()}
+              placeholderText={data?.birthDate.toLocaleString()}
               isClearable
+              selected={birthDate}
               dateFormat="dd/MM/yyyy"
               onChange={(date: Date) => setBirthDate(date)}
             />
@@ -154,10 +153,10 @@ export default function ProfileForm() {
           Pas encore de compte ? Par ici !
         </div>
       )}
-      <div className="w-4/12 flex flex-col align-middle justify-start items-center h-full">
-        {data?.data.picture && (
+      <div className="w-4/12 hidden  lg:flex flex-col align-middle justify-start items-center h-full">
+        {data?.picture && (
           <Image
-            src={data?.data.picture}
+            src={data?.picture}
             width={200}
             height={200}
             quality={100}

@@ -1,16 +1,31 @@
 // import Link from "next/link";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { isLogin } from "../../redux/actions";
 import Logo from "../../public/Images/surfCampLogo.png";
 
 export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(
+      isLogin({
+        email: "",
+        firstname: "",
+        id: "",
+        picture: "",
+        role: "",
+        startSession: new Date(),
+      })
+    );
+  };
 
   return (
-    <div className="flex justify-between  items-center align-middle px-4 h-10 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
+    <div className="flex justify-between  items-center align-middle pl-4 h-10 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
       <Link href="/">
-        <button className="h-full flex items-center align-middle justify-center">
+        <button className="h-full hover:opacity-40 active:scale-95 focus:outline-none outline-none flex items-center align-middle justify-center">
           <Image
             className="cursor-pointer"
             src={Logo}
@@ -21,30 +36,40 @@ export default function NavBar(): JSX.Element {
         </button>
       </Link>
       <div></div>
-      <div className="flex items-center text-sm ">
-        <a href="/login" className="px-2 hover:border-b">
-          login
-        </a>
-        <p>/</p>
-        <a href="/signin" className="px-2 hover:border-b">
-          Sign In
-        </a>
-        {user.picture && (
-          <Image
-            src={user.picture}
-            width={30}
-            height={30}
-            alt="francais"
-            className="rounded-full"
-          />
+      <div className="flex relative items-center text-sm ">
+        {!user.firstname ? (
+          <div className="flex">
+            <a href="/login" className="px-2 active:scale-95 hover:border-b">
+              login
+            </a>
+            <p>-</p>
+            <a href="/signin" className="px-2 active:scale-95 hover:border-b">
+              Sign In
+            </a>
+          </div>
+        ) : (
+          <button onClick={handleClick}>Logout</button>
         )}
         <Link href="/profile">
           {user.firstname ? (
-            <button>{user.firstname}</button>
+            <button className="mx-2">{user.firstname}</button>
           ) : (
-            <button>Profile</button>
+            <button className="mx-2 active:scale-95 outline-none focus:outline-none">
+              Profile
+            </button>
           )}
         </Link>
+        {user.picture && (
+          <Link href="/profile">
+            <Image
+              className="cursor-pointer"
+              src={user.picture}
+              width={40}
+              height={40}
+              alt="francais"
+            />
+          </Link>
+        )}
       </div>
     </div>
   );

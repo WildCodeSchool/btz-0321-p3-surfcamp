@@ -17,8 +17,6 @@ export default function searchResults(): JSX.Element {
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong</div>;
 
-  console.log(data);
-
   return (
     <>
       <div className=" flex  w-full h-full top-10 fixed  ">

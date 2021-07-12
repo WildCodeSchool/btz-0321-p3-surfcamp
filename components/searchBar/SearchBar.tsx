@@ -1,12 +1,11 @@
 import router from "next/router";
-import { useState } from "react";
+import { useState, SyntheticEvent } from "react";
 
 export default function SearchBar(): JSX.Element {
   const [keyWord, setKeyWord] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-
     router.push(`/searchResults/?city=${keyWord}`);
   };
 
