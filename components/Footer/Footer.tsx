@@ -47,7 +47,7 @@ export default function Footer(): JSX.Element {
               <h3 className="text-lg font-bold text-center ">
                 Réseaux sociaux
               </h3>
-              <div className="flex justify-center  mt-14">
+              <div className="flex justify-around mt-14">
                 <a href="/login">
                   <svg
                     width="35"

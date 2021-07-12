@@ -29,10 +29,10 @@ export default function Home(): JSX.Element {
           Votre surf camp par Ville
         </h4>
         <div className="w-full lg:w-8/12 text-white text-center">
-          Découvrez l&aposexpérience surf qui vous convient en recherchant une
+          {`Découvrez l'expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
-          rêves avant de partir !
+          rêves avant de partir !`}
         </div>
         <Carroussel take="4" ressource="citypictures" />
       </div>

@@ -7,13 +7,13 @@ export default function DevenezHote(): JSX.Element {
 
   return (
     <div>
-      <section className="bg-BlueCamp  text-white w-full  text-xs sm:text-base flex flex-col sm:flex-row">
-        <div className="flex flex-col lg:flex-row justify-between align-middle items-center">
-          <div className="lg:w-4/12 py-4 text-xs md:text-base p-10  justify-between align-middle sm:flex-col sm:items-center">
-            <h2 className="flex w-full pb-4 text-base text-left sm:pt-10">
+      <section className="bg-BlueCamp  text-white w-full text-base flex flex-col sm:flex-row">
+        <div className="flex flex-col lg:flex-row justify-between align-middle items-center w-full">
+          <div className="md:w-1/2 w-full py-4 text-base p-10  justify-center align-middle items-center sm:flex-col sm:items-center text-center">
+            <h2 className="flex justify-center w-full pb-4 text-base text-center sm:pt-10">
               {` Surf camp, Surf house ? Devenez hôte !`}
             </h2>
-            <p className="flex text-left  sm:pt-10">
+            <p className="flex text-center  sm:pt-10">
               {`  Vous gérez un ou plusieurs surf camp ? Vous mettez à disposition
             votre surf house près d'un spot, et cherchez à développer votre
             business hors saison ?`}{" "}
