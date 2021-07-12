@@ -84,6 +84,10 @@ export default function ProfileForm() {
           Dites-en nous un peu plus sur vous.
         </p>
       </div>
+      <div className="w-full flex">
+        <div>Mettre à jour mes Informations :</div>
+        <EditButton setIsEdit={setIsEdit} />
+      </div>
       <div className="flex w-full">
         {id ? (
           <form
@@ -106,21 +110,33 @@ export default function ProfileForm() {
             )}
             <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
               <span className="w-4/12">Prénom :</span>
-              <input
-                className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
-                type="text"
-                placeholder={data?.firstname}
-                {...register("firstname", {})}
-              />
+              {isEdit ? (
+                <input
+                  className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
+                  type="text"
+                  placeholder={data?.firstname}
+                  {...register("firstname", {})}
+                />
+              ) : (
+                <div className="outline-none w-4/12 focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
+                  {data?.firstname}
+                </div>
+              )}
             </label>
             <label className="text-BlueCamp text-sm w-full flex my-4 justify-start font-bold">
               <span className="w-4/12">Nom :</span>
-              <input
-                className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
-                type="text"
-                placeholder={data?.lastname}
-                {...register("lastname", {})}
-              />
+              {isEdit ? (
+                <input
+                  className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
+                  type="text"
+                  placeholder={data?.lastname}
+                  {...register("lastname", {})}
+                />
+              ) : (
+                <div className="outline-none w-4/12 focus:outline-none rounded-sm px-4 py-2 text-sm font-light">
+                  {data?.lastname}
+                </div>
+              )}
             </label>
             <label className="text-BlueCamp text-sm my-4 w-full h-8 flex align-middle items-center justify-start font-bold">
               <span className="w-4/12">Email :</span>
@@ -136,7 +152,6 @@ export default function ProfileForm() {
                   {data?.email}
                 </div>
               )}
-              <EditButton setIsEdit={setIsEdit} />
             </label>
             <label className="text-BlueCamp text-sm h-6 my-4 w-full flex justify-start font-bold">
               <span className="w-4/12">Tel. :</span>
@@ -155,27 +170,40 @@ export default function ProfileForm() {
             </label>
             <label className="text-BlueCamp text-sm my-4 w-full flex justify-start font-bold">
               <span className="w-4/12">Genre :</span>
-              <select className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs">
-                <option className="w-4/12" value="Mr.">
-                  Mme.
-                </option>
-                <option className="w-4/12" value="Mr.">
-                  Mr.
-                </option>
-              </select>
+
+              {isEdit ? (
+                <select className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs">
+                  <option className="w-4/12" value="Mr.">
+                    Mme.
+                  </option>
+                  <option className="w-4/12" value="Mr.">
+                    Mr.
+                  </option>
+                </select>
+              ) : (
+                <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
+                  {"Mme"}
+                </div>
+              )}
             </label>
             <div className="w-full  flex items-end justify-start align-middle text-black h-6">
               <span className="w-4/12 text-sm font-bold">
                 Date de naissance :
               </span>
-              <DatePicker
-                className="border p-1 focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
-                isClearable
-                placeholderText={birthDate?.toISOString()}
-                selected={birthDate}
-                dateFormat="dd/MM/yyyy"
-                onChange={(date: Date) => setBirthDate(date)}
-              />
+              {isEdit ? (
+                <DatePicker
+                  className="border p-1 focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
+                  isClearable
+                  placeholderText={birthDate?.toISOString()}
+                  selected={birthDate}
+                  dateFormat="dd/MM/yyyy"
+                  onChange={(date: Date) => setBirthDate(date)}
+                />
+              ) : (
+                <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
+                  <div>{birthDate?.toISOString()}</div>
+                </div>
+              )}
             </div>
             <label className="text-BlueCamp  my-4 w-full flex justify-start font-bold">
               <span className="w-4/12 text-sm">A Propos :</span>
