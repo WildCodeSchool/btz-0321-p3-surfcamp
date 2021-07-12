@@ -43,16 +43,20 @@ export default function CarouselSlick(): JSX.Element {
 
   function NextArrow({ onClick }: any): JSX.Element {
     return (
-      <div className=" absolute -right-24 top-1/2 z-10" onClick={onClick}>
-        <FaArrowRight />
+      <div className=" absolute -right-24 top-1/2 z-10">
+        <button onClick={onClick}>
+          <FaArrowRight />
+        </button>
       </div>
     );
   }
 
   function PrevArrow({ onClick }: any): JSX.Element {
     return (
-      <div className="absolute -left-24 top-1/2 z-10" onClick={onClick}>
-        <FaArrowLeft />
+      <div className="absolute -left-24 top-1/2 z-10">
+        <button onClick={onClick}>
+          <FaArrowLeft />
+        </button>
       </div>
     );
   }

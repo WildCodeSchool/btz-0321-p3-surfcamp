@@ -6,7 +6,6 @@ import Hossegor from "../../public/Images/Hossegor.jpg";
 import Biarritz from "../../public/Images/Biarritz.jpg";
 import lacanau from "../../public/Images/Lacanau.jpeg";
 import Imgcontact from "../../public/Images/imgcontact.jpg";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 // import { useQuery } from "react-query";
 // import { City } from "../../interfaces";
 // import { city } from "../../API/requests";
