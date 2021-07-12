@@ -3,12 +3,10 @@ import EditButton from "../../Buttons/EditButton";
 import { SetStateAction, Dispatch } from "react";
 interface IProps {
   picture?: string;
-  url: string | undefined;
   setUrl: Dispatch<SetStateAction<string | undefined>>;
 }
 export default function AvatarPicture({
   picture,
-
   setUrl,
 }: IProps): JSX.Element {
   const [isEdit, setIsEdit] = useState(false);

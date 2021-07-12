@@ -2,7 +2,7 @@ import React from "react";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import { useQuery, useMutation } from "react-query";
+import { useMutation } from "react-query";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/router";
 
@@ -47,8 +47,6 @@ export default function SignInForm(): JSX.Element {
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   const onSubmit = (data: FormData) => {
-    console.log(data);
-
     mutation.mutate({
       firstname: data.firstname,
       lastname: data.lastname,
@@ -57,7 +55,6 @@ export default function SignInForm(): JSX.Element {
       confirmPassword: data.confirmPassword,
     });
     if (mutation.isSuccess) {
-      console.log("ok");
       return router.push("/login");
     }
   };

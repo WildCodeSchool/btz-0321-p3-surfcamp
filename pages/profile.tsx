@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import ProfileForm from "../components/ProfileForm/ProfileForm";
-import PropertyForm from "../components/PropertyForm/PropertyForm";
 import { useRouter } from "next/router";
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from "../components/Modal/Modal";
