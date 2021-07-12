@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
-import AvatarPicture from "./avatarPicture/AvatarPicture";
+import AvatarPicture from "./avatarPicture/avatarPicture";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import Image from "next/image";
@@ -18,6 +18,7 @@ interface IProfile {
   phoneNumber?: string;
   birthDate?: string | null;
   about?: string;
+  picture?: string;
 }
 
 type FormData = {
@@ -27,13 +28,16 @@ type FormData = {
   phoneNumber?: string;
   birthDate?: string;
   about?: string;
+  picture?: string;
 };
 
 export default function ProfileForm() {
   const { id } = useSelector((state: any) => state.user);
+  const { data } = useQuery("user", () => user.getOne(id));
   const { register, handleSubmit, setValue } = useForm<FormData>();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
+  const [url, setUrl] = useState(null || data?.picture);
   const mutation = useMutation<null, AxiosError, IProfile>(
     (newUser) => axios.put(`http://localhost:5000/users/${id}`, newUser),
     {
@@ -42,7 +46,6 @@ export default function ProfileForm() {
       },
     }
   );
-  const { data } = useQuery("user", () => user.getOne(id));
 
   const [birthDate, setBirthDate] = useState<Date | null | undefined>(
     new Date(data?.birthDate! || null)
@@ -64,6 +67,7 @@ export default function ProfileForm() {
       email: data.email,
       phoneNumber: data.phoneNumber,
       birthDate: birthDate !== null ? birthDate?.toISOString() : null,
+      picture: url,
     });
   };
 
@@ -203,7 +207,9 @@ export default function ProfileForm() {
             !
           </div>
         )}
-        <AvatarPicture picture={data?.picture} />
+        {id && (
+          <AvatarPicture url={url} setUrl={setUrl} picture={data?.picture} />
+        )}
       </div>
     </div>
   );

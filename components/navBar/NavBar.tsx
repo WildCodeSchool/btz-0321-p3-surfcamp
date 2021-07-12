@@ -34,7 +34,7 @@ export default function NavBar(): JSX.Element {
         </button>
       </Link>
       <div></div>
-      <div className="flex relative items-center text-sm ">
+      <div className="flex relative h-10 items-center text-sm ">
         {!user.firstname ? (
           <div className="flex">
             <a href="/login" className="px-2 active:scale-95 hover:border-b">
@@ -59,13 +59,16 @@ export default function NavBar(): JSX.Element {
         </Link>
         {user.picture && (
           <Link href="/profile">
-            <Image
+            {/* <Image
               className="cursor-pointer"
               src={user.picture}
               width={40}
               height={40}
               alt="francais"
-            />
+            /> */}
+            <div className="h-10">
+              <img className="w-10" src={user.picture} alt="" />
+            </div>
           </Link>
         )}
       </div>
