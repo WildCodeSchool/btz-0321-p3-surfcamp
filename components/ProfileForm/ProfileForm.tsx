@@ -27,7 +27,7 @@ type formData = {
   about?: string;
 };
 
-export default function ProfileForm() {
+export default function ProfileForm(): JSX.Element {
   const { id } = useSelector((state: any) => state.user);
   const { register, handleSubmit } = useForm();
   const [isEdit, setIsEdit] = useState<boolean>(false);

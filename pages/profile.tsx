@@ -17,6 +17,16 @@ export default function Profile(): JSX.Element {
     router.reload();
   };
 
+  const [settings, setSettings] = useState();
+  const [propertyHandle, setPropertyHandle] = useState();
+
+  const handleSetting = () => {
+    setSettings((previousState) => !previousState);
+  };
+  const handlePropertyHandle = () => {
+    setPropertyHandle((previousState) => !previousState);
+  };
+
   return (
     <div className="w-full flex lg:flex-row flex-col px-10 lg:px-40 text-BlueCamp h-full">
       {isModal && (
@@ -32,10 +42,10 @@ export default function Profile(): JSX.Element {
       <div className="h-24  lg:h-full lg:min-h-screen pt-32 lg:flex-col items-center align-middle  flex lg:w-3/12">
         <ul className=" flex w-full flex-row lg:flex-col items-center justify-center align-middle">
           <li className="w-1/3 cursor-pointer my-2 hover:underline text-xl text-left">
-            Réglages
+            <button onClick={handleSetting}>Réglages</button>
           </li>
           <li className="w-1/3 cursor-pointer my-2 hover:underline text-xl text-left">
-            Gestion
+            <button onClick={handlePropertyHandle}>Gestion</button>
           </li>{" "}
           <li className="w-1/3 hover:text-red-600 my-2 text-xl text-left">
             <button onClick={handleLogout}>Déconnexion</button>
@@ -55,7 +65,8 @@ export default function Profile(): JSX.Element {
         </p>
 
         <div className="w-full h-full items-center align-middle justify-center flex">
-          <ProfileForm />
+          {settings && <ProfileForm />}
+          {propertyHandle && <HostForm />}
         </div>
       </div>
     </div>
