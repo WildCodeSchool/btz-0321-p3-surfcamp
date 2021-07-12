@@ -92,6 +92,9 @@ export const city = {
 
   update: ({ cities, id }: { cities: City; id?: string }): Promise<null> =>
     axios.put(`${API_URL}/cities/${id}`, cities).then((res) => res.data),
+
+  getCityPictures: (id: string): Promise<City> =>
+    axios.get(`${API_URL}/cities/${id}/citypictures`).then((res) => res.data),
 };
 
 export const comment = {

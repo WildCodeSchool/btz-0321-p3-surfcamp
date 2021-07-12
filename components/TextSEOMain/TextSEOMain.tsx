@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TextSEOMain(): JSX.Element {
   return (
-    <div className="w-full bg-BlueCamp flex flex-col items-center align-middle justify-center">
+    <div className="w-full bg-BlueCamp flex flex-col items-center align-middle justify-center py-4">
       <section className=" lg:w-9/12 text-white p-5 flex flex-col items-center align-middle justify-center text-base">
         <p className="flex w-full text-center">
           {`Notre site répertorie tous les tips à connaitre par pays et par spot.
