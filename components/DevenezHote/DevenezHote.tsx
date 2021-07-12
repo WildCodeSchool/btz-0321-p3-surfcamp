@@ -7,9 +7,9 @@ export default function DevenezHote(): JSX.Element {
 
   return (
     <div>
-      <section className="bg-BlueCamp  text-white w-full text-base flex flex-col sm:flex-row">
-        <div className="flex flex-col lg:flex-row justify-between align-middle items-center w-full">
-          <div className="md:w-1/2 w-full py-4 text-base p-10  justify-center align-middle items-center sm:flex-col sm:items-center text-center">
+      <section className="bg-BlueCamp  text-white w-full text-base flex flex-col sm:flex-row border-t border-white">
+        <div className="flex flex-col lg:flex-row  align-middle items-center w-full">
+          <div className="md:w-1/2 w-full text-base p-10  justify-center align-middle items-center sm:flex-col sm:items-center text-center">
             <h2 className="flex justify-center w-full pb-4 text-base text-center sm:pt-10">
               {` Surf camp, Surf house ? Devenez hôte !`}
             </h2>
@@ -35,8 +35,12 @@ export default function DevenezHote(): JSX.Element {
               <MyButton {...hostButton} />
             </div>
           </div>
-          <div className="flex items-end justify-end">
-            <Image src={imgContact} alt="background surf image" />
+          <div className="flex w-full h-full">
+            <Image
+              src={imgContact}
+              alt="background surf image"
+              className="object-fill"
+            />
           </div>
         </div>
       </section>
