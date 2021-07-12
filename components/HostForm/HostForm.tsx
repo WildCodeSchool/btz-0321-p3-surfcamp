@@ -1,23 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
-import axios, { AxiosError } from "axios";
-import { useQuery, useMutation } from "react-query";
-import { property, address } from "../../API/requests";
+import { AxiosError } from "axios";
+import { useMutation } from "react-query";
+import { property } from "../../API/requests";
 import { Property, PropertyInput } from "../../interfaces";
-
-interface IProfile {
-  name?: string | null; //property
-  address: string; // address
-  zipcode: string; //address
-  city: string; //address
-  country: string; //address
-  priceByNight: number; //property
-  type: string; //property
-  description: string; //property
-}
 
 type formData = {
   name: string;
@@ -32,6 +21,7 @@ type formData = {
 
 export default function HostForm(): JSX.Element {
   const id = useSelector((state) => state.user.id);
+  console.log(id);
   const { register, handleSubmit } = useForm();
 
   const mutation = useMutation<Property, AxiosError, PropertyInput>((data) =>
@@ -48,7 +38,6 @@ export default function HostForm(): JSX.Element {
 
   return (
     <div className="w-full items-center justify-center h-full align-middle flex">
-      (
       <div>
         <span className="lg:text-left text-center font-bold my-4 transform -translate-x-3 text-2xl w-full">
           Devenez hôte Surfcamp{" "}
@@ -152,7 +141,6 @@ export default function HostForm(): JSX.Element {
           </div>
         </form>
       </div>
-      )
     </div>
   );
 }
