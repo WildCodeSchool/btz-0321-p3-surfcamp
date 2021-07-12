@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import Logo from "../../public/Images/surfCampLogo.png";
 
 export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
@@ -12,7 +13,7 @@ export default function NavBar(): JSX.Element {
         <button className="h-full flex items-center align-middle justify-center">
           <Image
             className="cursor-pointer"
-            src="/images/surfCampLogo.png"
+            src={Logo}
             width={90}
             height={33}
             alt="logo"
