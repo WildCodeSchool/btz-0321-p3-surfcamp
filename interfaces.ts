@@ -12,6 +12,17 @@ export interface Property {
   address: Address;
 }
 
+export interface PropertyInput {
+  name: string;
+  description: string;
+  type: "HOUSE" | "SURFSCHOOL" | "SURFCAMP";
+  priceByNight: string;
+  addressId?: string;
+  phoneNumber: string;
+  userId: string;
+  address?: Address;
+}
+
 export interface PropertyWithAddress {
   id: string;
   name: string;

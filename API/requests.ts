@@ -10,6 +10,7 @@ import {
   CityPicture,
   CountryPicture,
   PropertyPicture,
+  PropertyInput,
 } from "../interfaces";
 
 const API_URL = process.env.NEXT_PUBLIC_DATAAPI_URL;
@@ -42,7 +43,7 @@ export const property = {
   delete: ({ id }: { id: string }): Promise<null> =>
     axios.delete(`${API_URL}/properties/${id}`).then((res) => res.data),
 
-  create: ({ property }: { property: string }): Promise<Property> =>
+  create: ({ property }: { property: PropertyInput }): Promise<Property> =>
     axios.post(`${API_URL}/properties`, property).then((res) => res.data),
 
   update: ({
