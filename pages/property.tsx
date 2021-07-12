@@ -4,6 +4,10 @@ import Hossegor from "../public/Images/Hossegor.jpg";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Amenities from "../components/propertypage/amenities";
+import property from "../API/requests";
+import { useQuery } from "react-query";
+import { Property } from "../interfaces";
 
 interface IProfile {
   firstName?: string;
@@ -18,11 +22,17 @@ export default function Profile(): JSX.Element {
   const [startDate, setStartDate] = useState<Date | undefined | null>(null);
   const [endDate, setEndDate] = useState<Date | undefined | null>(new Date());
 
+  useQuery<Property>("property", () => property.getOne());
+
+  const [property, setProperty] = useState();
+
   const onChange = (dates: [Date, Date]) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
   };
+
+  console.log(property);
 
   return (
     <div className="flex flex-col w-full text-BlueCamp h-full px-5 mb-16 md:px-20 lg:px-64">
@@ -73,116 +83,8 @@ export default function Profile(): JSX.Element {
           </div>
         </div>
       </section>
+      <Amenities />
 
-      <section className="AMENITIES--------------------------------">
-        <div className="flex mt-12 justify-between">
-          <div className="flex flex-col space-y-5 text-sm text-justify">
-            <div className="flex space-x-4">
-              <div className="h-10 w-1/12 bg-gray-400 "></div>
-              <p className="w-11/12">
-                Logement entier Vous aurez le logement (appartement) rien que
-                pour vous.
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <div className="h-10 w-1/12 bg-gray-400 "></div>
-              <p className="w-11/12">
-                Nettoyage renforcé Cet hôte s'engage à appliquer le processus de
-                nettoyage renforcé en 5 étapes d'SurfCamp. En voir plus
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <div className="h-10 w-1/12 bg-gray-400 "></div>
-              <p className="w-11/12">
-                Un hôte expérimenté SurfCamp Anglet dispose est un membre
-                certifié de nôtre communauté
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <div className="h-10 w-1/12 bg-gray-400 "></div>
-              <p className="w-11/12">
-                Équipements du quotidien L'hôte a équipé ce logement pour les
-                séjours longue durée. Les équipements suivants sont inclus :
-                cuisine, parking gratuit et chauffage.
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <div className="h-10 w-1/12 bg-gray-400 "></div>
-              <p className="w-11/12">
-                Règlement intérieur L'hôte n'autorise pas les animaux de
-                compagnie ou les fêtes, et le logement est non-fumeur. En voir
-                plus
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="flex flex-col md:flex-row md:justify-around">
-        <section className="EQUIPMENT--------------------------------">
-          <div className=" flex flex-col space-y-2 mt-10">
-            <span>Equipements</span>
-            <div className="flex space-x-4  justify-around">
-              <div className="flex space-x-4">
-                <div className="h-10 w-10 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
-              </div>
-              <div className="flex space-x-4">
-                <div className="h-10 w-10 bg-gray-400 "></div>
-                <p className="w-11/12">douche privée</p>
-              </div>
-            </div>
-            <div className="flex space-x-4  justify-around">
-              <div className="flex space-x-4">
-                <div className="h-10 w-10 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
-              </div>
-              <div className="flex space-x-4">
-                <div className="h-10 w-10 bg-gray-400 "></div>
-                <p className="w-11/12">douche privée</p>
-              </div>
-            </div>
-            <div className="flex space-x-4  justify-around">
-              <div className="flex space-x-4">
-                <div className="h-10 w-10 bg-gray-400 "></div>
-                <p className="w-11/12">cuisine</p>
-              </div>
-              <div className="flex space-x-4">
-                <div className="h-10 w-10 bg-gray-400 "></div>
-                <p className="w-11/12">douche privée</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="A SAVOIR---------------------------------">
-          <div className="flex flex-col mt-10 ">
-            <div className="flex flex-col ">
-              <span>À savoir</span>
-              <div className="flex flex-col space-y-2 mt-5 ">
-                <div className="flex space-x-4 ">
-                  <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Arrivée: après 17:00</p>
-                </div>
-                <div className="flex space-x-4">
-                  <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Depart: 10:00</p>
-                </div>
-                <div className="flex space-x-4">
-                  <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Non fumeur</p>
-                </div>
-                <div className="flex space-x-4">
-                  <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Pas d'animaux</p>
-                </div>
-                <div className="flex space-x-4">
-                  <div className="h-10 w-1/12 bg-gray-400 "></div>
-                  <p className="w-11/12">Pas de fête </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
       <section className="MAP--------------------------------------">
         <div className="flex flex-col">
           <span className="text-left  font-bold ">Emplacement</span>
