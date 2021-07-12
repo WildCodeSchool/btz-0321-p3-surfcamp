@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
 import Logo from "../../public/Images/surfCampLogo.png";
+import { BiUser } from "react-icons/bi";
 
 export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
@@ -23,7 +24,7 @@ export default function NavBar(): JSX.Element {
   };
 
   return (
-    <div className="flex justify-between  items-center align-middle pl-4 h-10 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
+    <div className="flex justify-between  items-center align-middle pl-4 h-12 w-full bg-BlueCamp text-white fixed z-50 bg-opacity-100 ">
       <Link href="/">
         <button className="h-full hover:opacity-40 active:scale-95 focus:outline-none outline-none flex items-center align-middle justify-center">
           <Image
@@ -39,12 +40,16 @@ export default function NavBar(): JSX.Element {
       <div className="flex relative h-10 items-center text-sm ">
         {!user.firstname ? (
           <div className="flex">
-            <a href="/login" className="px-2 active:scale-95 hover:border-b">
-              login
+            <a href="/login" className="px-2 active:scale-95 ">
+              <button className="border py-1 px-3 rounded-lg font-bold  hover:bg-white hover:text-BlueCamp">
+                login
+              </button>
             </a>
-            <p>-</p>
-            <a href="/signin" className="px-2 active:scale-95 hover:border-b">
-              Sign In
+
+            <a href="/signin" className="px-2 active:scale-95">
+              <button className="border py-1 px-3 rounded-lg font-bold  hover:bg-white hover:text-BlueCamp">
+                Sign In
+              </button>
             </a>
           </div>
         ) : (
@@ -54,8 +59,8 @@ export default function NavBar(): JSX.Element {
           {user.firstname ? (
             <button className="mx-2">{user.firstname}</button>
           ) : (
-            <button className="mx-2 active:scale-95 outline-none focus:outline-none">
-              Profile
+            <button className="mx-2 active:scale-95 outline-none focus:outline-none border rounded-full p-0.5 mr-3 hover:bg-white hover:text-BlueCamp">
+              <BiUser className="w-5 h-5" />
             </button>
           )}
         </Link>

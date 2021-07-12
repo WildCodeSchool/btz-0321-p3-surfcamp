@@ -6,7 +6,7 @@ import Hossegor from "../../public/Images/Hossegor.jpg";
 import Biarritz from "../../public/Images/Biarritz.jpg";
 import lacanau from "../../public/Images/Lacanau.jpeg";
 import Imgcontact from "../../public/Images/imgcontact.jpg";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 // import { useQuery } from "react-query";
 // import { City } from "../../interfaces";
 // import { city } from "../../API/requests";
@@ -44,8 +44,8 @@ export default function CarouselSR(): JSX.Element {
   function NextArrow({ onClick }: any): JSX.Element {
     return (
       <div className=" absolute -right-10 top-1/2 z-10">
-        <button onClick={onClick}>
-          <FaArrowRight />
+        <button onClick={onClick} className="focus:outline-none">
+          <BsChevronCompactRight />
         </button>
       </div>
     );
@@ -54,8 +54,8 @@ export default function CarouselSR(): JSX.Element {
   function PrevArrow({ onClick }: any): JSX.Element {
     return (
       <div className="absolute -left-10 top-1/2 z-10">
-        <button onClick={onClick}>
-          <FaArrowLeft />
+        <button onClick={onClick} className="focus:outline-none">
+          <BsChevronCompactLeft />
         </button>
       </div>
     );
@@ -70,25 +70,25 @@ export default function CarouselSR(): JSX.Element {
   };
 
   return (
-    <div className="flex w-11/12 h-24 justify-center items-center relative ">
+    <div className="flex w-11/12 h-24 justify-center items-center align-middle relative ">
       <Slider
         {...setting}
-        className="max-w-full w-full flex justify-center items-center"
+        className="max-w-full w-full flex justify-center items-center align-middle"
       >
         {fakePic.map((pic, idx) => {
           return (
             <div
               key={idx}
-              className="flex justify-center items-center relative"
+              className="flex justify-center items-center relative align-middle"
             >
               <Image
                 src={pic.url}
                 alt={pic.name}
-                width="150px"
-                height="100px"
+                width="170px"
+                height="120px"
                 className="flex justify-center items-center rounded-lg"
               />
-              <div className="absolute bg-black bg-opacity-10 w-[150px] h-[100px] z-1 top-0 left-2 flex justify-center items-center rounded-lg">
+              <div className="absolute bg-black bg-opacity-10 w-[170px] h-[120px] z-1 top-0 right-5 flex justify-center items-center rounded-lg">
                 <p className="w-full h-full mx-auto my-auto text-center text-white text-xl font-bold flex justify-center items-center">
                   {pic.name}
                 </p>

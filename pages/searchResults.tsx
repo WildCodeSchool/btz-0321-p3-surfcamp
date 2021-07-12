@@ -20,7 +20,7 @@ export default function searchResults(): JSX.Element {
   return (
     <>
       <div className=" flex  w-full h-full top-10 fixed  ">
-        <div className="w-1/2 h-full overflow-y-auto ">
+        <div className="sm:w-1/2 w-full h-full overflow-y-auto ">
           <div className="mb-24">
             {data?.map((property) => {
               return <Card key={property.id} {...property} />;
