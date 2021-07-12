@@ -27,8 +27,10 @@ export default function searchResults(): JSX.Element {
             })}
           </div>
         </div>
-        <div className="hidden
- sm:flex  // w-1/2 h-full flex-col ">
+        <div
+          className="hidden
+ sm:flex  // w-1/2 h-full flex-col "
+        >
           <div className="w-full h-full">
             <GoogleMap />
           </div>
