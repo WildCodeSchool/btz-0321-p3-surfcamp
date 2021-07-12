@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
 import Logo from "../../public/Images/surfCampLogo.png";
 
-
 export default function NavBar(): JSX.Element {
   const user = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
