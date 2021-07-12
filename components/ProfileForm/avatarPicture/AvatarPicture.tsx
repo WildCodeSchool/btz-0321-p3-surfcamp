@@ -31,7 +31,7 @@ export default function AvatarPicture({
           alt=""
         />
       </div>
-      <div className="flex w-full justify-between">
+      <div className="flex w-full  justify-between">
         <div className="w-1/2">
           {isEdit && (
             <input
@@ -41,7 +41,7 @@ export default function AvatarPicture({
             ></input>
           )}
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 flex items-end justify-end">
           <EditButton setIsEdit={setIsEdit} />
         </div>
       </div>
