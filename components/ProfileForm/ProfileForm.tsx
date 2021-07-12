@@ -54,14 +54,12 @@ export default function ProfileForm() {
     if (data) {
       Object.entries(data).forEach(([key, value]) => {
         setValue(key as keyof FormData, value);
-        console.log(typeof data?.birthDate, birthDate);
       });
       setBirthDate(new Date(data!.birthDate!));
     }
   }, [data]);
 
   const onSubmit = async (data: FormData) => {
-    console.log(data);
     mutation.mutate({
       firstname: data.firstname,
       lastname: data.lastname,
