@@ -2,26 +2,18 @@ import React from "react";
 import Image from "next/image";
 import Hossegor from "../public/Images/Hossegor.jpg";
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+import { useQuery } from "react-query";
+import { useState } from "react";
+
 import "react-datepicker/dist/react-datepicker.css";
 import Amenities from "../components/propertypage/amenities";
 import property from "../API/requests";
-import { useQuery } from "react-query";
 import { Property } from "../interfaces";
 
 export default function Profile(): JSX.Element {
-  const [startDate, setStartDate] = useState<Date | undefined | null>(null);
-  const [endDate, setEndDate] = useState<Date | undefined | null>(new Date());
-
   useQuery<Property>("property", () => property.getOne());
 
   const [property, setProperty] = useState();
-
-  const onChange = (dates: [Date, Date]) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
 
   console.log(property);
 
@@ -86,27 +78,7 @@ export default function Profile(): JSX.Element {
 
       <section className="PRIX ------------------------------------">
         <div className="flex flex-col bg-BlueCamp rounded-md  p-2 sm:px-20 text-white lg:mt-10 lg:mx-40">
-          <form className=" h-full flex justify-end items-center m-5">
-            <div className="px-4 flex flex-col">
-              <DatePicker
-                className="w-full text-center mr-8 p-1  text-gray-600  text-sm font-bold flex flex-col rounded-md"
-                onChange={() => new Date()}
-                startDate={new Date()}
-                endDate={new Date()}
-                selectsRange
-                isClearable
-                withPortal
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Arrivée / Départ"
-                minDate={new Date()}
-              />
-            </div>
-            <div className=" h-full">
-              <button className="h-full w-full p-1 px-4 border border-white rounded-md focus:outline-none font-bold md:text-sm text-sm">
-                <a href="/property">Rechercher</a>
-              </button>
-            </div>
-          </form>
+          <form className=" h-full flex justify-end items-center m-5"></form>
           <div className="flex justify-between mx-4">
             <span className="text-left  font-bold ">Prix</span>
             <span className="text-left  font-bold ">71$/N</span>
