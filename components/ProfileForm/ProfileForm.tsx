@@ -9,7 +9,6 @@ import EditButton from "../Buttons/EditButton";
 import { user } from "../../API/requests";
 import Form from "./Form";
 
-
 export interface IProfile {
   firstname?: string;
   lastname?: string;
