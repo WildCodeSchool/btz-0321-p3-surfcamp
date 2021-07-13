@@ -17,19 +17,18 @@ export default function searchResults(): JSX.Element {
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong</div>;
 
-  console.log(data);
-
   return (
     <>
       <div className=" flex  w-full h-full top-10 fixed  ">
-        <div className="w-1/2 h-full overflow-y-auto ">
+        <div className="sm:w-1/2 w-full h-full overflow-y-auto ">
           <div className="mb-24">
             {data?.map((property) => {
               return <Card key={property.id} {...property} />;
             })}
           </div>
         </div>
-        <div className="hidden sm:flex  // w-1/2 h-full flex-col ">
+
+        <div className="hidden sm:flex w-1/2 h-full flex-col">
           <div className="w-full h-full">
             <GoogleMap />
           </div>
