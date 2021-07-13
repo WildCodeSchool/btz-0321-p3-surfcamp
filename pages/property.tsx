@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Hossegor from "../public/Images/Hossegor.jpg";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,15 +8,6 @@ import Amenities from "../components/propertypage/amenities";
 import property from "../API/requests";
 import { useQuery } from "react-query";
 import { Property } from "../interfaces";
-
-interface IProfile {
-  firstName?: string;
-  lastName?: string;
-  Email?: string;
-  phoneNumber?: string;
-  birthDate?: string;
-  about?: string;
-}
 
 export default function Profile(): JSX.Element {
   const [startDate, setStartDate] = useState<Date | undefined | null>(null);
@@ -99,9 +90,9 @@ export default function Profile(): JSX.Element {
             <div className="px-4 flex flex-col">
               <DatePicker
                 className="w-full text-center mr-8 p-1  text-gray-600  text-sm font-bold flex flex-col rounded-md"
-                onChange={onChange}
-                startDate={startDate}
-                endDate={endDate}
+                onChange={() => new Date()}
+                startDate={new Date()}
+                endDate={new Date()}
                 selectsRange
                 isClearable
                 withPortal
@@ -159,10 +150,10 @@ export default function Profile(): JSX.Element {
         <div className="flex flex-col mt-5">
           <div className="flex flex-col space-y-4 mt-5 md:flex-row md:justify-around md:p-8 md:space-x-52">
             <div className="space-y-5">
-              <span className="font-bold">Conditions d'annulation</span>
+              <span className="font-bold">Conditions d&apos;annulation</span>
               <p className="text-justify">
                 Annulez avant 5:00 PM le 3 juin et obtenez un remboursement
-                total, à l'exception des 30 premiers jours et des frais de
+                total, à l&apos;exception des 30 premiers jours et des frais de
                 service.
               </p>
               <a href="/property" className="font-bold">
@@ -172,12 +163,12 @@ export default function Profile(): JSX.Element {
             <div className="space-y-5">
               <span className="font-bold">Santé et sécurité</span>
               <p className="text-justify">
-                S'engage à appliquer le processus de nettoyage renforcé de
+                S&apos;engage à appliquer le processus de nettoyage renforcé de
                 SurfCamp.
               </p>
               <p className="">
-                Les consignes d'Airbnb en matière de distanciation physique et
-                d'autres consignes liées au COVID-19 s'appliquent.
+                Les consignes d&apos;Airbnb en matière de distanciation physique
+                et d&apos;autres consignes liées au COVID-19 s&apos;appliquent.
               </p>
 
               <a href="/property" className="font-bold">
@@ -189,9 +180,4 @@ export default function Profile(): JSX.Element {
       </section>
     </div>
   );
-}
-function handleSubmit(
-  onSubmit: any
-): React.FormEventHandler<HTMLFormElement> | undefined {
-  throw new Error("Function not implemented.");
 }
