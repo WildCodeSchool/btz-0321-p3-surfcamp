@@ -21,7 +21,6 @@ type formData = {
 
 export default function HostForm(): JSX.Element {
   const id = useSelector((state) => state.user.id);
-  console.log(id);
   const { register, handleSubmit } = useForm();
 
   const mutation = useMutation<Property, AxiosError, PropertyInput>((data) =>
@@ -29,8 +28,6 @@ export default function HostForm(): JSX.Element {
   );
 
   const onSubmit = (data: formData) => {
-    console.log(data);
-
     const payload = { ...data, userId: id, phoneNumber: "0666121213" };
 
     mutation.mutate(payload);
@@ -90,7 +87,7 @@ export default function HostForm(): JSX.Element {
             />
           </label>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">Prix part nuit :</span>
+            <span className="w-4/12">Prix par nuit :</span>
 
             <input
               className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
