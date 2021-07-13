@@ -37,7 +37,6 @@ export default function Home(): JSX.Element {
         </h4>
         <div className="w-full  text-white text-center">
           Découvrez l&apos;expérience surf qui vous convient en recherchant une
-
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !
