@@ -56,7 +56,7 @@ export default function CarouselSlickPhone(): JSX.Element {
           return (
             <div
               key={idx}
-              className="flex justify-center items-center relative"
+              className="flex justify-center items-center relative pl-4 "
             >
               <Image
                 src={pic.url}

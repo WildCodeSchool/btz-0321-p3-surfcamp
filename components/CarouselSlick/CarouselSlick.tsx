@@ -6,7 +6,7 @@ import Hossegor from "../../public/Images/Hossegor.jpg";
 import Biarritz from "../../public/Images/Biarritz.jpg";
 import lacanau from "../../public/Images/Lacanau.jpeg";
 import Imgcontact from "../../public/Images/imgcontact.jpg";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 // import { useQuery } from "react-query";
 // import { City } from "../../interfaces";
 // import { city } from "../../API/requests";
@@ -43,9 +43,9 @@ export default function CarouselSlick(): JSX.Element {
 
   function NextArrow({ onClick }: any): JSX.Element {
     return (
-      <div className=" absolute -right-24 top-1/2 z-10">
-        <button onClick={onClick}>
-          <FaArrowRight />
+      <div className=" absolute -right-24 z-10 ">
+        <button onClick={onClick} className="focus:outline-none">
+          <BsChevronCompactRight className="w-20 h-20 text-gray-500 top-1/2" />
         </button>
       </div>
     );
@@ -53,9 +53,9 @@ export default function CarouselSlick(): JSX.Element {
 
   function PrevArrow({ onClick }: any): JSX.Element {
     return (
-      <div className="absolute -left-24 top-1/2 z-10">
-        <button onClick={onClick}>
-          <FaArrowLeft />
+      <div className="absolute -left-24 z-10">
+        <button onClick={onClick} className="focus:outline-none">
+          <BsChevronCompactLeft className="w-20 h-20 text-gray-500 top-1/2 " />
         </button>
       </div>
     );
@@ -70,7 +70,7 @@ export default function CarouselSlick(): JSX.Element {
   };
 
   return (
-    <div className="flex w-10/12 h-56 justify-center items-center relative mt-10">
+    <div className="flex w-10/12 h-56 justify-center items-center relative ">
       <Slider
         {...setting}
         className="max-w-full w-full flex justify-center items-center"
@@ -79,7 +79,7 @@ export default function CarouselSlick(): JSX.Element {
           return (
             <div
               key={idx}
-              className="flex justify-center items-center relative"
+              className="flex justify-center items-center relative pl-16"
             >
               <Image
                 src={pic.url}

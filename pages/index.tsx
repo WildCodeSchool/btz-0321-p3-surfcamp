@@ -14,10 +14,10 @@ export default function Home(): JSX.Element {
       <Header />
       <TextSEOMain />
       <div className="w-full   flex flex-col items-center align-middle justify-center px-5 py-10">
-        <h4 className="w-full lg:w-8/12 text-center">
+        <h4 className="w-full lg:w-8/12 text-center text-xl font-bold pb-4 text-BlueCamp">
           Votre surf camp par Pays
         </h4>
-        <div className="w-full lg:w-8/12 text-center">
+        <div className="w-full lg:w-8/12 text-center pb-10 text-BlueCamp">
           {`Recherchez votre surf camp dans les pays les plus réputés pour le surf
           ! Surf trip entre ami ou stage de surf en surf camp, retrouvez
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne,
@@ -26,29 +26,31 @@ export default function Home(): JSX.Element {
         <div className="w-full h-full hidden md:flex justify-center">
           <CarouselSlick />
         </div>
-        <div className="w-full h-full flex justify-center md:hidden">
+        <div className="w-full h-full flex justify-center sm:hidden">
           <CarouselSlickPhone />
         </div>
       </div>
       <div className="w-full  flex flex-col items-center align-middle justify-center bg-BlueCamp px-5 py-10">
-        <h4 className="w-full text-white text-center">
+        <h4 className="w-full text-white text-center text-xl font-bold pb-4">
           Votre surf camp par Ville
         </h4>
-        <div className="w-full lg:w-8/12 text-white text-center flex justify-center">
+        <div className="w-full lg:w-8/12 text-white text-center flex justify-center sm:pb-10 ">
           {`Découvrez l'expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !`}
         </div>
-        <div className="w-full h-full hidden md:flex justify-center">
+        <div className="w-full h-full hidden md:flex justify-center items-center">
           <CarouselSlick />
         </div>
-        <div className="w-full h-full flex justify-center md:hidden">
+        <div className="w-full h-full flex justify-center md:hidden items-center">
           <CarouselSlickPhone />
         </div>
       </div>
       <MainGoogleMap />
-      <DevenezHote />
+      <div className="w-full">
+        <DevenezHote />
+      </div>
       <section className="sm:justify-evenly">
         <Value />
       </section>
