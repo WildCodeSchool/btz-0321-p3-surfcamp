@@ -40,7 +40,7 @@ export default function Home(): JSX.Element {
 
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
-          rêves avant de partir !`}
+          rêves avant de partir !
         </div>
         <div className="w-full h-full hidden md:flex justify-center items-center">
           <CarouselSlick />
