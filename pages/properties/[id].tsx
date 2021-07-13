@@ -1,17 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import Hossegor from "../public/Images/Hossegor.jpg";
-import "react-datepicker/dist/react-datepicker.css";
-import { useQuery } from "react-query";
-import { useState } from "react";
+import Hossegor from "../../public/Images/Hossegor.jpg";
+import { property } from "../../API/requests";
+import { Property } from "../../interfaces";
+import { GetServerSideProps } from "next";
+import Amenities from "../../components/propertypage/amenities";
 
-import "react-datepicker/dist/react-datepicker.css";
-import Amenities from "../components/propertypage/amenities";
-import property from "../API/requests";
-import { Property } from "../interfaces";
-import { identifier } from "@babel/types";
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const resProperty = await property.getOne(context.params.id);
+  return { props: { ...resProperty } };
+};
 
-export default function Profile({
+export default function PropertyId({
   id,
   name,
   description,
@@ -23,20 +23,12 @@ export default function Profile({
   createdAt,
   userId,
   address,
-}: property): JSX.Element {
-  useQuery<Property>("property", () => property.getOne(`${id}`));
-
-  // const [property, setProperty] = useState();
-
-  console.log(property);
-
+}: Property): JSX.Element {
   return (
     <div className="flex flex-col w-full text-BlueCamp h-full px-5 mb-16 md:px-20 lg:px-64">
       <section className="TETE ANNONCE-----------------------------">
         <div className="h-full  pt-16 flex flex-col mt-12 ">
-          <span className="text-left  font-bold  text-xl">
-            Surf Camp Anglet, Logement avec cours decouverte
-          </span>
+          <span className="text-left  font-bold  text-xl">{name}</span>
           <div className="flex w-full flex-col mt-2">
             <div className="flex justify-between">
               <div className="">icons</div>
@@ -62,20 +54,13 @@ export default function Profile({
       <section className="DESCRIPTION------------------------------">
         <div className="flex flex-col">
           <div className="description article mt-5">
-            <p>Enfants/adultes</p>
+            <p>{description}</p>
           </div>
           <div className="">
-            <p>4voyageur blablabla</p>
+            <p>{type}</p>
           </div>
           <div className="text-justify mt-5">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus quia eius excepturi vel saepe? Reiciendis, perferendis.
-              Accusamus officiis magni esse quasi. Sed placeat labore eaque quos
-              aspernatur. Rerum, unde! Veniam aspernatur asperiores earum odio
-              temporibus atque mollitia nisi pariatur quas cumque magnam nostrum
-              adipisci ipsa beatae provident, error laudantium eligendi.
-            </p>
+            <p>{description}</p>
           </div>
         </div>
       </section>
@@ -93,31 +78,19 @@ export default function Profile({
         <div className="flex flex-col bg-BlueCamp rounded-md  p-2 sm:px-20 text-white lg:mt-10 lg:mx-40">
           <form className=" h-full flex justify-end items-center m-5"></form>
           <div className="flex justify-between mx-4">
-            <span className="text-left  font-bold ">Prix</span>
-            <span className="text-left  font-bold ">71$/N</span>
+            <span className="text-left  font-bold ">Recapitulatif</span>
           </div>
           <div className="p-4 space-y-4">
             <div className="flex border border-white w-full rounded-md justify-between p-4">
-              <p>Arrivée le:</p>
-              <p>14/08/2021</p>
+              <p>Prix</p>
+              <p>{priceByNight}/ Nuit</p>
             </div>
             <div className="flex border border-white w-full rounded-md justify-between p-4">
-              <p>Depart le:</p>
-              <p>16/08/2021</p>
+              <p>Frais du service</p>
+              <p>15$</p>
             </div>
-            <div className="flex border border-white w-full rounded-md justify-between p-4">
-              <p>Nombre de surfeurs</p>
-              <p>3</p>
-            </div>
+
             <div>
-              <div className="flex w-full  justify-between ">
-                <p>Logement:</p>
-                <p>250$</p>
-              </div>
-              <div className="flex  w-full  justify-between space-y-2 ">
-                <p>Frais du service</p>
-                <p>15$</p>
-              </div>
               <div className="flex  w-full   justify-between ">
                 <p>TOTAL:</p>
                 <p>265$</p>
@@ -125,7 +98,7 @@ export default function Profile({
             </div>
             <div className="flex justify-center">
               <button className="flex border border-white rounded-md justify-center p-4">
-                <a href="/property">Je Réserve</a>
+                <a href="/property">Je Contacte</a>
               </button>
             </div>
           </div>
