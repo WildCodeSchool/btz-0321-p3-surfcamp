@@ -20,7 +20,7 @@ export interface PropertyInput {
   addressId?: string;
   phoneNumber: string;
   userId: string;
-  address?: Address;
+  address: string;
 }
 
 export interface PropertyWithAddress {
@@ -80,6 +80,19 @@ export interface Address {
   country: Country;
 }
 
+export interface AddressInput {
+  zipcode: string;
+  street: string;
+  streetNumber: string;
+  lat: string;
+  long: string;
+  countryId: string;
+  userId?: string;
+  propertyId?: string;
+  city: City;
+  country: Country;
+}
+
 export interface City {
   id: string;
   name: string;
@@ -87,6 +100,10 @@ export interface City {
   countryCode: string;
   title: string;
   textSeo: string;
+}
+
+export interface CityInput {
+  name: string;
 }
 
 export interface Comment {
@@ -106,6 +123,10 @@ export interface Country {
   countryCode: string;
   title: string;
   textSeo: string;
+}
+
+export interface CountryInput {
+  name: string;
 }
 
 export interface Feature {

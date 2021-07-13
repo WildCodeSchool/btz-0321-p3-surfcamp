@@ -40,7 +40,7 @@ export default function NavBar(): JSX.Element {
         {!user.firstname ? (
           <div className="flex">
             <a href="/login" className="px-2 active:scale-95 hover:border-b">
-              login
+              Login
             </a>
             <p>-</p>
             <a href="/signin" className="px-2 active:scale-95 hover:border-b">

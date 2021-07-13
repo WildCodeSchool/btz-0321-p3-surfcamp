@@ -2,13 +2,17 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/dist/react-datepicker.css";
 import { AxiosError } from "axios";
 import { useMutation } from "react-query";
 import { property } from "../../API/requests";
 import { Property, PropertyInput } from "../../interfaces";
+import CountryHostForm from "./CountryHostForm";
+import CityHostForm from "./CityHostForm";
+import AddressHostForm from "./AddressHostForm";
 
 type formData = {
+  userId: string;
+  phoneNumber: string;
   name: string;
   address: string;
   zipcode: string;
@@ -20,14 +24,17 @@ type formData = {
 };
 
 export default function HostForm(): JSX.Element {
-  const id = useSelector((state) => state.user.id);
+  const { id } = useSelector((state) => state.user);
+  console.log(id);
+
   const { register, handleSubmit } = useForm();
 
   const mutation = useMutation<Property, AxiosError, PropertyInput>((data) =>
-    property.create({ property: data })
+    property.create({ ...data })
   );
 
   const onSubmit = (data: formData) => {
+    console.log(data);
     const payload = { ...data, userId: id, phoneNumber: "0666121213" };
 
     mutation.mutate(payload);
@@ -37,7 +44,7 @@ export default function HostForm(): JSX.Element {
     <div className="w-full items-center justify-center h-full align-middle flex">
       <div>
         <span className="lg:text-left text-center font-bold my-4 transform -translate-x-3 text-2xl w-full">
-          Devenez hôte Surfcamp{" "}
+          Devenez hôte Surfcamp
         </span>
         <p className="w-full text-center lg:text-left">
           Prêt à entrer dans l’aventure ? Parlez-nous de votre logement
@@ -46,16 +53,10 @@ export default function HostForm(): JSX.Element {
           className="flex flex-col items-center w-full h-full align-middle"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">Nom de la propriété:</span>
-            <input
-              className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
-              type="text"
-              {...register("name")}
-            />
-          </label>
+          <span>Donnez-nous votre adresse</span>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Adresse :</span>
+            <AddressHostForm />
             <input
               className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
@@ -70,20 +71,21 @@ export default function HostForm(): JSX.Element {
               {...register("zipCode", {})}
             />
           </label>
-          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
+
+          <div className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Ville :</span>
-            <input
-              className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
-              type="text"
-              {...register("city", {})}
-            />
-          </label>
-          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
+            <CityHostForm />
+          </div>
+          <div className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Pays :</span>
+            <CountryHostForm />
+          </div>
+          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
+            <span className="w-4/12">Nom de la propriété:</span>
             <input
-              className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
+              className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
-              {...register("country", {})}
+              {...register("name")}
             />
           </label>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
