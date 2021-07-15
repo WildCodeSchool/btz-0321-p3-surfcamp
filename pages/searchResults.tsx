@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 import { property } from "../API/requests";
 import { Property } from "../interfaces";
+import Link from "next/link";
 
 export default function searchResults(): JSX.Element {
   const router = useRouter();
@@ -23,7 +24,13 @@ export default function searchResults(): JSX.Element {
         <div className="sm:w-1/2 w-full h-full overflow-y-auto ">
           <div className="mb-24">
             {data?.map((property) => {
-              return <Card key={property.id} {...property} />;
+              return (
+                <Link href={`/property/`} key={property.id}>
+                  <a href={`/property/`}>
+                    <Card {...property} />
+                  </a>
+                </Link>
+              );
             })}
           </div>
         </div>
