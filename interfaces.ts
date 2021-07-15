@@ -4,7 +4,6 @@ export interface Property {
   description: string;
   type: "HOUSE" | "SURFSCHOOL" | "SURFCAMP";
   priceByNight: string;
-  availability: "AVAILABLE" | "PENDING";
   addressId: string;
   phoneNUmber: string;
   createdAt: string;
@@ -18,7 +17,6 @@ export interface PropertyWithAddress {
   description: string;
   type: "HOUSE" | "SURFSCHOOL" | "SURFCAMP";
   priceByNight: string;
-  availability: "AVAILABLE" | "PENDING";
   addressId: string;
   phoneNUmber: string;
   createdAt: string;
@@ -29,12 +27,12 @@ export interface PropertyWithAddress {
 export interface AddressProperty {
   id: string;
   zipcode: string;
-  city: string;
+  city: City;
   street: string;
   streetNumber: string;
   lat: string;
   long: string;
-  countryCode: string;
+  country: Country;
   createdAt: string;
   addressId: string;
 }
@@ -73,7 +71,7 @@ export interface City {
   id: string;
   name: string;
   description: string;
-  countryCode: string;
+  country: Country;
   title: string;
   textSeo: string;
 }
@@ -99,11 +97,8 @@ export interface Country {
 
 export interface Feature {
   id: string;
-  name: string;
-  description: string;
-  countryCode: string;
-  title: string;
-  textSeo: string;
+  label: string;
+  iconUrl: string;
 }
 
 export interface CityPicture {

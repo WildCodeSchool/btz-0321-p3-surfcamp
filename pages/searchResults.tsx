@@ -48,8 +48,6 @@ export const getServerSideProps: GetServerSideProps<{
     query: { query },
   } = ctx;
 
-  console.log(query);
-
   const properties = await property.search(query as string);
 
   return { props: { properties } };

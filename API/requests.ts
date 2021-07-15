@@ -68,6 +68,8 @@ export const property = {
     axios
       .get(`${API_URL}/properties/search/?query=${query}`)
       .then((res) => res.data),
+  getFeatures: (id: string): Promise<Array<Feature>> =>
+    axios.get(`${API_URL}/properties/${id}/features`).then((res) => res.data),
 };
 
 export const address = {
