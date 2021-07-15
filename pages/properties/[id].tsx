@@ -9,7 +9,7 @@ import CarouselPhone from "../../components/CarouselSlick/CarouselPropertyPhone"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const resProperty = await property.getOne(context.params.id);
-  console.log(resProperty);
+
   return { props: { ...resProperty } };
 };
 
