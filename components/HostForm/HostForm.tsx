@@ -1,23 +1,21 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useSelector } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import { AxiosError } from "axios";
 import { useMutation } from "react-query";
 import { property } from "../../API/requests";
 import { Property, PropertyInput } from "../../interfaces";
-import CountryHostForm from "./CountryHostForm";
-import CityHostForm from "./CityHostForm";
-import AddressHostForm from "./AddressHostForm";
 
-type formData = {
-  userId: string;
-  phoneNumber: string;
-  name: string;
+import { useQuery } from "react-query";
+import { city, country } from "../../API/requests";
+
+type HostInputs = {
   address: string;
   zipcode: string;
   city: string;
   country: string;
+  name: string;
   priceByNight: string;
   type: "HOUSE" | "SURFSCHOOL" | "SURFCAMP";
   description: string;
@@ -27,21 +25,32 @@ export default function HostForm(): JSX.Element {
   const { id } = useSelector((state) => state.user);
   console.log(id);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<HostInputs>();
+  const onSubmit: SubmitHandler<HostInputs> = (data) => console.log(data);
 
-  const mutation = useMutation<Property, AxiosError, PropertyInput>((data) =>
-    property.create({ ...data })
+  const { data: dataCity, isLoading: isLoadingCity } = useQuery(
+    "getCities",
+    () => city.getAll()
   );
 
-  const onSubmit = (data: formData) => {
-    console.log(data);
-    const payload = { ...data, userId: id, phoneNumber: "0666121213" };
+  const { data: dataCountry, isLoading: isLoadingCountry } = useQuery(
+    "getCountries",
+    () => country.getAll()
+  );
 
-    mutation.mutate(payload);
-  };
+  // const mutation = useMutation<Property, AxiosError, PropertyInput>((data) =>
+  //   property.create({ ...data })
+  // );
+
+  // const onSubmit = (data: formData) => {
+  //   console.log(data);
+  //   const payload = { ...data, userId: id, phoneNumber: "0666121213" };
+
+  //   mutation.mutate(payload);
+  // };
 
   return (
-    <div className="w-full items-center justify-center h-full align-middle flex">
+    <div className="w-full h-full items-center align-middle justify-center flex">
       <div>
         <span className="lg:text-left text-center font-bold my-4 transform -translate-x-3 text-2xl w-full">
           Devenez hôte Surfcamp
@@ -53,10 +62,11 @@ export default function HostForm(): JSX.Element {
           className="flex flex-col items-center w-full h-full align-middle"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <span>Donnez-nous votre adresse</span>
+          <p className="w-full text-center lg:text-left">
+            Complétez votre adresse :
+          </p>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Adresse :</span>
-            <AddressHostForm />
             <input
               className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
@@ -64,33 +74,68 @@ export default function HostForm(): JSX.Element {
             />
           </label>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
-            <span className="w-4/12">Code Postal :</span>
+            <span className="w-4/12">Code postal :</span>
             <input
               className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
-              {...register("zipCode", {})}
+              {...register("zipcode", {})}
             />
           </label>
 
-          <div className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
+          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Ville :</span>
-            <CityHostForm />
-          </div>
-          <div className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
+            {!isLoadingCity && (
+              <select
+                className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4 py-0.5 text-xs"
+                {...register("city", {})}
+              >
+                {dataCity?.map((city) => {
+                  return (
+                    <option
+                      className="w-4/12"
+                      placeholder="Select a country"
+                      key={city.id}
+                    >
+                      {city.name}
+                    </option>
+                  );
+                })}
+              </select>
+            )}
+          </label>
+
+          <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Pays :</span>
-            <CountryHostForm />
-          </div>
+            {!isLoadingCountry && (
+              <select
+                className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4 py-0.5 text-xs"
+                {...register("country")}
+              >
+                {dataCountry?.map((country) => {
+                  return (
+                    <option
+                      className="w-4/12"
+                      placeholder="Select a country"
+                      key={country.id}
+                    >
+                      {country.name}
+                    </option>
+                  );
+                })}
+              </select>
+            )}
+          </label>
+
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Nom de la propriété:</span>
             <input
               className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="text"
-              {...register("name")}
+              {...register("name", {})}
             />
           </label>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Prix par nuit :</span>
-
             <input
               className="border w-4/12 border-gray-600 outline-none focus:outline-none rounded-sm px-4  text-xs"
               type="priceByNight"
@@ -100,8 +145,8 @@ export default function HostForm(): JSX.Element {
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Type :</span>
             <select
-              className="borde w-2/12 border-gray-600 border outline-none focus:outline-none rounded-sm px-2  text-xs"
-              {...register}
+              className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4 text-xs"
+              {...register("type", {})}
             >
               <option className="w-4/12" value="SurfCamp">
                 SurfCamp
@@ -125,11 +170,7 @@ export default function HostForm(): JSX.Element {
           </label>
           <label className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12">Photos de votre bien :</span>
-            <input type="file" multiple />
-            <input
-              className="border  border-gray-600 bg-BlueCamp  text-white outline-none focus:outline-none rounded-sm px-4  text-lg"
-              type="submit"
-            />
+            <input className="text-xs" type="file" multiple />
           </label>
           <div className="text-BlueCamp lg:text-sm my-4 w-full flex justify-start font-bold">
             <span className="w-4/12"></span>
