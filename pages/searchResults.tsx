@@ -13,7 +13,6 @@ export default function searchResults(): JSX.Element {
   const { data, error, isLoading } = useQuery<Property[]>("properties", () =>
     property.search(`${city}`)
   );
-
   if (isLoading) return <div>Loading... </div>;
   if (error) return <div>Something went wrong</div>;
 
