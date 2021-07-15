@@ -6,7 +6,7 @@ export default function SearchBar(): JSX.Element {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    router.push(`/searchResults/?city=${keyWord}`);
+    router.push(`/searchResults?query=${keyWord}`);
   };
 
   return (
