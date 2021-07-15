@@ -54,9 +54,9 @@ export const property = {
   }): Promise<null> =>
     axios.put(`${API_URL}/properties/${id}`, property).then((res) => res.data),
 
-  search: (city: string): Promise<Array<Property>> =>
+  search: (query: string): Promise<Array<Property>> =>
     axios
-      .get(`${API_URL}/properties/search/?city=${city}`)
+      .get(`${API_URL}/properties/search/?query=${query}`)
       .then((res) => res.data),
 };
 

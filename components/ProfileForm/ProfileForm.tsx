@@ -8,7 +8,6 @@ import { useQuery, useMutation } from "react-query";
 import EditButton from "../Buttons/EditButton";
 import { user } from "../../API/requests";
 import Form from "./Form";
-import router from "next/router";
 
 export interface IProfile {
   firstname?: string;
