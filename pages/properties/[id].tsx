@@ -16,7 +16,6 @@ export const getServerSideProps: GetServerSideProps<IProps> = async (
     property.getOne(context.params.id),
     property.getFeatures(context.params.id),
   ]);
-
   return { props: { ...resProperty, features: resFeatures } };
 };
 export default function PropertyId({
