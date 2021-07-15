@@ -40,8 +40,9 @@ export default function Amenities(): JSX.Element {
             <div className="flex space-x-4">
               <Done />
               <p className="w-11/12">
-                Nettoyage renforcé Cet hôte s'engage à appliquer le processus de
-                nettoyage renforcé en 5 étapes d'SurfCamp. En voir plus
+                Nettoyage renforcé Cet hôte s&apos;engage à appliquer le
+                processus de nettoyage renforcé en 5 étapes d&apos;SurfCamp. En
+                voir plus
               </p>
             </div>
             <div className="flex space-x-4">
@@ -54,17 +55,17 @@ export default function Amenities(): JSX.Element {
             <div className="flex space-x-4">
               <Kitchen />
               <p className="w-11/12">
-                Équipements du quotidien L&hôte a équipé ce logement pour les
-                séjours longue durée. Les équipements suivants sont inclus :
+                Équipements du quotidien L&apos;hôte a équipé ce logement pour
+                les séjours longue durée. Les équipements suivants sont inclus :
                 cuisine, parking gratuit et chauffage.
               </p>
             </div>
             <div className="flex space-x-4">
               <List />
               <p className="w-11/12">
-                Règlement intérieur L&hôte n&autorise pas les animaux de
-                compagnie ou les fêtes, et le logement est non-fumeur. En voir
-                plus
+                Règlement intérieur L&apos;hôte n&apos;autorise pas les animaux
+                de compagnie ou les fêtes, et le logement est non-fumeur. En
+                voir plus
               </p>
             </div>
           </div>
@@ -170,7 +171,7 @@ export default function Amenities(): JSX.Element {
                     height={30}
                     className=""
                   />
-                  <p className="w-11/12">Pas d'animaux</p>
+                  <p className="w-11/12">Pas d&apos;animaux</p>
                 </div>
                 <div className="flex space-x-4">
                   <Image
