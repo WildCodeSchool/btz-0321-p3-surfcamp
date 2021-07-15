@@ -12,7 +12,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return { props: { ...resProperty } };
 };
-
 export default function PropertyId({
   id,
   name,
