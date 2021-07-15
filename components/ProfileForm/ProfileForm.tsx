@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/dist/react-datepicker.css";
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useQuery, useMutation } from "react-query";

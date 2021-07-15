@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import ProfileForm from "../components/ProfileForm/ProfileForm";
 import Modal from "../components/Modal/Modal";
-import HostForm from "../components/HostForm/HostForm";
+import AddressHostForm from "../components/HostForm/AddressHostForm";
 import { useDispatch } from "react-redux";
 import { isLogin } from "../redux/actions";
 import "react-datepicker/dist/react-datepicker.css";
@@ -59,7 +59,7 @@ export default function Profile(): JSX.Element {
       <div className="h-full min-h-screen pt-10 lg:pt-20 flex-col items-center align-middle  flex lg:w-9/12">
         <div className="w-full h-full items-center align-middle justify-center flex">
           {settings && <ProfileForm />}
-          {propertyHandle && <HostForm />}
+          {propertyHandle && <AddressHostForm />}
         </div>
       </div>
     </div>

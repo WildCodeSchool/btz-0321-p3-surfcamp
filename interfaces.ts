@@ -87,6 +87,7 @@ export interface AddressInput {
   lat: string;
   long: string;
   countryId: string;
+  cityId: string;
   userId?: string;
   propertyId?: string;
   city: City;
