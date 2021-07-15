@@ -84,11 +84,11 @@ export default function CarouselSR(): JSX.Element {
               <Image
                 src={pic.url}
                 alt={pic.name}
-                width="170px"
-                height="120px"
+                width="150px"
+                height="100px"
                 className="flex justify-center items-center rounded-lg"
               />
-              <div className="absolute bg-black bg-opacity-10 w-[170px] h-[120px] z-1 top-0 right-5 flex justify-center items-center rounded-lg">
+              <div className="absolute bg-black bg-opacity-10 w-[150px] h-[100px] z-1 top-0 right-2 flex justify-center items-center rounded-lg">
                 <p className="w-full h-full mx-auto my-auto text-center text-white text-xl font-bold flex justify-center items-center">
                   {pic.name}
                 </p>

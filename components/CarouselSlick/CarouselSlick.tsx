@@ -79,7 +79,7 @@ export default function CarouselSlick(): JSX.Element {
           return (
             <div
               key={idx}
-              className="flex justify-center items-center relative pl-16"
+              className="flex justify-center items-center relative pl-10"
             >
               <Image
                 src={pic.url}
