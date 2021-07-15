@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from "../components/Modal/Modal";
 import { isLogin } from "../redux/actions";
-import Sidebar from "../components/ProfileForm/sidebar";
+import Sidebar from "../components/ProfileForm/Sidebar";
 export default function Profile(): JSX.Element {
   const dispatch = useDispatch();
   const router = useRouter();

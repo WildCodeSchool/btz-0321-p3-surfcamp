@@ -24,19 +24,22 @@ export default function Login(): JSX.Element {
   } = useForm();
 
   const onSubmit = async (data: IUser) => {
-    await axios({
+    const res = await axios({
       method: "post",
       url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`,
       data: {
         email: data.email,
         password: data.password,
       },
+      headers: { "Access-Control-Allow-Credentials": true },
+      withCredentials: true,
     })
       .then((r) => {
         if (r.status === 404) {
           return setError("user not found");
         }
-        dispatch(isLogin(r.data));
+        console.log(r.data);
+        dispatch(isLogin(r.data.user));
         router.push("/");
       })
       .catch((err) => {
