@@ -97,11 +97,8 @@ export interface Country {
 
 export interface Feature {
   id: string;
-  name: string;
-  description: string;
-  countryCode: string;
-  title: string;
-  textSeo: string;
+  label: string;
+  iconUrl: string;
 }
 
 export interface CityPicture {

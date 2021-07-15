@@ -1,16 +1,23 @@
-import React from "react";
-
 import { property } from "../../API/requests";
-import { PropertyWithAddress } from "../../interfaces";
-import { GetServerSideProps } from "next";
+import { Feature, PropertyWithAddress } from "../../interfaces";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Amenities from "../../components/propertypage/amenities";
 import CarouselProperty from "../../components/CarouselSlick/CarousselProperty";
 import CarouselPhone from "../../components/CarouselSlick/CarouselPropertyPhone";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const resProperty = await property.getOne(context.params.id);
+interface IProps extends PropertyWithAddress {
+  features: Feature[];
+}
 
-  return { props: { ...resProperty } };
+export const getServerSideProps: GetServerSideProps<IProps> = async (
+  context
+) => {
+  const [resProperty, resFeatures] = await Promise.all([
+    property.getOne(context.params.id),
+    property.getFeatures(context.params.id),
+  ]);
+
+  return { props: { ...resProperty, features: resFeatures } };
 };
 export default function PropertyId({
   id,
@@ -18,8 +25,8 @@ export default function PropertyId({
   description,
   type,
   priceByNight,
-  ...address
-}: PropertyWithAddress): JSX.Element {
+  features,
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   return (
     <div className="flex flex-col w-full text-BlueCamp h-full px-5 mb-16 md:px-20 lg:px-64">
       <section className="TETE ANNONCE-----------------------------">
@@ -60,10 +67,10 @@ export default function PropertyId({
           </div>
         </div>
       </section>
-      <Amenities />
+      <Amenities features={features} />
 
       <section className="MAP--------------------------------------">
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-10">
           <span className="text-left  font-bold ">Emplacement</span>
           <p className="text-left ">Anglet</p>
           <div className="flex flex-col bg-gray-600 w-full h-96 m-1 p-2"></div>
