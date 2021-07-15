@@ -11,11 +11,9 @@ import Laundry from "@material-ui/icons/LocalLaundryServiceOutlined";
 import Wifi from "@material-ui/icons/WifiOutlined";
 import Restaurant from "@material-ui/icons/RestaurantMenuOutlined";
 import Bike from "@material-ui/icons/DirectionsBikeOutlined";
-
 import NoSmoke from "@material-ui/icons/SmokeFree";
 import Smoking from "@material-ui/icons/SmokingRooms";
 import PetsIcon from "@material-ui/icons/Pets";
-
 import HomeIcon from "@material-ui/icons/Home";
 import Star from "@material-ui/icons/StarOutline";
 import List from "@material-ui/icons/ListAlt";
