@@ -24,7 +24,7 @@ export default function Login(): JSX.Element {
   } = useForm();
 
   const onSubmit = async (data: IUser) => {
-    const res = await axios({
+    await axios({
       method: "post",
       url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`,
       data: {
@@ -38,7 +38,6 @@ export default function Login(): JSX.Element {
         if (r.status === 404) {
           return setError("user not found");
         }
-        console.log(r.data);
         dispatch(isLogin(r.data.user));
         router.push("/");
       })
