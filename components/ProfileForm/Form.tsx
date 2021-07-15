@@ -42,7 +42,10 @@ export default function Form({
   data,
 }: IProps) {
   const mutation = useMutation<null, AxiosError, IProfile>(
-    (newUser) => axios.put(`http://localhost:5000/users/${id}`, newUser),
+    (newUser) =>
+      axios.put(`http://localhost:5000/users/${id}`, newUser, {
+        withCredentials: true,
+      }),
     {
       onSuccess: () => {
         setIsUpdated(true);

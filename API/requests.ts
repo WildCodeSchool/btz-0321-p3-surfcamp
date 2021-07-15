@@ -15,20 +15,30 @@ import {
 const API_URL = process.env.NEXT_PUBLIC_DATAAPI_URL;
 export const user = {
   getAll: (): Promise<User[]> =>
-    axios.get(`${API_URL}/users`).then((res) => res.data),
+    axios
+      .get(`${API_URL}/users`, { withCredentials: true })
+      .then((res) => res.data),
 
   getOne: (id: string): Promise<User> =>
-    axios.get(`${API_URL}/users/${id}`).then((res) => res.data),
+    axios
+      .get(`${API_URL}/users/${id}`, { withCredentials: true })
+      .then((res) => res.data),
 
   delete: ({ id }: { id: string }): Promise<null> =>
-    axios.delete(`${API_URL}/users/${id}`).then((res) => res.data),
+    axios
+      .delete(`${API_URL}/users/${id}`, { withCredentials: true })
+      .then((res) => res.data),
 
   create: ({ user }: { user: string }): Promise<User> =>
-    axios.post(`${API_URL}/users`, user).then((res) => res.data),
+    axios
+      .post(`${API_URL}/users`, user, { withCredentials: true })
+      .then((res) => res.data),
 
   update: ({ user, id }: { user: User; id?: string }): Promise<User> => {
     if (!id) throw new Error("Id can't be undefined");
-    return axios.put(`${API_URL}/users/${id}`, user).then((res) => res.data);
+    return axios
+      .put(`${API_URL}/users/${id}`, user, { withCredentials: true })
+      .then((res) => res.data);
   },
 };
 
