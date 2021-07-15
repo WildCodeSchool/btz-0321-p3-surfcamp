@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
           Votre surf camp par Pays
         </h4>
 
-        <div className="w-full lg:w-8/12 text-center pb-10 text-BlueCamp">
+        <div className="w-full lg:w-8/12 text-center lg:pb-10 text-BlueCamp">
           {`Recherchez votre surf camp dans les pays les plus réputés pour le surf
           ! Surf trip entre ami ou stage de surf en surf camp, retrouvez
           notamment le Maroc, le Portugal, le Costa Rica, l'Espagne,
@@ -35,7 +35,7 @@ export default function Home(): JSX.Element {
         <h4 className="w-full text-white text-center text-xl font-bold pb-4">
           Votre surf camp par Ville
         </h4>
-        <div className="w-full  text-white text-center">
+        <div className="w-full lg:w-8/12 lg:pb-10 text-white text-center">
           Découvrez l&apos;expérience surf qui vous convient en recherchant une
           destination par ville, parmi les meilleurs spots au monde ! Pour
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos

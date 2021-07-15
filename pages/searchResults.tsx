@@ -6,6 +6,7 @@ import Card from "../components/CardPattern/card";
 import ResultSEO from "../components/resultSEO/resultSEO";
 import { property } from "../API/requests";
 import { Property } from "../interfaces";
+import Link from "next/link";
 
 export default function searchResults({
   properties,
@@ -16,7 +17,13 @@ export default function searchResults({
         <div className="sm:w-1/2 w-full h-full overflow-y-auto ">
           <div className="mb-24">
             {properties?.map((property) => {
-              return <Card key={property.id} {...property} />;
+              return (
+                <Link href={`/properties/${property.id}`} key={property.id}>
+                  <a href={`/property/${property.id}`}>
+                    <Card {...property} />
+                  </a>
+                </Link>
+              );
             })}
           </div>
         </div>
