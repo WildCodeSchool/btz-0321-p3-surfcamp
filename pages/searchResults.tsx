@@ -25,8 +25,8 @@ export default function searchResults(): JSX.Element {
           <div className="mb-24">
             {data?.map((property) => {
               return (
-                <Link href={`/property/`} key={property.id}>
-                  <a href={`/property/`}>
+                <Link href={`/properties/${property.id}`} key={property.id}>
+                  <a href={`/property/${property.id}`}>
                     <Card {...property} />
                   </a>
                 </Link>
