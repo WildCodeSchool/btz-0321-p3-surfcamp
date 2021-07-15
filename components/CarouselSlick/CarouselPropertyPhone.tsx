@@ -47,7 +47,7 @@ export default function CarouselSlickPhone(): JSX.Element {
   };
 
   return (
-    <div className="flex  h-56 justify-center items-center relative ml-10">
+    <div className="flex  h-56 justify-center items-center relative  mt-8">
       <Slider
         {...setting}
         className="max-w-full w-full flex justify-center items-center"
@@ -61,8 +61,8 @@ export default function CarouselSlickPhone(): JSX.Element {
               <Image
                 src={pic.url}
                 alt={pic.name}
-                width="250px"
-                height="200px"
+                width="300px"
+                height="250px"
                 className="flex justify-center items-center rounded-lg"
               />
             </div>

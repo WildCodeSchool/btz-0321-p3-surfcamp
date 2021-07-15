@@ -38,11 +38,11 @@ export default function PropertyId({
             </div>
           </div>
 
-          <div className="flex w-full flex-col mt-2 ">
+          <div className="flex w-full flex-col mt-2">
             <div className="hidden md:flex flex-col md:w-full  justify-center my-20">
               <CarouselProperty />
             </div>
-            <div className="flex flex-col w-full  justify-center md:hidden">
+            <div className="flex flex-col w-full  justify-center md:hidden ">
               <CarouselPhone />
             </div>
           </div>
