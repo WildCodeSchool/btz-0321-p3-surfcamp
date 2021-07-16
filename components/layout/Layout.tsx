@@ -9,7 +9,7 @@ interface IProps {
 
 export default function layout({ page, children }: IProps): JSX.Element {
   return (
-    <div className="layout w-full">
+    <div className="layout w-full h-full">
       <Head>
         <title>{page}</title>
         <link rel="icon" href="/favicon.ico" />
