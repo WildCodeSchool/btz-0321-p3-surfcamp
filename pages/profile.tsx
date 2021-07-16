@@ -43,7 +43,7 @@ export default function Profile(): JSX.Element {
       {error && (
         <Modal setError={setError} setIsModal={setIsModal} message={error} />
       )}
-      <div className="h-24 lg:h-full lg:min-h-screen lg:flex-col items-center align-middle w-full justify-between flex lg:w-3/12">
+      <div className="h-24 lg:h-full lg:min-h-screen lg:flex-col items-center align-middle w-full justify-between flex lg:w-3/12 pt-16">
         <ul className="flex w-full flex-row lg:flex-col text-center items-center justify-center align-middle">
           <li className="cursor-pointer my-2 hover:underline text-xl w-full lg:text-left">
             <button onClick={handleSetting}>Réglages</button>
