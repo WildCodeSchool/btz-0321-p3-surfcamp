@@ -34,7 +34,9 @@ type FormData = {
 export default function ProfileForm(): JSX.Element {
   const router = useRouter();
   const { id } = useSelector((state: any) => state.user);
-  const [birthDate, setBirthDate] = useState<Date | null | undefined>(null);
+  const [birthDate, setBirthDate] = useState<Date | null | undefined>(
+    new Date()
+  );
   const { data, refetch } = useQuery<IProfile, AxiosError, IProfile>(
     "user",
     () => user.getOne(id)

@@ -1,25 +1,31 @@
 import { property } from "../../API/requests";
-import { Feature, PropertyWithAddress } from "../../interfaces";
+import { Feature, Property, Address } from "../../interfaces";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Amenities from "../../components/propertypage/amenities";
 import CarouselProperty from "../../components/CarouselSlick/CarousselProperty";
 import CarouselPhone from "../../components/CarouselSlick/CarouselPropertyPhone";
 
-interface IProps extends PropertyWithAddress {
+interface IProps extends Property {
   features: Feature[];
+  address: Address;
 }
 
 export const getServerSideProps: GetServerSideProps<IProps> = async (
   context
 ) => {
-  const [resProperty, resFeatures] = await Promise.all([
+  const [resProperty, resAddress, resFeatures] = await Promise.all([
     property.getOne(context.params.id),
+    property.getAddress(context.params.id),
     property.getFeatures(context.params.id),
   ]);
-  return { props: { ...resProperty, features: resFeatures } };
+
+  console.log(resAddress);
+  return {
+    props: { ...resProperty, features: resFeatures, address: resAddress },
+  };
 };
 export default function PropertyId({
-  id,
+  address,
   name,
   description,
   type,
@@ -56,7 +62,7 @@ export default function PropertyId({
       <section className="DESCRIPTION------------------------------">
         <div className="flex flex-col">
           <div className="description article mt-5">
-            <p>{id}</p>
+            <p>{address.city.name}</p>
           </div>
           <div className="">
             <p>{type}</p>
