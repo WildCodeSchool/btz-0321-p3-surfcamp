@@ -81,6 +81,7 @@ export default function ProfileForm(): JSX.Element {
           </span>
           <p className="w-full text-center lg:text-left">
             Notre mission est de vous fournir la meilleure epérience qui soit.
+            <br />
             Pour ce, nous avons besoin d’en savoir un peu plus sur vous et ce
             que vous aimez.
             <br />
