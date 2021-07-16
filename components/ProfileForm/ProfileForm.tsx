@@ -161,7 +161,7 @@ export default function ProfileForm(): JSX.Element {
               <DatePicker
                 className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
                 {...register("birthDate", {})}
-                placeholderText={data?.birthDate.toLocaleString()}
+                placeholderText="dd/MM/yyyy"
                 isClearable
                 selected={birthDate}
                 dateFormat="dd/MM/yyyy"
