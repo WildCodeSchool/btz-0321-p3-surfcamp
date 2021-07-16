@@ -253,7 +253,6 @@ export default function AddressHostForm(): JSX.Element {
             {id && (
               <div className="w-full flex">
                 <div>Mettre à jour mes Informations :</div>
-                <EditButton setIsEdit={setIsEdit} />
               </div>
             )}
             <div className="flex w-full">
