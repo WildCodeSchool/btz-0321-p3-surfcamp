@@ -17,7 +17,7 @@ const valueTeam = {
 
 function Value(): JSX.Element {
   return (
-    <div className="flex flex-col p-10 bg-gray-200 sm:flex-row">
+    <div className="flex flex-col p-10 bg-gray-200 sm:flex-row ">
       <div className="sm:w-1/3 sm:mx-4">
         <div className="hidden sm:flex sm:justify-center">
           <Image
@@ -26,12 +26,10 @@ function Value(): JSX.Element {
             className="sm:flex sm:flex-col sm:justify-center"
           />
         </div>
-        <h2 className="flex justify-start py-4 text-xl text-BlueCamp sm:justify-center ">
+        <h2 className="flex justify-start py-4 text-xl text-BlueCamp justify-center ">
           {valueTeam.titleteam}
         </h2>
-        <p className="flex text-left text-gray-500  sm:text-center">
-          {valueTeam.textteam}
-        </p>
+        <p className="flex text-gray-500  text-center">{valueTeam.textteam}</p>
       </div>
       <div className="sm:w-1/3 sm:mx-4">
         <div className="hidden sm:flex sm:justify-center">
@@ -41,12 +39,10 @@ function Value(): JSX.Element {
             className="sm:flex sm:flex-col sm:justify-center "
           />
         </div>
-        <h2 className="flex justify-start py-4 text-xl text-BlueCamp sm:justify-center">
+        <h2 className="flex py-4 text-xl text-center text-BlueCamp justify-center">
           {valueTeam.titlevalue}
         </h2>
-        <p className="flex text-left text-gray-500 sm:text-center">
-          {valueTeam.textvalue}
-        </p>
+        <p className="flex text-gray-500 text-center">{valueTeam.textvalue}</p>
       </div>
       <div className="sm:w-1/3 sm:mx-4">
         <div className="hidden sm:flex sm:justify-center">
@@ -56,10 +52,12 @@ function Value(): JSX.Element {
             className="sm:flex sm:flex-col sm:justify-center"
           />
         </div>
-        <h2 className="flex justify-start py-4 text-xl text-BlueCamp sm:justify-center">
+        <h2 className="flex py-4 text-xl text-BlueCamp justify-center text-center">
           {valueTeam.titlecontact}
         </h2>
-        <p className="flex text-left text-gray-500 ">{valueTeam.textcontact}</p>
+        <p className="flex text-center text-gray-500 ">
+          {valueTeam.textcontact}
+        </p>
       </div>
     </div>
   );

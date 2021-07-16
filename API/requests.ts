@@ -16,20 +16,30 @@ import {
 const API_URL = process.env.NEXT_PUBLIC_DATAAPI_URL;
 export const user = {
   getAll: (): Promise<User[]> =>
-    axios.get(`${API_URL}/users`).then((res) => res.data),
+    axios
+      .get(`${API_URL}/users`, { withCredentials: true })
+      .then((res) => res.data),
 
   getOne: (id: string): Promise<User> =>
-    axios.get(`${API_URL}/users/${id}`).then((res) => res.data),
+    axios
+      .get(`${API_URL}/users/${id}`, { withCredentials: true })
+      .then((res) => res.data),
 
   delete: ({ id }: { id: string }): Promise<null> =>
-    axios.delete(`${API_URL}/users/${id}`).then((res) => res.data),
+    axios
+      .delete(`${API_URL}/users/${id}`, { withCredentials: true })
+      .then((res) => res.data),
 
   create: ({ user }: { user: string }): Promise<User> =>
-    axios.post(`${API_URL}/users`, user).then((res) => res.data),
+    axios
+      .post(`${API_URL}/users`, user, { withCredentials: true })
+      .then((res) => res.data),
 
   update: ({ user, id }: { user: User; id?: string }): Promise<User> => {
     if (!id) throw new Error("Id can't be undefined");
-    return axios.put(`${API_URL}/users/${id}`, user).then((res) => res.data);
+    return axios
+      .put(`${API_URL}/users/${id}`, user, { withCredentials: true })
+      .then((res) => res.data);
   },
 };
 
@@ -55,10 +65,12 @@ export const property = {
   }): Promise<null> =>
     axios.put(`${API_URL}/properties/${id}`, property).then((res) => res.data),
 
-  search: (city: string): Promise<Array<Property>> =>
+  search: (query: string): Promise<Array<Property>> =>
     axios
-      .get(`${API_URL}/properties/search/?city=${city}`)
+      .get(`${API_URL}/properties/search/?query=${query}`)
       .then((res) => res.data),
+  getFeatures: (id: string): Promise<Array<Feature>> =>
+    axios.get(`${API_URL}/properties/${id}/features`).then((res) => res.data),
 };
 
 export const address = {
@@ -93,6 +105,9 @@ export const city = {
 
   update: ({ cities, id }: { cities: City; id?: string }): Promise<null> =>
     axios.put(`${API_URL}/cities/${id}`, cities).then((res) => res.data),
+
+  getCityPictures: (id: string): Promise<City> =>
+    axios.get(`${API_URL}/cities/${id}/citypictures`).then((res) => res.data),
 };
 
 export const comment = {

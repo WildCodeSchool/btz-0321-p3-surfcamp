@@ -1,48 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import DatePicker from "react-datepicker";
+import AvatarPicture from "./avatarPicture/AvatarPicture";
 import "react-datepicker/dist/react-datepicker.css";
-import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useQuery, useMutation } from "react-query";
 import EditButton from "../Buttons/EditButton";
 import { user } from "../../API/requests";
-interface IProfile {
-  firstname?: string | null;
-  lastname?: string | null;
+import Form from "./Form";
+import DatePicker from "react-datepicker";
+
+export interface IProfile {
+  firstname?: string;
+  lastname?: string;
   email?: string;
   phoneNumber?: string;
-  birthDate?: string | null;
+  birthDate?: Date | null;
   about?: string;
+  picture?: string;
 }
 
-type formData = {
-  firstName: string;
-  lastName: string;
+type FormData = {
+  firstname: string;
+  lastname: string;
   email?: string;
   phoneNumber?: string;
-  birthDate?: string;
+  birthDate?: Date;
   about?: string;
+  picture?: string;
 };
 
 export default function ProfileForm(): JSX.Element {
   const { id } = useSelector((state: any) => state.user);
-  const { register, handleSubmit } = useForm();
-  const [isEdit, setIsEdit] = useState<boolean>(false);
-  const mutation = useMutation<null, AxiosError, IProfile>((newUser) =>
-    axios.put(`http://localhost:5000/users/${id}`, newUser)
+  const [birthDate, setBirthDate] = useState<Date | null | undefined>(null);
+  const { data, refetch } = useQuery<IProfile, AxiosError, IProfile>(
+    "user",
+    () => user.getOne(id)
   );
-  const [birthDate, setBirthDate] = useState<Date | null>(null);
-  const { data } = useQuery("user", () => user.getOne(id));
+  const { register, handleSubmit, setValue } = useForm<FormData>();
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [isUpdated, setIsUpdated] = useState<boolean>(false);
+  const [url, setUrl] = useState(null || data?.picture);
+  const mutation = useMutation<null, AxiosError, IProfile>(
+    (newUser) => axios.put(`http://localhost:5000/users/${id}`, newUser),
+    {
+      onSuccess: () => {
+        setIsUpdated(true);
+      },
+    }
+  );
 
-  const onSubmit = async (data: formData) => {
+  useEffect(() => {
+    if (data) {
+      Object.entries(data).forEach(([key, value]) => {
+        setValue(key as keyof FormData, value);
+      });
+      setBirthDate(new Date(data!.birthDate!));
+    }
+  }, [data]);
+
+  const onSubmit = async (data: FormData) => {
     mutation.mutate({
-      firstname: data.firstName,
-      lastname: data.lastName,
+      firstname: data.firstname,
+      lastname: data.lastname,
       email: data.email,
       phoneNumber: data.phoneNumber,
-      birthDate: birthDate !== null ? birthDate?.toISOString() : null,
+      birthDate: birthDate,
+      picture: url,
     });
   };
 
@@ -70,7 +94,7 @@ export default function ProfileForm(): JSX.Element {
                 className="border border-gray-600 w-4/12  outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="text"
                 placeholder={data?.firstname}
-                {...register("firstName", {})}
+                {...register("firstname", {})}
               />
             </label>
             <label className="text-BlueCamp text-sm w-full flex my-4 justify-start font-bold">
@@ -79,7 +103,7 @@ export default function ProfileForm(): JSX.Element {
                 className="border border-gray-600 w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs"
                 type="text"
                 placeholder={data?.lastname}
-                {...register("lastName", {})}
+                {...register("lastname", {})}
               />
             </label>
             <label className="text-BlueCamp text-sm my-4 w-full h-8 flex align-middle items-center justify-start font-bold">
@@ -133,7 +157,7 @@ export default function ProfileForm(): JSX.Element {
               </span>
               <DatePicker
                 className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
-                {...register("birthdate", {})}
+                {...register("birthDate", {})}
                 placeholderText={data?.birthDate.toLocaleString()}
                 isClearable
                 selected={birthDate}
@@ -146,7 +170,7 @@ export default function ProfileForm(): JSX.Element {
               <textarea
                 className="border w-6/12 border-gray-600 outline-none focus:outline-none rounded-sm p-2  text-xs"
                 placeholder="A Propos"
-                {...register("text area")}
+                {...register("about")}
               />
             </label>
 
@@ -162,19 +186,60 @@ export default function ProfileForm(): JSX.Element {
       ) : (
         <div className="w-full flex items-center justify-center align-middle h-full">
           Pas encore de compte ? Par ici !
+          <div className="w-full flex flex-col  items-center justify-center h-full align-middle ">
+            <div className="w-full flex flex-col">
+              <span className=" text-center  font-bold my-4 transform -translate-x-3 text-2xl w-full">
+                Informations Personnelles
+              </span>
+              <p className="w-full my-10 text-center lg:text-left">
+                Notre mission est de vous fournir la meilleure epérience qui
+                soit. Pour ce, nous avons besoin d’en savoir un peu plus sur
+                vous et ce que vous aimez.
+                <br />
+                Dites-en nous un peu plus sur vous.
+              </p>
+            </div>
+            {id && (
+              <div className="w-full flex">
+                <div>Mettre à jour mes Informations :</div>
+                <EditButton setIsEdit={setIsEdit} />
+              </div>
+            )}
+            <div className="flex w-full">
+              {id ? (
+                <Form
+                  id={id}
+                  url={url}
+                  isUpdated={isUpdated}
+                  setIsUpdated={setIsUpdated}
+                  data={data}
+                  handleSubmit={handleSubmit}
+                  onSubmit={onSubmit}
+                  isEdit={isEdit}
+                  setIsEdit={setIsEdit}
+                  register={register}
+                  refetch={refetch}
+                  birthDate={birthDate}
+                  setBirthDate={setBirthDate}
+                />
+              ) : (
+                <div className="w-full flex items-center justify-center align-middle h-full">
+                  Pas encore de compte ? Par{" "}
+                  <button
+                    className="px-1"
+                    onClick={() => router.push("/login")}
+                  >
+                    ici
+                  </button>{" "}
+                  !
+                </div>
+              )}
+              {id && <AvatarPicture setUrl={setUrl} picture={data?.picture} />}
+            </div>
+          </div>
+          );
         </div>
       )}
-      <div className="w-4/12 hidden  lg:flex flex-col align-middle justify-start items-center h-full">
-        {data?.picture && (
-          <Image
-            src={data?.picture}
-            width={200}
-            height={200}
-            quality={100}
-            className="rounded-full"
-          />
-        )}
-      </div>
     </div>
   );
 }

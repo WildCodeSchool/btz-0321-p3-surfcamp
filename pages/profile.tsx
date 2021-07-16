@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { isLogin } from "../redux/actions";
 import "react-datepicker/dist/react-datepicker.css";
 
+import Sidebar from "../components/ProfileForm/Sidebar";
 export default function Profile(): JSX.Element {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -32,7 +33,7 @@ export default function Profile(): JSX.Element {
   };
 
   return (
-    <div className="w-full flex lg:flex-row flex-col px-10 lg:px-40 text-BlueCamp h-full">
+    <div className="w-full flex lg:flex-row lg:justify-between items-center align-middle flex-col px-10 lg:pr-40 text-BlueCamp h-full">
       {isModal && (
         <Modal
           setError={setError}
@@ -56,6 +57,7 @@ export default function Profile(): JSX.Element {
           </li>
         </ul>
       </div>
+      <Sidebar handleLogout={handleLogout} />
       <div className="h-full min-h-screen pt-10 lg:pt-20 flex-col items-center align-middle  flex lg:w-9/12">
         <div className="w-full h-full items-center align-middle justify-center flex">
           {settings && <ProfileForm />}

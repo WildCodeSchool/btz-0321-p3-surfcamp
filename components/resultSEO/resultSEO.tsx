@@ -1,12 +1,12 @@
-import CarrousselResults from "../CarrousselResults/CarrousselResults";
+import CarouselSR from "../CarouselSlick/CarouselSR";
 
 export default function ResultSEO(): JSX.Element {
   return (
     <div className="h-full w-full flex flex-col justify-around p-5">
-      <div className="hidden xl:flex">
-        <CarrousselResults take="4" ressource="citypictures" />
+      <div className="hidden xl:flex justify-center items-center">
+        <CarouselSR />
       </div>
-      <div className=" text-sm">
+      <div className=" text-base px-10 mb:py-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eos
         labore tempore qui repellat maiores distinctio voluptatibus blanditiis
         deserunt explicabo consectetur non optio cumque sequi, quis, veniam

@@ -2,6 +2,9 @@ import React from "react";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
+import { useMutation } from "react-query";
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/router";
 
 const schema = Joi.object({
   firstname: Joi.string().required(),
@@ -11,19 +14,49 @@ const schema = Joi.object({
   confirmPassword: Joi.any().valid(Joi.ref("password")).required(),
 });
 
+type FormData = {
+  firstname: string;
+  lastname: string;
+  email?: string;
+  password: string;
+  confirmPassword: string;
+};
+
 export default function SignInForm(): JSX.Element {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm({
+  } = useForm<FormData>({
     resolver: joiResolver(schema),
   });
+  const mutation = useMutation<null, AxiosError, FormData>(
+    (newUser) =>
+      axios.post(
+        `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/register`,
+        newUser
+      ),
+
+    {
+      onSuccess: () => {
+        router.push("/login");
+      },
+    }
+  );
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  const onSubmit = (data: object) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+  const onSubmit = (data: FormData) => {
+    mutation.mutate({
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      password: data.password,
+      confirmPassword: data.confirmPassword,
+    });
+    if (mutation.isSuccess) {
+      return router.push("/login");
+    }
   };
 
   return (
@@ -40,29 +73,29 @@ export default function SignInForm(): JSX.Element {
           <div className="flex flex-col my-2 text-sm">
             <input
               className={`h-8 w-64 rounded-lg  text-black mx-auto px-2 border
-              ${errors.firstName && "border-red-600"}
+              ${errors.firstname && "border-red-600"}
               `}
               placeholder="Prénom..."
               type="text"
-              id="firstName"
-              {...register("firstName", { required: true })}
+              id="firstname"
+              {...register("firstname", { required: true })}
             />
             <p className="text-white text-sm ">
-              {errors.firstName && "Veuillez entrer votre prénom"}
+              {errors.firstname && "Veuillez entrer votre prénom"}
             </p>
           </div>
           <div className="flex flex-col my-2 text-sm">
             <input
               className={`h-8 w-64 rounded-lg  text-black mx-auto px-2 border
-              ${errors.lastName && "border-red-600"}
+              ${errors.lastname && "border-red-600"}
               `}
               placeholder="Nom..."
               type="text"
-              id="lastName"
-              {...register("lastName", { required: true })}
+              id="lastname"
+              {...register("lastname", { required: true })}
             />
             <p className="text-white text-sm ">
-              {errors.lastName && "Veuillez entrer votre nom"}
+              {errors.lastname && "Veuillez entrer votre nom"}
             </p>
           </div>
           <div className="flex flex-col my-2 text-sm">

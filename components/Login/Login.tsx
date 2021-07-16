@@ -31,12 +31,14 @@ export default function Login(): JSX.Element {
         email: data.email,
         password: data.password,
       },
+      headers: { "Access-Control-Allow-Credentials": true },
+      withCredentials: true,
     })
       .then((r) => {
         if (r.status === 404) {
           return setError("user not found");
         }
-        dispatch(isLogin(r.data));
+        dispatch(isLogin(r.data.user));
         router.push("/");
       })
       .catch((err) => {
