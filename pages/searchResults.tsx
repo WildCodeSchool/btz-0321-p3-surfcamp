@@ -1,31 +1,34 @@
 import React from "react";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Card from "../components/CardPattern/card";
 import ResultSEO from "../components/resultSEO/resultSEO";
-import { useQuery } from "react-query";
+import { property } from "../API/requests";
 import { Property } from "../interfaces";
+import Link from "next/link";
 
-export default function searchResults(): JSX.Element {
-  const { data, error, isLoading } = useQuery<Property[]>("properties", () =>
-    fetch(`${process.env.NEXT_PUBLIC_DATAAPI_URL}/properties?limit=20`).then(
-      (res) => res.json()
-    )
-  );
-
-  if (isLoading) return <div>Loading... </div>;
-  if (error) return <div>Something went wrong</div>;
-
+export default function searchResults({
+  properties,
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   return (
     <>
       <div className=" flex  w-full h-full top-10 fixed  ">
-        <div className="w-1/2 h-full overflow-y-auto ">
+        <div className="sm:w-1/2 w-full h-full overflow-y-auto ">
           <div className="mb-24">
-            {data?.map((property) => {
-              return <Card key={property.id} {...property} />;
+            {properties?.map((property) => {
+              return (
+                <Link href={`/properties/${property.id}`} key={property.id}>
+                  <a href={`/property/${property.id}`}>
+                    <Card {...property} />
+                  </a>
+                </Link>
+              );
             })}
           </div>
         </div>
-        <div className="hidden sm:flex  // w-1/2 h-full flex-col ">
+
+        <div className="hidden sm:flex w-1/2 h-full flex-col">
           <div className="w-full h-full">
             <GoogleMap />
           </div>
@@ -37,3 +40,15 @@ export default function searchResults(): JSX.Element {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<{
+  properties: Property[];
+}> = async (ctx) => {
+  const {
+    query: { query },
+  } = ctx;
+
+  const properties = await property.search(query as string);
+
+  return { props: { properties } };
+};
