@@ -42,7 +42,7 @@ export default function NavBar(): JSX.Element {
           <div className="flex">
             <a href="/login" className="px-2 active:scale-95 ">
               <button className="border py-1 px-3 rounded-lg font-bold  hover:bg-white hover:text-BlueCamp">
-                login
+                Login
               </button>
             </a>
 
