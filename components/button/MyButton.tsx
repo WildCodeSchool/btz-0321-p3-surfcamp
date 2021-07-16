@@ -10,9 +10,9 @@ interface Iprop {
 function MyButton({ inputbutton }: Iprop): JSX.Element {
   return (
     <div>
-      <Link href="/">
+      <Link href="/profile">
         <a
-          href="/"
+          href="/profile"
           className="rounded-xl border-2 bg-BlueCamp border-white text-white px-5 py-3 text-base flex"
         >
           <Image src={svgcle} alt="img button" className="items-center" />

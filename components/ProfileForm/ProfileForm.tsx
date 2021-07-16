@@ -9,6 +9,7 @@ import EditButton from "../Buttons/EditButton";
 import { user } from "../../API/requests";
 import Form from "./Form";
 import DatePicker from "react-datepicker";
+import { useRouter } from "next/router";
 
 export interface IProfile {
   firstname?: string;
@@ -31,6 +32,7 @@ type FormData = {
 };
 
 export default function ProfileForm(): JSX.Element {
+  const router = useRouter();
   const { id } = useSelector((state: any) => state.user);
   const [birthDate, setBirthDate] = useState<Date | null | undefined>(null);
   const { data, refetch } = useQuery<IProfile, AxiosError, IProfile>(
@@ -185,16 +187,16 @@ export default function ProfileForm(): JSX.Element {
         </div>
       ) : (
         <div className="w-full flex items-center justify-center align-middle h-full">
-          Pas encore de compte ? Par ici !
           <div className="w-full flex flex-col  items-center justify-center h-full align-middle ">
             <div className="w-full flex flex-col">
               <span className=" text-center  font-bold my-4 transform -translate-x-3 text-2xl w-full">
                 Informations Personnelles
               </span>
-              <p className="w-full my-10 text-center lg:text-left">
-                Notre mission est de vous fournir la meilleure epérience qui
-                soit. Pour ce, nous avons besoin d’en savoir un peu plus sur
-                vous et ce que vous aimez.
+              <p className="w-full my-10 text-center">
+                Notre mission est de vous fournir la meilleure expérience qui
+                soit. <br />
+                Pour ce, nous avons besoin d’en savoir un peu plus sur vous et
+                ce que vous aimez.
                 <br />
                 Dites-en nous un peu plus sur vous.
               </p>
@@ -224,20 +226,18 @@ export default function ProfileForm(): JSX.Element {
                 />
               ) : (
                 <div className="w-full flex items-center justify-center align-middle h-full">
-                  Pas encore de compte ? Par{" "}
+                  <p>Vous n&apos;êtes pas connecté ? Par</p>
                   <button
-                    className="px-1"
+                    className="px-1 font-bold"
                     onClick={() => router.push("/login")}
                   >
-                    ici
-                  </button>{" "}
-                  !
+                    <p>ici !</p>
+                  </button>
                 </div>
               )}
               {id && <AvatarPicture setUrl={setUrl} picture={data?.picture} />}
             </div>
           </div>
-          );
         </div>
       )}
     </div>

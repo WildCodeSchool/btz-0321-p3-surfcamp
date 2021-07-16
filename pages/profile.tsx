@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { isLogin } from "../redux/actions";
 import "react-datepicker/dist/react-datepicker.css";
 
-import Sidebar from "../components/ProfileForm/Sidebar";
 export default function Profile(): JSX.Element {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -44,20 +43,19 @@ export default function Profile(): JSX.Element {
       {error && (
         <Modal setError={setError} setIsModal={setIsModal} message={error} />
       )}
-      <div className="h-24  lg:h-full lg:min-h-screen pt-32 lg:flex-col items-center align-middle  flex lg:w-3/12">
-        <ul className=" flex w-full flex-row lg:flex-col items-center justify-center align-middle">
-          <li className="w-1/3 cursor-pointer my-2 hover:underline text-xl text-left">
+      <div className="h-24 lg:h-full lg:min-h-screen lg:flex-col items-center align-middle w-full justify-between flex lg:w-3/12">
+        <ul className="flex w-full flex-row lg:flex-col text-center items-center justify-center align-middle">
+          <li className="cursor-pointer my-2 hover:underline text-xl w-full lg:text-left">
             <button onClick={handleSetting}>Réglages</button>
           </li>
-          <li className="w-1/3 cursor-pointer my-2 hover:underline text-xl text-left">
+          <li className="cursor-pointer my-2 hover:underline text-xl w-full lg:text-left">
             <button onClick={handlePropertyHandle}>Gestion</button>
-          </li>{" "}
-          <li className="w-1/3 hover:text-red-600 my-2 text-xl text-left">
+          </li>
+          <li className="w-full hover:text-red-600 my-2 text-xl hover:underline lg:text-left">
             <button onClick={handleLogout}>Déconnexion</button>
           </li>
         </ul>
       </div>
-      <Sidebar handleLogout={handleLogout} />
       <div className="h-full min-h-screen pt-10 lg:pt-20 flex-col items-center align-middle  flex lg:w-9/12">
         <div className="w-full h-full items-center align-middle justify-center flex">
           {settings && <ProfileForm />}
