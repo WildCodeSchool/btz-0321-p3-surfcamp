@@ -11,6 +11,17 @@ export interface Property {
   address: Address;
 }
 
+export interface PropertyInput {
+  name: string;
+  description: string;
+  type: "HOUSE" | "SURFSCHOOL" | "SURFCAMP";
+  priceByNight: string;
+  addressId?: string;
+  phoneNumber: string;
+  userId: string;
+  address: string;
+}
+
 export interface PropertyWithAddress {
   id: string;
   name: string;
@@ -67,6 +78,20 @@ export interface Address {
   country: Country;
 }
 
+export interface AddressInput {
+  zipcode: string;
+  street: string;
+  streetNumber: string;
+  lat: string;
+  long: string;
+  countryId: string;
+  cityId: string;
+  userId?: string;
+  propertyId?: string;
+  city: City;
+  country: Country;
+}
+
 export interface City {
   id: string;
   name: string;
@@ -74,6 +99,10 @@ export interface City {
   country: Country;
   title: string;
   textSeo: string;
+}
+
+export interface CityInput {
+  name: string;
 }
 
 export interface Comment {
@@ -93,6 +122,10 @@ export interface Country {
   countryCode: string;
   title: string;
   textSeo: string;
+}
+
+export interface CountryInput {
+  name: string;
 }
 
 export interface Feature {
