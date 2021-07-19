@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import Map from "../../public/Images/map.png";
 
 export default function MainGoogleMap(): JSX.Element {
   return (
@@ -13,7 +15,9 @@ export default function MainGoogleMap(): JSX.Element {
           chaque ville, retrouvez toutes les infos sur le spot de surf de vos
           rêves avant de partir !`}
         </p>
-        <p>{`-Map Google-`}</p>
+        <div className="flex justify-center">
+          <Image src={Map} width="800px" height="600px" alt="fakeGoogleMap" />
+        </div>
       </section>
     </div>
   );
