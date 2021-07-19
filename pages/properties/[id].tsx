@@ -19,7 +19,6 @@ export const getServerSideProps: GetServerSideProps<IProps> = async (
     property.getFeatures(context.params.id),
   ]);
 
-  console.log(resAddress);
   return {
     props: { ...resProperty, features: resFeatures, address: resAddress },
   };
