@@ -54,7 +54,9 @@ export const property = {
     axios.delete(`${API_URL}/properties/${id}`).then((res) => res.data),
 
   create: ({ property }: { property: PropertyInput }): Promise<Property> =>
-    axios.post(`${API_URL}/properties`, property).then((res) => res.data),
+    axios
+      .post(`${API_URL}/properties`, property, { withCredentials: true })
+      .then((res) => res.data),
 
   update: ({
     property,

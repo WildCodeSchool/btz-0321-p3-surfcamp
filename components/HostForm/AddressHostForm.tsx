@@ -36,13 +36,17 @@ export default function AddressHostForm(): JSX.Element {
   const mutationAddress = useMutation<Address, AxiosError, AddressHostInput>(
     (newAddress) =>
       axios
-        .post(`http://localhost:5000/addresses`, newAddress)
+        .post(`http://localhost:5000/addresses`, newAddress, {
+          withCredentials: true,
+        })
         .then((res) => res.data)
   );
   const mutationProperty = useMutation<Property, AxiosError, PropertyHostInput>(
     (newProperty) =>
       axios
-        .post(`http://localhost:5000/properties`, newProperty)
+        .post(`http://localhost:5000/properties`, newProperty, {
+          withCredentials: true,
+        })
         .then((res) => res.data),
     {
       onSuccess: () => {
