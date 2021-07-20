@@ -1,23 +1,61 @@
-# Next.js + Tailwind CSS Example
+---
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) (v2.1) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## SURFCAMP
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+---
 
-## Deploy your own
+Made With love By Happy Wilders.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+This project isn't finished and presents features that are not being used.
+examples will be listed at the end of this file.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Clone the project
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+  git clone git@github.com:WildCodeSchool/btz-0321-p3-surfcamp.git
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Go to the project directory
+
+```bash
+  cd btz-0321-p3-surfcamp
+```
+
+## Install the dependencies
+
+There's few packages that are required to be installed in order to run the app,
+
+```bash
+npm install
+```
+
+This includes:
+
+Tailwind CSS,
+React Hooks Form,
+Axios,
+Material UI,
+Slick carousel,
+React Icons,
+Joi,
+React Redux,
+and others...
+
+## Run Locally
+
+```bash
+npm run dev
+```
+
+Server will turn in url: http://localhost:3000
+
+Your landing page will work and you can start navigating, but if you want to be able to use the search bar an other functionalities,
+
+don't forget to copy and init the API, here you have the url: https://github.com/WildCodeSchool/btz-0321-p3-surfcamp-api
+
+## Examples List ( unfinished features )
+
+- Contact Button in the property page isn't connected to any e-mail Form.
+- Countries Slide is showing Cities as there's no countries page at the moment.
+- Google map feature has a place dedicated but it hasn't been installed yet.
+- Social networks are to be connected
