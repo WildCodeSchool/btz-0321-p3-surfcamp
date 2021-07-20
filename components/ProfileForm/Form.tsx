@@ -20,6 +20,7 @@ interface IProps {
   setIsEdit: Dispatch<boolean>;
 }
 type FormData = {
+  id: string;
   firstname: string;
   lastname: string;
   email?: string;
@@ -49,6 +50,7 @@ export default function Form({
     {
       onSuccess: () => {
         setIsUpdated(true);
+        refetch();
       },
     }
   );
@@ -69,8 +71,8 @@ export default function Form({
       className="flex flex-col items-center mt-20 w-full h-full  align-middle"
       onSubmit={handleSubmit(onSubmit)}
     >
-      {isUpdated && data?.birthDate && (
-        <div className="text-red w-full text-center">
+      {
+        <div className="text-red w-full absolute z-50 text-center">
           Profil mis à jour avec succes
           <button
             onClick={() => {
@@ -82,7 +84,7 @@ export default function Form({
             OK
           </button>
         </div>
-      )}
+      }
       <label className="text-BlueCamp lg:text-xs my-4 w-full flex justify-start font-bold">
         <span className="w-4/12">Prénom :</span>
         {isEdit ? (
@@ -156,10 +158,7 @@ export default function Form({
             </option>
           </select>
         ) : (
-          <div
-            className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light"
-            git
-          >
+          <div className=" w-4/12 outline-none focus:outline-none rounded-sm px-4  text-xs font-light">
             {"Mme"}
           </div>
         )}

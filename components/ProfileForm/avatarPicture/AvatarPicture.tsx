@@ -12,12 +12,12 @@ export default function AvatarPicture({
   const [isEdit, setIsEdit] = useState(false);
 
   return (
-    <div className="w-4/12 hidden rounded-full  lg:flex flex-col align-middle justify-start items-center h-full">
+    <div className="w-4/12  z-50 rounded-full  flex flex-col align-middle justify-start items-center h-full">
       <div className="rounded-full relative h-36 w-32">
         <img
           className=" relative rounded-full"
           src={picture || "/avatar.png"}
-          alt=""
+          alt="profile"
         />
       </div>
       <div className="flex w-full  justify-between">

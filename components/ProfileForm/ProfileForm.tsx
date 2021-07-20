@@ -10,8 +10,10 @@ import { user } from "../../API/requests";
 import Form from "./Form";
 import DatePicker from "react-datepicker";
 import { useRouter } from "next/router";
-
+import { useDispatch } from "react-redux";
+import { isLogin } from "../../redux/actions";
 export interface IProfile {
+  id?: string;
   firstname?: string;
   lastname?: string;
   email?: string;
@@ -32,6 +34,7 @@ type FormData = {
 };
 
 export default function ProfileForm(): JSX.Element {
+  const dispatch = useDispatch();
   const router = useRouter();
   const { id } = useSelector((state: any) => state.user);
   const [birthDate, setBirthDate] = useState<Date | null | undefined>(
@@ -51,8 +54,10 @@ export default function ProfileForm(): JSX.Element {
         withCredentials: true,
       }),
     {
-      onSuccess: () => {
+      onSuccess: async () => {
+        refetch();
         setIsUpdated(true);
+        dispatch(isLogin(data!));
       },
     }
   );
@@ -166,8 +171,9 @@ export default function ProfileForm(): JSX.Element {
               <DatePicker
                 className="border focus:outline-none outline-none text-xs text-center w-full border-black rounded-sm"
                 {...register("birthDate", {})}
-                placeholderText="dd/MM/yyyy"
+                placeholderText={data?.birthDate}
                 isClearable
+                value={birthDate}
                 selected={birthDate}
                 dateFormat="dd/MM/yyyy"
                 onChange={(date: Date) => setBirthDate(date)}
@@ -241,11 +247,11 @@ export default function ProfileForm(): JSX.Element {
                   </button>
                 </div>
               )}
-              {id && <AvatarPicture setUrl={setUrl} picture={data?.picture} />}
             </div>
           </div>
         </div>
       )}
+      {id && <AvatarPicture setUrl={setUrl} picture={data?.picture} />}
     </div>
   );
 }

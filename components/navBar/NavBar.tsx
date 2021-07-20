@@ -66,15 +66,8 @@ export default function NavBar(): JSX.Element {
         </Link>
         {user.picture && (
           <Link href="/profile">
-            {/* <Image
-              className="cursor-pointer"
-              src={user.picture}
-              width={40}
-              height={40}
-              alt="francais"
-            /> */}
             <div className="h-10">
-              <img className="w-10" src={user.picture} alt="" />
+              <img className="w-20 h-full" src={user.picture} alt="avatar" />
             </div>
           </Link>
         )}
