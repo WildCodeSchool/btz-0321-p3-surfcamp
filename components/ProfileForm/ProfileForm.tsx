@@ -46,7 +46,10 @@ export default function ProfileForm(): JSX.Element {
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const [url, setUrl] = useState(null || data?.picture);
   const mutation = useMutation<null, AxiosError, IProfile>(
-    (newUser) => axios.put(`http://localhost:5000/users/${id}`, newUser),
+    (newUser) =>
+      axios.put(`http://localhost:5000/users/${id}`, newUser, {
+        withCredentials: true,
+      }),
     {
       onSuccess: () => {
         setIsUpdated(true);
