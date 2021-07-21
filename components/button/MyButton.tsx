@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import svgcle from "/public/cle.svg";
+import svgcle from "../../public/Images/cle.svg";
 
 interface Iprop {
   inputbutton: string;
@@ -10,10 +10,10 @@ interface Iprop {
 function MyButton({ inputbutton }: Iprop): JSX.Element {
   return (
     <div>
-      <Link href="/">
+      <Link href="/profile">
         <a
-          href="/"
-          className="rounded-xl border-2 border-white text-white px-5 py-3 text-base flex"
+          href="/profile"
+          className="rounded-xl border-2 bg-BlueCamp border-white text-white px-5 py-3 text-base flex"
         >
           <Image src={svgcle} alt="img button" className="items-center" />
           <div className="ml-2 flex items-center">{inputbutton}</div>

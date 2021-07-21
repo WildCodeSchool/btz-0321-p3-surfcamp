@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../navBar/NavBar";
-import Footer from "../Footer/Footer";
+
 interface IProps {
   children: React.ReactNode;
   page?: string;
@@ -16,7 +16,6 @@ export default function layout({ page, children }: IProps): JSX.Element {
       </Head>
       <Navbar />
       {children}
-      <Footer />
     </div>
   );
 }

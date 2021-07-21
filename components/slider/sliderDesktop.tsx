@@ -2,8 +2,8 @@ import { useState } from "react";
 import CardSlider from "./cardSlider";
 import Next from "./next";
 import Previous from "./previous";
-import Hossegor from "../../public//Hossegor.jpg";
-import Lacanau from "../../public//Lacanau.jpeg";
+import Hossegor from "../../public/Images/Hossegor.jpg";
+import Lacanau from "../../public/Images/Lacanau.jpeg";
 
 function SliderDesktop(): JSX.Element {
   const imgTest: { img: StaticImageData; title: string }[] = [
@@ -20,7 +20,7 @@ function SliderDesktop(): JSX.Element {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative w-screen overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       <Previous imgTest={imgTest} count={index} setCount={setIndex} />
       <div
         className="w-max "

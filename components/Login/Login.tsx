@@ -1,21 +1,55 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { isLogin } from "../../redux/actions";
+import Modal from "../Modal/Modal";
+
+interface IUser {
+  email: string;
+  password: string;
+}
 
 export default function Login(): JSX.Element {
+  const router = useRouter();
+  const [error, setError] = useState("");
+  const [, setIsModal] = useState(true);
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const onSubmit = (data: object) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+  const onSubmit = async (data: IUser) => {
+    await axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`,
+      data: {
+        email: data.email,
+        password: data.password,
+      },
+      headers: { "Access-Control-Allow-Credentials": true },
+      withCredentials: true,
+    })
+      .then((r) => {
+        if (r.status === 404) {
+          return setError("user not found");
+        }
+        dispatch(isLogin(r.data.user));
+        router.push("/");
+      })
+      .catch((err) => {
+        setError(err);
+      });
   };
 
+  if (error)
+    <Modal setIsModal={setIsModal} message={error} setError={setError} />;
   return (
-    <div>
+    <div className="flex">
       <form
         className=" flex text-white items-center px-8 h-auto rounded-lg flex-col bg-BlueCamp border    border-white"
         onSubmit={handleSubmit(onSubmit)}
@@ -27,7 +61,7 @@ export default function Login(): JSX.Element {
         <div className="flex flex-col justify-center w-full">
           <div className="flex flex-col my-2">
             <input
-              className="h-8 w-64 rounded-lg  text-black mx-auto px-2"
+              className="h-8 w-64 rounded-lg outline-none focus:outline-none  text-black mx-auto px-2"
               type="email"
               id="email"
               placeholder="Email..."
@@ -39,7 +73,7 @@ export default function Login(): JSX.Element {
           </div>
           <div className="flex flex-col my-2">
             <input
-              className="h-8 w-64 rounded-lg text-black mx-auto px-2"
+              className="h-8 w-64 rounded-lg outline-none focus:outline-none text-black mx-auto px-2"
               type="password"
               id="password"
               placeholder="Mot de passe"
@@ -53,7 +87,9 @@ export default function Login(): JSX.Element {
           <div className="flex flex-col text-center mt-2 mb-8">
             <p className="text-xs">
               {" Je n'ai pas de compte, je m'en crée un "}
-              <span className="text-red-400">ici</span>
+              <span className="text-red-400">
+                <a href="/signin">ici</a>
+              </span>
             </p>
             <p className="text-xs">
               Identifiants introuvables ? Par{" "}
@@ -62,13 +98,13 @@ export default function Login(): JSX.Element {
           </div>
 
           <button
-            className="border py-1 w-64 rounded-lg my-2 mb-8 font-bold"
+            className="border focus:outline-none outline-none py-1 w-64 rounded-lg my-2 mb-8 font-bold"
             type="submit"
           >
             Se connecter
           </button>
           <button
-            className="border py-1 w-64 rounded-lg my-2 px-5 mb-2 flex justify-between items-center"
+            className="border focus:outline-none outline-none py-1 w-64 rounded-lg my-2 px-5 mb-2 flex justify-between items-center"
             type="submit"
           >
             <svg
@@ -90,7 +126,7 @@ export default function Login(): JSX.Element {
             </div>
           </button>
           <button
-            className="border py-1 w-64 rounded-lg my-2 mb-8 px-5 flex justify-between items-center text-md"
+            className="border py-1 w-64 outline-none focus:outline-none rounded-lg my-2 mb-8 px-5 flex justify-between items-center text-md"
             type="submit"
           >
             <svg
@@ -113,6 +149,11 @@ export default function Login(): JSX.Element {
           </button>
         </div>
       </form>
+      <div>
+        <button className="text-white ml-5 relative">
+          <a href="/">X</a>
+        </button>
+      </div>
     </div>
   );
 }
