@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
 import Modal from "../Modal/Modal";
 
+axios.defaults.withCredentials = true;
+
 interface IUser {
   email: string;
   password: string;
@@ -24,16 +26,11 @@ export default function Login(): JSX.Element {
   } = useForm();
 
   const onSubmit = async (data: IUser) => {
-    await axios({
-      method: "post",
-      url: `${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`,
-      data: {
+    axios
+      .post(`${process.env.NEXT_PUBLIC_DATAAPI_URL}/auth/login`, {
         email: data.email,
         password: data.password,
-      },
-      headers: { "Access-Control-Allow-Credentials": true },
-      withCredentials: true,
-    })
+      })
       .then((r) => {
         if (r.status === 404) {
           return setError("user not found");
