@@ -7,6 +7,7 @@ import { useMutation, useQuery } from "react-query";
 import { city, country } from "../../API/requests";
 import { Address, Property } from "../../interfaces";
 import { useSelector } from "react-redux";
+import { RootState } from "../../redux/types";
 
 type AddressHostInput = {
   streetNumber: string;
@@ -31,7 +32,7 @@ interface Form extends PropertyHostInput, AddressHostInput {}
 export default function AddressHostForm(): JSX.Element {
   const router = useRouter();
   const { register, handleSubmit, reset } = useForm<Form>();
-  const id = useSelector((state) => state.user.id);
+  const id = useSelector((state: RootState) => state.user.id);
 
   const mutationAddress = useMutation<Address, AxiosError, AddressHostInput>(
     (newAddress) =>

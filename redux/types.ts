@@ -23,4 +23,8 @@ export interface AppPreLoadedState {
   firstname: string;
 }
 
+export interface RootState {
+  user: AppState;
+}
+
 export const SESSION_LOGIN = "SESSION_LOGIN";

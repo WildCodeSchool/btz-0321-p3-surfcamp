@@ -14,9 +14,9 @@ export const getServerSideProps: GetServerSideProps<IProps> = async (
   context
 ) => {
   const [resProperty, resAddress, resFeatures] = await Promise.all([
-    property.getOne(context.params.id),
-    property.getAddress(context.params.id),
-    property.getFeatures(context.params.id),
+    property.getOne(context.params?.id as string),
+    property.getAddress(context.params?.id as string),
+    property.getFeatures(context.params?.id as string),
   ]);
 
   return {
