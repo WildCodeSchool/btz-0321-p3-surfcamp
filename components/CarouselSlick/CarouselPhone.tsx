@@ -1,11 +1,11 @@
 // import { useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import Nantes from "../../public/Images/Nantes.jpeg";
-import Hossegor from "../../public/Images/Hossegor.jpg";
-import Biarritz from "../../public/Images/Biarritz.jpg";
-import lacanau from "../../public/Images/Lacanau.jpeg";
-import Imgcontact from "../../public/Images/imgcontact.jpg";
+import Nantes from "../../public/images/Nantes.jpeg";
+import Hossegor from "../../public/images/Hossegor.jpg";
+import Biarritz from "../../public/images/Biarritz.jpg";
+import lacanau from "../../public/images/Lacanau.jpeg";
+import Imgcontact from "../../public/images/imgcontact.jpg";
 // import { useQuery } from "react-query";
 // import { City } from "../../interfaces";
 // import { city } from "../../API/requests";

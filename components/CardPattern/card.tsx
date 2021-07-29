@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Hossegor from "../../public/Images/Hossegor.jpg";
+import Hossegor from "../../public/images/Hossegor.jpg";
 import { PropertyWithAddress } from "../../interfaces";
 
 export default function Card({

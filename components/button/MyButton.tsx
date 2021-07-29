@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import svgcle from "../../public/Images/cle.svg";
+import svgcle from "../../public/images/cle.svg";
 
 interface Iprop {
   inputbutton: string;

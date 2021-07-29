@@ -6,7 +6,7 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 .background-header {
-  background-image: url("../public/Images/surfbgdesktop.webp");
+  background-image: url("../public/images/surfbgdesktop.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }

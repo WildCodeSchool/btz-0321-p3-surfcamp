@@ -1,5 +1,5 @@
 import Image from "next/image";
-import map from "../../public/Images/map.png";
+import map from "../../public/images/map.png";
 
 export default function GoogleMap(): JSX.Element {
   return (

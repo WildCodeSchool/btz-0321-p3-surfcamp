@@ -1,5 +1,5 @@
 import Image from "next/image";
-import arrowNext from "../../public/Images/arrowright.svg";
+import arrowNext from "../../public/images/arrowright.svg";
 
 interface Iprops {
   imgTest: { img: StaticImageData; title: string }[];

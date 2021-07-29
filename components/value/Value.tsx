@@ -1,6 +1,6 @@
-import surfeurIcon from "../../public/Images/surfeur.svg";
-import yangIcon from "../../public/Images/yang.svg";
-import peaceIcon from "../../public/Images/peace.svg";
+import surfeurIcon from "../../public/images/surfeur.svg";
+import yangIcon from "../../public/images/yang.svg";
+import peaceIcon from "../../public/images/peace.svg";
 import Image from "next/image";
 
 const valueTeam = {

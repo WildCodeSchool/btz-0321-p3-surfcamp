@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { isLogin } from "../../redux/actions";
-import Logo from "../../public/Images/surfCampLogo.png";
+import Logo from "../../public/images/surfCampLogo.png";
 import { BiUser } from "react-icons/bi";
 
 export default function NavBar(): JSX.Element {

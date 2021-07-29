@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Map from "../../public/Images/map.png";
+import Map from "../../public/images/map.png";
 
 export default function MainGoogleMap(): JSX.Element {
   return (
